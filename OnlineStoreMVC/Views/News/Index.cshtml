@@ -1,0 +1,192 @@
+﻿@using PagedList.Mvc
+@using PagedList;
+
+@model IPagedList<OnlineStore.Model.ViewModel.CMSNewsView>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="columns-container">
+    <div id="columns" class="container">
+
+        <div class="breadcrumb clearfix">
+            <a class="home" href="/" title="Trở về Trang chủ">
+                <i class="fa fa-home"></i>
+            </a>
+            <span class="">&gt;</span>
+            <span class="navigation_page">
+                <span class="navigation-page">
+                    <span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a itemprop="url" href="#">All Blog News</a></span>
+                </span>
+            </span>
+        </div>
+
+        <div id="slider_row" class="row">
+        </div>
+
+        <div class="row">
+            <div class="large-left col-sm-12">
+                <div class="row">
+                    <div id="center_column" class="center_column col-xs-12 col-sm-9 accordionBox">
+                        <div id="smartblogcat" class="block">
+                            @foreach (var item in Model)
+                            {
+                                <div class="sdsarticleCat clearfix">
+                                    <div id="smartblogpost-4">
+                                        <h2 class="title_block_exclusive">
+                                            <a title="@item.Title" href="@Url.Action("Details", "News", new { id = item.Id })">@item.Title</a>
+                                        </h2>
+                                        <div class="articleContent">
+                                            <a href="@Url.Action("Details", "News", new { id = item.Id })" title="@item.Title" class="imageFeaturedLink post-image">
+                                                <img itemprop="image" alt="@item.Title" src="@item.CoverImagePath" class="imageFeatured img-responsive">
+                                            </a>
+                                            <div class="sdsarticle-des">
+                                                @item.SubTitle
+                                                <a class="read-more" title="@item.Title" href="@Url.Action("Details", "News", new { id = item.Id })"><strong>Chi tiết...</strong></a>
+                                            </div>
+                                            <div class="articleHeader">
+                                                <div class="postInfo">
+                                                    Đăng bởi<span itemprop="author"><i class="fa fa-user"></i> @item.Authors</span>
+                                                    <span itemprop="articleSection">
+                                                        <i class="fa fa-tags"></i>
+                                                        <a href="">@item.Tags</a>
+                                                    </span>
+                                                    <span class="comment">
+                                                        <i class="fa fa-comments"></i>
+                                                        <a title="5 Comments" href="">5 bình luận</a>
+                                                    </span>
+                                                    <span class="views">
+                                                        <i class="fa fa-eye"></i> @item.TotalView.ToString() lượt xem
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <div class="bottom-pagination-content clearfix">
+                            @Html.PagedListPager(Model, page =>
+                                Url.Action("Index", new
+                                {
+                                    page,
+                                    keyword = Request.QueryString["keyword"],
+                                }))
+                            <div class="post-count">Hiển thị @(Model.PageNumber * Model.PageSize - Model.PageSize + 1) - @(Model.TotalItemCount < Model.PageNumber * Model.PageSize ? Model.TotalItemCount : Model.PageNumber * Model.PageSize) trong khoảng @Model.TotalItemCount bài viết</div>
+                        </div>
+                    </div>
+                    <div id="left_column" class="column col-xs-12 col-sm-3">
+                        <section id="category_blog_block_left" class="block">
+                            <h4 class="title_block">
+                                <a href="#">Danh mục</a>
+                            </h4>
+                            <div class="block_content list-block">
+                                <ul>
+                                    @foreach (var item in (IList<OnlineStore.Model.ViewModel.CMSCategoryView>)ViewBag.ChildCategories)
+                                    {
+                                        <li>
+                                            <a href="@Url.Action("Index", "News", new { id = item.Id })">@item.Title</a>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </section>
+                        @*<section id="latestComments" class="block">
+                                <h4 class="title_block">Latest Comments</h4>
+                                <div class="block_content products-block" style="">
+                                    <ul>
+                                        <li class="clearfix">
+                                            <a class="products-block-image" title="" href="#">
+                                                <img alt="Avatar" src="/prestashop_58023/modules//smartblog/images/avatar/avatar-author-default.jpg">
+                                            </a>
+                                            <div class="product-content">
+                                                Nick Nickelson <strong>on</strong>
+                                                <a href="#">That’s awesome! Future belongs to youngsters, so businessmen can’t ignore their needs in any case. </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </section>*@
+                        @*<section id="blogPopular" class="block">
+                                <h4 class="title_block">
+                                    <a href="#">Popular Articles</a>
+                                </h4>
+                                <div class="block_content products-block" style="">
+                                    <ul>
+                                        <li class="clearfix">
+                                            <a class="products-block-image" title="Comfortable to use" href="#">
+                                                <img alt="Comfortable to use" src="/prestashop_58023/modules//smartblog/images/4-home-small.jpg">
+                                            </a>
+                                            <div class="product-content">
+                                                <a class="post-name" title="Comfortable to use" href="#">Comfortable to use</a>
+                                                <span class="info">Oct 15, 2014</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </section>*@
+                        <section id="recent_article_smart_blog_block_left" class="block">
+                            <h4 class="title_block">
+                                <a href="#">Bài viết gần đây</a>
+                            </h4>
+                            <div class="block_content products-block" style="">
+                                <ul>
+                                    @foreach (var item in (IList<OnlineStore.Model.ViewModel.CMSNewsView>)ViewBag.RecentNews)
+                                    {
+                                        <li class="clearfix">
+                                            <a class="products-block-image" title="@item.Title" href="@Url.Action("Details", "News", new { id = item.Id })">
+                                                <img width="98" height="54" alt="@item.Title" src="@item.CoverImagePath" />
+                                            </a>
+                                            <div class="product-content">
+                                                <a class="post-name" title="@item.Title" href="@Url.Action("Details", "News", new { id = item.Id })">@item.Title</a>
+                                                <span class="info">@(item.CreatedDate.HasValue ? item.CreatedDate.Value.ToString("MMM dd, yyyy") : DateTime.Now.ToString("MMM dd, yyyy"))</span>
+                                            </div>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </section>
+                        <div class="block" id="smartblogsearch">
+                            <h4 class="title_block">
+                                <a href="#">Tìm kiếm</a>
+                            </h4>
+                            <div id="sdssearch_block_top" class="block_content clearfix" style="">
+                                <form action="#" method="post" id="searchbox">
+                                    <input type="hidden" value="0" name="smartblogaction">
+                                    <input type="text" value="" placeholder="Search" name="smartsearch" id="search_query_top" class="search_query form-control ac_input" autocomplete="off">
+                                    <button class="btn btn-default button-search" name="smartblogsubmit" type="submit">
+                                        <span>Search</span>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        <section id="tags_blog_block_left" class="block">
+                            <h4 class="title_block">
+                                <a href="#">Tags Post</a>
+                            </h4>
+                            <div class="block_content clearfix" style="">
+                                <a href="#">lorem</a>
+                                <a href="#">ipsum</a>
+                                <a href="#">dolore</a>
+                            </div>
+                        </section>
+                        @*<section id="smartblogarchive" class="block">
+                                <h4 class="title_block">
+                                    <a href="#">Blog Archive</a>
+                                </h4>
+                                <div class="block_content list-block" style="">
+                                    <ul>
+                                        <li>
+                                            <a href="#">October - 2014</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </section>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

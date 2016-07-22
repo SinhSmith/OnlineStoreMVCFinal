@@ -1,0 +1,184 @@
+﻿<div class="footer-container">
+    <footer id="footer" class="container">
+        <div class="row">
+            <section class="blockcategories_footer footer-block col-xs-12 col-sm-3">
+                <h4>Danh mục</h4>
+                <div class="category_footer toggle-footer" style="">
+                    <div class="list">
+                        <ul class="tree dhtml">
+                            <li>
+                                <a href="/Product/GetProductByCategory/8" title="">
+                                    Đồ kim loại
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Product/GetProductByCategory/9" title="">
+                                    Đồng hồ
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Product/GetProductByCategory/10" title="">
+                                    Hoa giả, hoa khô, cỏ khô
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Product/GetProductByCategory/11" title="">
+                                    Hoa nhỏ Xavia
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Product/GetProductByCategory/12" title="">
+                                    Khung ảnh
+                                </a>
+                            </li>
+                            @*<li>
+                                    <a href="/Product/GetProductByCategory/13" title="">
+                                        Set hoa cắm sẵn
+                                    </a>
+                                </li>*@
+                            @*<li>
+                                    <a href="/Product/GetProductByCategory/14" title="">
+                                        Tinh dầu
+                                    </a>
+                                </li>*@
+                            <li>
+                                <a href="/Product/GetProductByCategory/15" title="">
+                                    Tranh treo tường
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Product/GetProductByCategory/16" title="">
+                                    Tượng Composite
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="footer-block col-xs-12 col-sm-3" id="block_various_links_footer">
+                <h4>Thông tin</h4>
+                <ul class="toggle-footer" style="">
+                    <li class="item">
+                        <a href="/News/Index/2" title="Thông tin khuyến mãi">
+                            Thông tin khuyến mãi
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="/Product/SearchProduct?searchString=&searchType=3" title="Sản phẩm mới">
+                            Sản phẩm mới
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="/Product/SearchProduct?searchString=&searchType=4" title="Sản phẩm Hot">
+                            Sản phẩm Hot
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="@Url.Action("About", "Home")" title="Về chúng tôi">
+                            Về chúng tôi
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="@Url.Action("Contact", "Home")" title="Liên hệ">
+                            Liên hệ
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/tin-tuc" title="Tin tức">
+                            Tin tức
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/blog" title="Blog">
+                            Blog
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+            <div class="bottom-footer col-xs-12">
+                <div>
+                    © <span class="current-year">@DateTime.Now.Year.ToString()</span> <a class="_blank" title="prestashop" href="/" target="_blank">Copyright by XAVIADECOR™</a>
+                </div>
+            </div>
+
+            @*<section class="footer-block col-xs-12 col-sm-2">
+                    <h4>
+                        <a href="#" title="Manage my customer account" rel="nofollow">Tài khoản</a>
+                    </h4>
+                    <div class="block_content toggle-footer" style="">
+                        <ul class="bullet">
+                            <li>
+                                <a href="#" title="My orders" rel="nofollow">Đơn đặt hàng</a>
+                            </li>
+                            <li>
+                                <a href="#" title="My merchandise returns" rel="nofollow">Địa chỉ</a>
+                            </li>
+                            <li>
+                                <a href="#" title="My credit slips" rel="nofollow">Thông tin cá nhân</a>
+                            </li>
+                        </ul>
+                    </div>
+                </section>*@
+
+            <section id="block_contact_infos" class="footer-block col-xs-12 col-sm-3">
+                <div>
+                    <h4>Liên hệ</h4>
+                    <ul class="toggle-footer" style="">
+                        <li>
+                            Cửa hàng nội thất Xavia - 144 Phan Châu Trinh, Đà Nẵng
+                        </li>
+                        <li>
+                            Tel:
+                            <span>0905 179 575</span> -
+                            <span>0905 245 001</span>
+                        </li>
+                        <li>
+                            <span><a href="mailto:">Xaviadeco144@gmail.com</a></span>
+                        </li>
+                        <li>
+                            <span><a href="https://www.facebook.com/xaviahomedecordanang/">Facebook.com/xavia-decor</a></span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <div id="newsletter_block_left" class="footer-block col-xs-12 col-sm-3">
+                <h4>Nhận thông báo</h4>
+                <div class="block_content">
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <input class="inputNew form-control grey newsletter-input" id="newsletter-input" type="text" name="email" size="18" value="Nhập email của bạn">
+                            <button type="submit" name="submitNewsletter" class="btn btn-default btn-sm">
+                                <span>Đăng ký</span>
+                            </button>
+                            <input type="hidden" name="action" value="0">
+                        </div>
+                    </form>
+                </div>
+                <section id="social_block">
+                    <ul>
+                        <li class="facebook">
+                            <a target="_blank" href="http://facebook.com/xavia-decor" title="Facebook">
+                                <span>Facebook</span>
+                            </a>
+                        </li>
+                        <li class="twitter">
+                            <a target="_blank" href="https://www.twitter.com/xavia-decor" title="Twitter">
+                                <span>Twitter</span>
+                            </a>
+                        </li>
+                        <li class="google-plus">
+                            <a target="_blank" href="https://www.google.com/+xavia-decor" title="Google Plus">
+                                <span>Google Plus</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <h4>Follow us</h4>
+                </section>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </footer>
+</div>

@@ -1,0 +1,278 @@
+#wishlist_button, #wishlist_button_nopop {
+    font-weight: 400;
+    cursor: pointer;
+}
+
+    #wishlist_button:before, #wishlist_button_nopop:before {
+        content: "\f004";
+        font-family: "FontAwesome";
+        text-align: center;
+        display: inline-block;
+        margin: 0 5px 0 0;
+    }
+
+#wishlist_block #wishlist_block_list {
+    margin: 0 0 20px 0;
+}
+
+    #wishlist_block #wishlist_block_list dl {
+        font-weight: 400;
+    }
+
+        #wishlist_block #wishlist_block_list dl.products.no-products {
+            font-weight: 700;
+            padding: 0 0 15px 0;
+            border-bottom: 1px solid #d6d4d4;
+        }
+
+            #wishlist_block #wishlist_block_list dl.products.no-products dt {
+                padding: 0;
+                border-top: none;
+            }
+
+            #wishlist_block #wishlist_block_list dl.products.no-products dd {
+                display: none;
+            }
+
+        #wishlist_block #wishlist_block_list dl.products {
+            border-bottom: 1px solid #d6d4d4;
+        }
+
+            #wishlist_block #wishlist_block_list dl.products dt {
+                padding: 10px 20px 10px 0;
+                border-top: 1px solid #d6d4d4;
+                position: relative;
+            }
+
+            #wishlist_block #wishlist_block_list dl.products dd .wsl_attr {
+                display: block;
+                padding: 0 0 20px 0;
+            }
+
+            #wishlist_block #wishlist_block_list dl.products dt.first_item {
+                border-top: none;
+            }
+
+        #wishlist_block #wishlist_block_list dl dt {
+            position: relative;
+            padding-right: 0;
+        }
+
+        #wishlist_block #wishlist_block_list dl dd {
+            margin: 0 0 0 24px;
+        }
+
+#wishlist_block .lnk .form-group {
+    margin: 0 0 20px 0;
+}
+
+    #wishlist_block .lnk .form-group select {
+        max-width: 157px;
+    }
+
+@media (max-width: 767px) {
+    #wishlist_block .lnk .form-group select {
+        width: 157px;
+    }
+}
+
+#wishlist_block .lnk .form-group #uniform-wishlists {
+    float: none;
+}
+
+#wishlist_block .ajax_cart_block_remove_link {
+    font-size: 14px;
+    line-height: 14px;
+    color: #d3d2d2;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -7px;
+    display: inline-block;
+}
+
+    #wishlist_block .ajax_cart_block_remove_link:hover {
+        color: #526a7c;
+    }
+
+#wishlist_block .cart_block_product_name {
+    display: inline-block;
+    font-weight: bold;
+}
+
+#wishlist_block .quantity-formated {
+    margin: 0 5px 0 0;
+    width: 15px;
+}
+
+#wishlist_block_list .price {
+    float: right;
+}
+
+#mywishlist td.wishlist_delete a {
+    font-size: 15px;
+}
+
+#module-blockwishlist-mywishlist #block-order-detail #hideSendWishlist {
+    display: inline-block;
+}
+
+#module-blockwishlist-mywishlist .wishlistLinkTop ul.display_list {
+    border-bottom: 1px solid #d6d4d4;
+    margin-bottom: 20px;
+}
+
+    #module-blockwishlist-mywishlist .wishlistLinkTop ul.display_list a {
+        display: inline-block;
+        color: #526a7c;
+        margin: 10px 10px 10px 0;
+        font-weight: bold;
+    }
+
+        #module-blockwishlist-mywishlist .wishlistLinkTop ul.display_list a:hover {
+            color: #526a7c;
+        }
+
+#module-blockwishlist-mywishlist .wishlistLinkTop li {
+    float: left;
+}
+
+#module-blockwishlist-mywishlist .wishlistLinkTop #hideSendWishlist {
+    float: right;
+}
+
+#module-blockwishlist-mywishlist .wishlistLinkTop #showBoughtProducts, #module-blockwishlist-mywishlist .wishlistLinkTop #hideBoughtProductsInfos {
+    display: none;
+}
+
+.wishlist_default {
+    color: #093;
+}
+
+ul.wlp_bought_list li {
+    margin: 0 0 30px 0;
+}
+
+    ul.wlp_bought_list li .product_image {
+        border: 1px solid #d6d4d4;
+        padding: 9px;
+        position: relative;
+        background: white;
+        margin: 0 0 20px 0;
+        max-width: 270px;
+    }
+
+    ul.wlp_bought_list li .product-name {
+        margin: 0 0 10px 0;
+        padding: 0 20px 0 0;
+    }
+
+        ul.wlp_bought_list li .product-name small {
+            display: block;
+            font-size: 11px;
+        }
+
+            ul.wlp_bought_list li .product-name small a {
+                font-size: 11px;
+            }
+
+    ul.wlp_bought_list li .product_infos {
+        position: relative;
+    }
+
+    ul.wlp_bought_list li .btn_action .btn {
+        margin: 0 0 10px 0;
+    }
+
+@media (min-width: 992px) {
+    ul.wlp_bought_list li {
+    }
+
+        ul.wlp_bought_list li.first-in-line {
+            clear: left;
+        }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    ul.wlp_bought_list li {
+    }
+
+        ul.wlp_bought_list li.first-item-of-tablet-line {
+            clear: left;
+        }
+}
+
+.wishlistLinkTop .submit {
+    margin: 0 0 30px 0;
+}
+
+ul.wlp_bought_list li .lnkdel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    font-size: 14px;
+}
+
+#wishlist_button > .btn-group {
+    width: 80%;
+}
+
+ul.product_list.grid > li .product-container .functional-buttons .wishlist .popover {
+    padding: 0;
+    min-width: 160px;
+}
+
+    ul.product_list.grid > li .product-container .functional-buttons .wishlist .popover .popover-content {
+        padding: 0;
+        min-width: 158px;
+    }
+
+    ul.product_list.grid > li .product-container .functional-buttons .wishlist .popover table {
+        margin-bottom: 2px;
+    }
+
+        ul.product_list.grid > li .product-container .functional-buttons .wishlist .popover table td:hover {
+            background-color: #cccccc;
+            cursor: pointer;
+        }
+
+[id=wishlist_button] + .popover, .wishlist_change_button + .popover {
+    padding: 0;
+    min-width: 150px;
+}
+
+    [id=wishlist_button] + .popover .popover-content, .wishlist_change_button + .popover .popover-content {
+        padding: 0;
+    }
+
+    [id=wishlist_button] + .popover table, .wishlist_change_button + .popover table {
+        margin-bottom: 2px;
+    }
+
+        [id=wishlist_button] + .popover table td:hover, .wishlist_change_button + .popover table td:hover {
+            background-color: #cccccc;
+            cursor: pointer;
+        }
+
+@media (max-width: 479px) {
+    #mywishlist .table > thead > tr > th, #mywishlist .table > thead > tr > td, #mywishlist .table > tbody > tr > th, #mywishlist .table > tbody > tr > td, #mywishlist .table > tfoot > tr > th, #mywishlist .table > tfoot > tr > td {
+        font-size: 11px;
+        font-weight: normal;
+        padding: 6px !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    #mywishlist #block-history .td_none {
+        display: none;
+    }
+}
+
+@media (max-width: 479px) {
+    #mywishlist #block-history .td_none {
+        display: none;
+    }
+}

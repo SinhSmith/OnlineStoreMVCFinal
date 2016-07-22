@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.Title = "Trang chủ";
+}
+
+<div id="columns" class="container">
+    <div id="slider_row" class="row">
+        <div id="top_column" class="center_column col-xs-12 col-sm-12">
+            
+            @Html.Action("BannerPartial")
+
+            <div id="htmlcontent_top">
+                <ul class="htmlcontent-home clearfix row">
+                    <li class="htmlcontent-item-1 col-xs-4">
+                        <a href="#" class="item-link active_hover" title="" style="font-size: 43.1579px;">
+                            <img src="~/Content/images/banners/47f87d91a268e2f23b499c3cfc0dfc36a3c24f36_banner1.jpg" class="item-img" title="" alt="" width="100%" height="100%">
+                            <div class="item-html">
+                                <h3>@*Chairs*@</h3>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="htmlcontent-item-2 col-xs-4">
+                        <a href="#" class="item-link active_hover" title="" style="font-size: 43.1579px;">
+                            <img src="~/Content/images/banners/3dd8c7443cc774ec714eb69a49ffb01369b9be1c_banner2.jpg" class="item-img" title="" alt="" width="100%" height="100%">
+                            <div class="item-html">
+                                <h3>@*Sectionals*@</h3>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="htmlcontent-item-3 col-xs-4">
+                        <a href="#" class="item-link active_hover" title="" style="font-size: 43.1579px;">
+                            <img src="~/Content/images/banners/58a7f9e3eb536aac771af3579db25f9864bcc3db_banner3.jpg" class="item-img" title="" alt="" width="100%" height="100%">
+                            <div class="item-html">
+                                <h3>@*Tables*@</h3>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-left col-sm-12">
+            <div class="row">
+                <div id="center_column" class="center_column col-xs-12 col-sm-12 accordionBox">
+                    <ul id="home-page-tabs" class="nav nav-tabs clearfix">
+                        <li class="homefeatured active"><a data-toggle="tab" href="#homefeatured" class=" homefeatured">Sản phẩm Nổi bật</a></li>
+                        <li class="blocknewproducts"><a data-toggle="tab" href="#blocknewproducts" class="blocknewproducts">Sản phẩm mới</a></li>
+                        <li class="blockbestsellers"><a data-toggle="tab" href="#blockbestsellers" class="blockbestsellers">Sản phẩm HOT</a></li>
+                    </ul>
+                    <div class="tab-content">
+
+                        <ul id="homefeatured" class="product_list grid row homefeatured tab-pane active">
+                            @Html.Partial("ListFeatureProducts", (IEnumerable<OnlineStore.Model.ViewModel.ProductSummaryView>)ViewBag.HighPriorityOrderProductList)
+                        </ul>
+
+                        <ul id="blocknewproducts" class="product_list grid row blocknewproducts tab-pane">
+                            @Html.Partial("ListFeatureProducts", (IEnumerable<OnlineStore.Model.ViewModel.ProductSummaryView>)ViewBag.NewProductList)
+                        </ul>
+
+                        <ul id="blockbestsellers" class="product_list grid row blockbestsellers tab-pane">
+                            @Html.Partial("ListFeatureProducts", (IEnumerable<OnlineStore.Model.ViewModel.ProductSummaryView>)ViewBag.BestSellProductList)
+                        </ul>
+                    </div>
+                    @Html.Action("BlogPartial")
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="home-column">
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#SearchProduct_Btn").unbind("click").bind("click", function (e) {
+            searchProduct();
+        });
+        $("#tmsearch #tm_search_query").unbind("keypress").bind("keypress", function (e) {
+            if (e.keyCode == 13) {
+                searchProduct();
+            }
+        });
+
+        function searchProduct() {
+            var searchString = $("#tmsearch #tm_search_query").val();
+            window.location.replace("/Product/SearchProduct?searchString=" + searchString);
+        }
+    });
+</script>

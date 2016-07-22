@@ -1,0 +1,60 @@
+.gallery-thumb-list {
+    overflow: hidden;
+    margin: 0;
+    text-align: center;
+}
+
+@media (min-width: 1200px) {
+    .gallery-thumb-list {
+        width: 22.5%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .gallery-thumb-list {
+        position: absolute;
+        top: 17.5%;
+        right: 20px;
+    }
+}
+
+.gallery-thumb-list li {
+    display: inline-block;
+    padding: 0 2%;
+    margin: 18px 0 0;
+}
+
+@media (max-width: 1199px) {
+    .gallery-thumb-list li {
+        width: 30%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .gallery-thumb-list li {
+        padding: 0 0 9%;
+        margin: 0;
+    }
+}
+
+.gallery-thumb-list li a {
+    display: inline-block;
+    background: #fff;
+    border-radius: 80px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+    .gallery-thumb-list li a img {
+        opacity: 0.4;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -ms-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+        width: 100%;
+    }
+
+.gallery-thumb-list li.active a img, .gallery-thumb-list li:hover a img {
+    opacity: 1;
+}

@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "Liên hệ";
+}
+
+<div class="columns-container">
+    <div id="columns" class="container">
+
+        <div class="breadcrumb clearfix">
+            <a class="home" href="/" title="Trở về Trang chủ">
+                <i class="fa fa-home"></i>
+            </a>
+            <span class="navigation-pipe">&gt;</span>
+            Liên hệ
+        </div>
+
+        <div id="slider_row" class="row">
+        </div>
+
+        <div class="row">
+            <div class="large-left col-sm-12">
+                <div class="row">
+                    <div id="center_column" class="center_column col-xs-12 col-sm-12 accordionBox">
+                        <h1 class="page-heading bottom-indent">
+                            Hãy liên hệ ngay với chúng tôi
+                        </h1>
+                        <form action="/prestashop_58023/index.php?controller=contact" method="post" class="contact-form-box" enctype="multipart/form-data">
+                            <fieldset>
+                                <h3 class="page-subheading">Gửi thư liên lạc đến chúng tôi</h3>
+                                <div class="clearfix">
+                                    <div class="col-xs-12 col-md-3">
+                                        <div class="form-group selector1">
+                                            <label for="id_contact">Tiêu đề</label>
+                                            <!--<div class="selector" id="uniform-id_contact" style="width: 268px;">
+                                                <span style="width: 258px; -webkit-user-select: none;">-- Choose --</span><select id="id_contact" class="form-control" name="id_contact">
+                                                    <option value="0">-- Choose --</option>
+                                                    <option value="2">Customer service</option>
+                                                    <option value="1">Webmaster</option>
+                                                </select>
+                                            </div>-->
+                                            <input class="form-control grey validate" type="text" id="uniform-id_contact" name="id_contact" data-validate="isSubject" value="">
+                                        </div>
+                                        <!--<p id="desc_contact0" class="desc_contact">&nbsp;</p>
+                                        <p id="desc_contact2" class="desc_contact contact-title unvisible">
+                                            <i class="fa fa-comment-o"></i>
+                                            For any question about a product, an order
+                                        </p>
+                                        <p id="desc_contact1" class="desc_contact contact-title unvisible">
+                                            <i class="fa fa-comment-o"></i>
+                                            If a technical problem occurs on this website
+                                        </p>-->
+                                        <p class="form-group">
+                                            <label for="email">Địa chỉ Email</label>
+                                            <input class="form-control grey validate" type="text" id="email" name="from" data-validate="isEmail" value="">
+                                        </p>
+                                        <!--<div class="form-group selector1">
+                                            <label>Order reference</label>
+                                            <input class="form-control grey" type="text" name="id_order" id="id_order" value="">
+                                        </div>-->
+                                        <!--<p class="form-group">
+                                            <label for="fileUpload">Attach File</label>
+                                            <input type="hidden" name="MAX_FILE_SIZE" value="16777216">
+                                            <div class="uploader" id="uniform-fileUpload"><input type="file" name="fileUpload" id="fileUpload" class="form-control"><span class="filename" style="-webkit-user-select: none;">No file selected</span><span class="action" style="-webkit-user-select: none;">Choose File</span></div>
+                                        </p>-->
+                                    </div>
+                                    <div class="col-xs-12 col-md-9">
+                                        <div class="form-group">
+                                            <label for="message">Nội dung</label>
+                                            <textarea class="form-control" id="message" name="message"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="submit">
+                                    <button type="submit" name="submitMessage" id="submitMessage" class="btn btn-default btn-md">
+                                        <span>
+                                            Gửi
+                                            <i class="fa fa-chevron-right right"></i>
+                                        </span>
+                                    </button>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

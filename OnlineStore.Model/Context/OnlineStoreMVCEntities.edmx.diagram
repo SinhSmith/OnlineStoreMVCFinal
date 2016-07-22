@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="457b59bd33c6433fbc747d4a8cbdc700" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="OnlineStoreMVCModel.cms_Categories" Width="1.5" PointX="7.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineStoreMVCModel.ecom_Brands" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineStoreMVCModel.ecom_Categories" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineStoreMVCModel.ecom_OrderDetails" Width="1.5" PointX="5.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineStoreMVCModel.ecom_Orders" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineStoreMVCModel.ecom_Products" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineStoreMVCModel.share_Categories" Width="1.5" PointX="5.75" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineStoreMVCModel.share_Images" Width="1.5" PointX="5.375" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineStoreMVCModel.system_Config" Width="1.5" PointX="9.75" PointY="13.375" IsExpanded="true" />
+        <AssociationConnector Association="OnlineStoreMVCModel.FK_ecom_Products_ecom_Brands" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineStoreMVCModel.FK_ecom_OrderDetails_ecom_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineStoreMVCModel.FK_product_OrderDetails_product_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineStoreMVCModel.ecom_Products_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineStoreMVCModel.ecom_Products_Images" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="OnlineStoreMVCModel.system_Menu" Width="1.5" PointX="12.375" PointY="11.75" />
+        <AssociationConnector Association="OnlineStoreMVCModel.FK_ecom_Products_share_Images" />
+        <EntityTypeShape EntityType="OnlineStoreMVCModel.system_Profiles" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="OnlineStoreMVCModel.AspNetUser" Width="1.5" PointX="8.375" PointY="0.75" />
+        <EntityTypeShape EntityType="OnlineStoreMVCModel.system_Banners" Width="1.5" PointX="7.625" PointY="17.875" />
+        <AssociationConnector Association="OnlineStoreMVCModel.FK_system_Banners_share_Images" />
+        <EntityTypeShape EntityType="OnlineStoreMVCModel.C__MigrationHistory" Width="1.5" PointX="12.375" PointY="7.75" />
+        <EntityTypeShape EntityType="OnlineStoreMVCModel.AspNetRole" Width="1.5" PointX="6.125" PointY="21.875" />
+        <EntityTypeShape EntityType="OnlineStoreMVCModel.AspNetUserClaim" Width="1.5" PointX="10.625" PointY="4.375" />
+        <EntityTypeShape EntityType="OnlineStoreMVCModel.AspNetUserLogin" Width="1.5" PointX="10.625" PointY="1.125" />
+        <AssociationConnector Association="OnlineStoreMVCModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="OnlineStoreMVCModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="OnlineStoreMVCModel.AspNetUserRoles" />
+        <EntityTypeShape EntityType="OnlineStoreMVCModel.cms_News" Width="1.5" PointX="10" PointY="7.75" />
+        <AssociationConnector Association="OnlineStoreMVCModel.FK_cms_News_cms_Categories" />
+        <AssociationConnector Association="OnlineStoreMVCModel.FK_cms_News_share_Images" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

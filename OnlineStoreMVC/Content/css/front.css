@@ -1,0 +1,226 @@
+#header-login {
+    position: relative;
+    float: right;
+    margin: 59px 0 30px 15px;
+    border-right: 1px solid #e0e7ed;
+    z-index: 2;
+}
+
+@media (max-width: 767px) {
+    #header-login {
+        float: left;
+        margin: 30px 15px 30px 0;
+        border: none;
+    }
+}
+
+#header-login .header_user_info {
+    clear: right;
+    float: right;
+}
+
+    #header-login .header_user_info a {
+        font: 300 14px/18px "Ubuntu",sans-serif;
+        color: #2dcc70;
+        /*display: block;*/
+        cursor: pointer;
+        padding: 3px;
+    }
+
+        #header-login .header_user_info.current a:after {
+            content: "\e313";
+            font-family: "material-icons";
+            font-size: 22px;
+            line-height: 22px;
+            vertical-align: -7px;
+            opacity: 0.22;
+            margin-left: 7px;
+        }
+
+    #header-login .header_user_info.current.active a:after {
+        content: "\e316";
+    }
+
+    #header-login .header_user_info.current.active a, #header-login .header_user_info.current:hover a {
+        color: #526a7c;
+    }
+
+#header-login .form-group {
+    margin-bottom: 10px;
+}
+
+    #header-login .form-group + .form-group {
+        margin-bottom: 13px;
+    }
+
+#header-login .logout {
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+#header-login p {
+    display: inline-block;
+}
+
+#header-login-content {
+    display: none;
+    width: 270px;
+    padding: 20px;
+    margin: 0;
+    position: absolute;
+    right: 0;
+    top: 40px;
+    z-index: 1;
+    background: #fff;
+    color: #fff;
+    text-align: left;
+    -moz-box-shadow: 0 1px 10px 5px rgba(0,0,0,0.08);
+    -webkit-box-shadow: 0 1px 10px 5px rgba(0,0,0,0.08);
+    box-shadow: 0 1px 10px 5px rgba(0,0,0,0.08);
+    border: 1px solid #d9d9d9;
+}
+
+@media (max-width: 767px) {
+    #header-login-content {
+        left: 0 !important;
+    }
+}
+
+#header-login-content label {
+    font: 400 14px/18px "Ubuntu",sans-serif;
+    color: #526a7c;
+}
+
+#header-login-content .form-control {
+    border: none;
+    padding: 4px 12px 5px;
+    height: 32px;
+    border: 1px solid #bbc1c7;
+}
+
+#header-login-content .btn.btn-default, #header-login-content a.create {
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    font: 700 15px/19px "Ubuntu",sans-serif;
+    display: inline-block;
+    background: #5e7485;
+    text-align: center;
+    color: white;
+    padding: 11px 5px 10px;
+    width: 110px;
+    vertical-align: middle;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+
+    #header-login-content .btn.btn-default i, #header-login-content a.create i {
+        display: none;
+    }
+
+    #header-login-content .btn.btn-default span, #header-login-content a.create span {
+        display: none;
+    }
+
+    #header-login-content .btn.btn-default.btn-login-facebook, #header-login-content a.create.btn-login-facebook {
+        background: #3952a2;
+        margin-bottom: 10px;
+        display: block;
+        width: 100%;
+    }
+
+    #header-login-content .btn.btn-default.btn-login-google, #header-login-content a.create.btn-login-google {
+        background: #d94141;
+        margin-bottom: 0;
+        display: block;
+        width: 100%;
+    }
+
+    #header-login-content .btn.btn-default:hover, #header-login-content a.create:hover {
+        background: #2dcc70;
+    }
+
+#header-login-content #HeaderSubmitLogin {
+    margin-right: 4px;
+}
+
+    #header-login-content #HeaderSubmitLogin:before {
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 20px;
+        content: '\f023';
+        font-family: "FontAwesome";
+    }
+
+#header-login-content a.create:before {
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 20px;
+    content: '\f007';
+    font-family: "FontAwesome";
+}
+
+#header-login-content .logout {
+    display: block;
+}
+
+    #header-login-content .logout .pull-right {
+        border-width: 1px;
+        width: 100%;
+        margin: 0;
+    }
+
+        #header-login-content .logout .pull-right:before {
+            font-weight: normal;
+            font-size: 20px;
+            line-height: 20px;
+            content: '\f09c';
+            font-family: "FontAwesome";
+            margin-left: -7px;
+        }
+
+        #header-login-content .logout .pull-right span {
+            display: inline-block;
+            padding-left: 7px;
+            vertical-align: 2px;
+        }
+
+#header-login-content li {
+    margin: 0;
+    padding: 0;
+}
+
+    #header-login-content li ul {
+        margin: 0 0 15px 0;
+    }
+
+        #header-login-content li ul li {
+            display: block;
+            border-top: 1px solid #d0d0d0;
+            line-height: 35px;
+        }
+
+            #header-login-content li ul li:first-child {
+                border: none;
+            }
+
+            #header-login-content li ul li a {
+                font: 400 13px/27px "Ubuntu",sans-serif;
+                color: #8998a3;
+                padding: 0 10px 4px;
+                display: block;
+            }
+
+                #header-login-content li ul li a:hover {
+                    color: #5c5c5c;
+                }
+
+                #header-login-content li ul li a i {
+                    display: none;
+                }
+
+#create_header_account_error {
+    padding: 8px;
+}

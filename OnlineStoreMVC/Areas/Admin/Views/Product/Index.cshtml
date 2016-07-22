@@ -1,0 +1,97 @@
+﻿@using PagedList.Mvc
+@using PagedList;
+@model IPagedList<OnlineStore.Model.ViewModel.ProductSummaryViewModel>
+
+@{
+    ViewBag.Title = "Quản lý danh mục sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/Admin/product-management.js"></script>
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Danh sách sản phẩm
+        <small>Control panel</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="box-tools pull-right" style="padding-right: 15px; padding-bottom: 10px;">
+            @Html.ActionLink("THÊM", "Create", null, new { @class = "btn btn-primary btn-sm" })
+        </div>
+    </div><!--Function group buttons panel-->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box ">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Danh sách</h3>
+                </div><!--Header-->
+                <div class="box-body">
+                    <table class="table table-hover table-condensed table-responsive table-bordered">
+                        <tr>
+                            <th>
+                                MÃ SẢN PHẨM
+                            </th>
+                            <th>
+                                TÊN
+                            </th>
+                            <th>
+                               GIÁ BÁN
+                            </th>
+                            <th>
+                                ẢNH ĐẠI DIỆN
+                            </th>
+                            <th>
+                                ƯU TIÊN SẮP XẾP
+                            </th>
+                            <th>
+                                TRẠNG THÁI
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ProductCode)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Price)
+                                </td>
+                                <td>
+                                    @if (item.CoverImage != null)
+                                    {
+                                        <img src="@item.CoverImage.ImagePath" height="70" width="70" alt="ảnh không tồn tại" />
+                                    }
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SortOrder)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Status)
+                                </td>
+                                <td>
+                                    @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "btn btn-primary glyphicon glyphicon-edit" }) 
+                                    <a class="btn btn-danger glyphicon glyphicon-trash" onclick="ProductManagement.deleteProduct(@item.Id, '@item.Name')"></a>
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div><!--Body-->
+                <div class="box-footer clearfix">
+                    @Html.PagedListPager(Model, page =>Url.Action("Index", new{page,keyword = Request.QueryString["keyword"]}))
+                </div><!--Footer-->
+            </div>
+        </div>
+    </div><!--Content panel-->
+</section>

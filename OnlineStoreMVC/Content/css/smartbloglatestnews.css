@@ -1,0 +1,230 @@
+.blog-image a {
+    display: block;
+}
+
+@media only screen and (max-width: 767px) {
+    .blog-image a img {
+        width: 100%;
+    }
+}
+
+#homepage-blog {
+    margin: 0;
+}
+
+@media (max-width: 767px) {
+    #homepage-blog {
+        padding: 0 10px;
+    }
+
+        #homepage-blog .block_content {
+            margin-bottom: 5px;
+        }
+}
+
+#homepage-blog .title_block {
+    font: 700 18px/1.2em "Ubuntu",sans-serif;
+    margin-bottom: 36px;
+    border: none;
+    padding-right: 0;
+    display: none;
+}
+
+    #homepage-blog .title_block:after {
+        display: none;
+    }
+
+@media (max-width: 991px) {
+    #homepage-blog .title_block {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 479px) {
+    #homepage-blog .title_block {
+        font-size: 26px;
+        margin-bottom: 25px;
+    }
+}
+
+#homepage-blog li {
+    margin-bottom: 30px;
+}
+
+    #homepage-blog li .wrap-block {
+        position: relative;
+        color: white;
+        text-transform: uppercase;
+        overflow: hidden;
+        font-size: 26px;
+    }
+
+        #homepage-blog li .wrap-block .blog-cont {
+            -moz-transition: all 0.4s ease-in;
+            -o-transition: all 0.4s ease-in;
+            -webkit-transition: all 0.4s ease-in;
+            transition: all 0.4s ease-in;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            color: #fff;
+            z-index: 0;
+            padding: 10.8%;
+        }
+
+@media (min-width: 1200px) {
+    #homepage-blog li .wrap-block .blog-cont {
+        opacity: 0;
+        -moz-transform: scale(0) rotate(-180deg);
+        -ms-transform: scale(0) rotate(-180deg);
+        -webkit-transform: scale(0) rotate(-180deg);
+        transform: scale(0) rotate(-180deg);
+    }
+}
+
+@media (max-width: 1199px) {
+    #homepage-blog li .wrap-block .blog-cont {
+        padding: 7%;
+    }
+}
+
+#homepage-blog li .wrap-block .blog-cont:after {
+    opacity: 0.85;
+    background: #5e7485;
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+@media (max-width: 1199px) {
+    #homepage-blog li .wrap-block .blog-cont:after {
+        opacity: 0.7;
+    }
+}
+
+#homepage-blog li .wrap-block .date-added {
+    font: 700 53.85%/1.3em "Ubuntu",sans-serif;
+    color: #2dcc70;
+    margin-bottom: 3%;
+    text-transform: uppercase;
+}
+
+@media (max-width: 1199px) and (min-width: 480px) {
+    #homepage-blog li .wrap-block .date-added {
+        display: none;
+    }
+}
+
+@media (max-width: 479px) {
+    #homepage-blog li .wrap-block .date-added {
+        font-size: 90%;
+    }
+}
+
+#homepage-blog li .wrap-block h5 {
+    font: 800 100%/1.5em "Open Sans",sans-serif;
+    color: inherit;
+    margin: 0;
+    padding: 0 0 2.9%;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+@media (max-width: 991px) {
+    #homepage-blog li .wrap-block h5 {
+        font-size: 170%;
+        line-height: 1.3em;
+        padding-bottom: 7%;
+    }
+}
+
+@media (max-width: 479px) {
+    #homepage-blog li .wrap-block h5 {
+        font-size: 160%;
+        line-height: 1.2em;
+    }
+}
+
+#homepage-blog li .wrap-block .post-descr {
+    font: 300 53.85%/1.5em "Open Sans",sans-serif;
+    color: inherit;
+    margin: 0 0 5%;
+    text-transform: none;
+    background: none;
+    padding-right: 16%;
+}
+
+@media (max-width: 1199px) {
+    #homepage-blog li .wrap-block .post-descr {
+        font-size: 75%;
+        padding: 0;
+    }
+}
+
+@media (max-width: 991px) {
+    #homepage-blog li .wrap-block .post-descr {
+        display: none;
+    }
+}
+
+#homepage-blog li .wrap-block .btn.btn-default {
+    font: 700 53.85%/1.5em "Ubuntu",sans-serif;
+    text-decoration: underline;
+    background: none;
+    padding: 0;
+}
+
+@media (max-width: 1199px) {
+    #homepage-blog li .wrap-block .btn.btn-default {
+        font-size: 75%;
+    }
+}
+
+@media (max-width: 991px) {
+    #homepage-blog li .wrap-block .btn.btn-default {
+        font-size: 110%;
+    }
+}
+
+@media (max-width: 479px) {
+    #homepage-blog li .wrap-block .btn.btn-default {
+        font-size: 100%;
+    }
+}
+
+#homepage-blog li .wrap-block .btn.btn-default:hover {
+    text-decoration: none;
+    color: #2dcc70;
+}
+
+@media (min-width: 1200px) {
+    #homepage-blog li .wrap-block:hover .blog-cont {
+        -moz-transform: scale(1) rotate(0deg);
+        -ms-transform: scale(1) rotate(0deg);
+        -webkit-transform: scale(1) rotate(0deg);
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 767px) {
+    #homepage-blog li {
+        padding: 0 5px;
+    }
+}
+
+@media (max-width: 479px) {
+    #homepage-blog li {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}

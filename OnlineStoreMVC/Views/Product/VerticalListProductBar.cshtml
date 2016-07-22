@@ -1,0 +1,37 @@
+﻿@model IEnumerable<OnlineStore.Model.ViewModel.ProductSummaryView>
+@{
+    string Title = ViewData["Title"] != null ? (string)ViewData["Title"] : "";
+}
+<h4 class="title_block">
+    <a title=@Title>@Title</a>
+</h4>
+<div class="block_content products-block" style="">
+    <ul class="products">
+        @foreach (var item in @Model)
+        {
+            <li class="clearfix">
+                <a class="products-block-image" href="/Product/ProductDetails/@item.Id" title=@item.Name>
+                    <img class="replace-2x img-responsive productimage-verticallistproduct" src=@item.CoverImageUrl alt=@item.Name>
+                </a>
+                <div class="product-content">
+                    <h5>
+                        <a class="product-name" href="/Product/ProductDetails/@item.Id" title=@item.Name>@item.Name</a>
+                    </h5>
+                    <p class="product-description">@item.ShortDescription</p>
+                    <div class="price-box">
+                        <span class="price">
+                            @item.Price
+                        </span>
+                    </div>
+                </div>
+            </li>
+        }
+    </ul>
+    <div>
+        <a title="Xem tất cả" href="/Product/SearchProduct?searchString=&searchType=3" class="btn btn-default btn-sm icon-right">
+            <span>
+                Xem tất cả
+            </span>
+        </a>
+    </div>
+</div>

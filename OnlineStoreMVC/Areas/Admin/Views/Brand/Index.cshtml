@@ -1,0 +1,79 @@
+﻿@using PagedList.Mvc
+@using PagedList;
+@model IPagedList < OnlineStore.Model.Context.ecom_Brands >
+
+@{
+    ViewBag.Title = "DANH MỤC THƯƠNG HIỆU SẢN PHẨM";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@Scripts.Render("~/bundles/brandManagement")
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Danh mục thương hiệu
+        <small>Control panel</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+    </ol>
+</section>
+<p>@Html.ValidationSummary(true, "", new { @class = "text-danger" })</p>
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="box-tools pull-right" style="padding-right: 15px; padding-bottom: 10px;">
+            @Html.ActionLink("THÊM", "Create", null, new { @class = "btn btn-primary btn-sm" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box ">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Danh sách</h3>
+                </div>
+                <div class="box-body">
+                    <table class="table table-hover table-condensed table-responsive table-bordered">
+                        <tr>
+                            <th class="col-maxlarge">
+                                TÊN
+                            </th>
+                            <th>
+                                MÔ TẢ THƯƠNG HIỆU
+                            </th>
+                            <th class="col-maxlarge"></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </td>
+                                <td>
+                                    @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "btn btn-primary glyphicon glyphicon-edit" })
+                                    @Html.ActionLink(" ", "Details", new { id = item.Id }, new { @class = "btn btn-info glyphicon glyphicon-info-sign" })
+                                    <a class="btn btn-danger glyphicon glyphicon-trash" onclick="BrandManagement.deleteBrand(@item.Id, '@item.Name')"></a>
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+                <div class="box-footer clearfix">
+                    @Html.PagedListPager(Model, page =>
+                                    Url.Action("Index", new
+                                    {
+                                        page,
+                                        keyword = Request.QueryString["keyword"],
+                                    }))
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

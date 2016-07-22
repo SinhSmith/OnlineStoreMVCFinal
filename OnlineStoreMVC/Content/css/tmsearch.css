@@ -1,0 +1,208 @@
+#tmsearch {
+    padding: 54px 15px 30px;
+    float: left;
+    position: relative;
+    width: 28.2%;
+}
+
+@media (max-width: 1199px) {
+    #tmsearch {
+        width: 335px;
+    }
+}
+
+@media (max-width: 991px) {
+    #tmsearch {
+        width: 350px;
+        padding: 54px 15px 30px 0;
+    }
+}
+
+@media (max-width: 767px) {
+    #tmsearch {
+        width: 100%;
+        margin: 0;
+        padding: 5px 0 0;
+    }
+}
+
+#tmsearch #tmsearchbox {
+    float: left;
+    width: 100%;
+    border: none;
+    background: white;
+    position: relative;
+}
+
+#tmsearch .btn.button-search {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    color: white;
+    width: 18.4%;
+    text-align: center;
+    height: 40px;
+    padding: 0 0 2px;
+}
+
+    #tmsearch .btn.button-search span {
+        display: none;
+    }
+
+    #tmsearch .btn.button-search:before {
+        -moz-transition: all 0.25s ease;
+        -o-transition: all 0.25s ease;
+        -webkit-transition: all 0.25s ease;
+        transition: all 0.25s ease;
+        content: "\e8b6";
+        display: block;
+        font-family: "material-icons";
+        font-size: 24px;
+        width: 100%;
+        text-align: center;
+    }
+
+    #tmsearch .btn.button-search:hover:before {
+        -moz-transform: rotateY(-180deg);
+        -webkit-transform: rotateY(-180deg);
+        transform: rotateY(-180deg);
+    }
+
+#tmsearch #tm_search_query {
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    display: block;
+    padding: 2px 22% 3px 19px;
+    height: 40px;
+    border: none;
+    background: none;
+    font: 300 13px/20px "Ubuntu",sans-serif;
+    color: #111;
+    border: 1px solid #e0e7ed;
+}
+
+@media (max-width: 767px) {
+    #tmsearch #tm_search_query {
+        width: 100%;
+    }
+}
+
+body .ac_results {
+    background: white;
+    width: 271px;
+    border: 1px solid #bbb;
+    text-align: center;
+    margin-top: 1px;
+}
+
+    body .ac_results li {
+        padding: 5px;
+        font-weight: normal;
+        color: #686666;
+        font-size: 13px;
+        line-height: 22px;
+        cursor: pointer;
+        border-top: 1px solid #dbdbdb;
+    }
+
+        body .ac_results li.ac_odd {
+            background: white;
+        }
+
+        body .ac_results li:hover, body .ac_results li.ac_over {
+            background: #f4f8fa;
+        }
+
+        body .ac_results li:first-child {
+            border: none;
+        }
+
+    body .ac_results .pull-left {
+        float: none;
+        margin-bottom: 13px;
+        padding: 10px 10px 0;
+        width: 100%;
+    }
+
+        body .ac_results .pull-left img {
+            display: inline-block;
+        }
+
+    body .ac_results .content {
+        padding: 10px;
+    }
+
+@media (min-width: 1200px) {
+    body .ac_results .content {
+        width: 100%;
+        float: left;
+    }
+}
+
+body .ac_results span.reference, body .ac_results span.manufacturer {
+    display: block;
+    margin: 0 0 5px;
+    font-size: 12px;
+    color: #3a3939;
+    line-height: 15px;
+    font-style: italic;
+}
+
+body .ac_results span.product-name {
+    font-size: 13px;
+    line-height: 19px;
+    display: inline-block;
+    font-weight: 600;
+}
+
+    body .ac_results span.product-name:hover {
+        color: #666;
+    }
+
+body .ac_results strong {
+    color: #f00;
+}
+
+body .ac_results .description {
+    font-size: 11px;
+    line-height: 15px;
+}
+
+body .ac_results .price {
+    padding-right: 5px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    body .ac_results .content {
+        float: left;
+        clear: both;
+    }
+}
+
+form#tmsearchbox {
+    position: relative;
+}
+
+    form#tmsearchbox label {
+        color: #333333;
+    }
+
+    form#tmsearchbox input#search_query_block {
+        margin-right: 10px;
+        max-width: 222px;
+        margin-bottom: 10px;
+        display: inline-block;
+        float: left;
+    }
+
+    form#tmsearchbox .btn.btn-sm {
+        float: left;
+    }
+
+        form#tmsearchbox .btn.btn-sm i {
+            margin-right: 0;
+        }

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<OnlineStore.Model.ViewModel.ProductSummaryView>
+
+<ul class="product_list grid row">
+    @foreach (var product in @Model)
+    {
+        <li class="ajax_block_product col-xs-12 col-sm-6 col-md-4" style="opacity: 1; transform: translate3d(0px, 0px, 0px);">
+            <div class="product-container" itemscope="" itemtype="https://schema.org/Product">
+                <div class="left-block">
+                    <div class="product-image-container image-container-displayproductview">
+                        <a class="product_img_link" itemprop="url" href="/Product/ProductDetails/@product.Id">
+                            <img class="replace-2x img-responsive productimage-listproduct-displayproductview" src=@product.CoverImageUrl alt=@product.Name title=@product.Name itemprop="image">
+                        </a>
+                        @if (product.IsNew)
+                        {
+                            <a class="new-box">
+                                <span class="new-label">New</span>
+                            </a>
+                        }
+                    </div><!-- cover image -->
+                </div>
+                <div class="right-block">
+                    <h5 itemprop="name">
+                        <a class="product-name" title=@product.Name>
+                            <span class="list-name">@product.Name</span>
+                            <span class="grid-name">@product.Name</span>
+                        </a>
+                    </h5><!-- product name -->
+                    <p class="product-desc" itemprop="description">
+                        <span class="list-desc">@product.ShortDescription</span>
+                        <span class="grid-desc">@product.ShortDescription</span>
+                    </p><!-- product short description -->
+                    <div class="content_price" itemprop="offers" itemscope="" itemtype="https://schema.org/Offer">
+                        <span class="price product-price product-price-new">
+                            @product.Price
+                        </span>
+                    </div><!-- product price -->
+                </div>
+            </div>
+        </li>
+    }
+    
+</ul><!-- list product -->

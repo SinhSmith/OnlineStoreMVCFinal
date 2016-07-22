@@ -1,0 +1,88 @@
+﻿@model OnlineStore.Model.ViewModel.DetailCategoryViewModel
+
+@{
+    ViewBag.Title = "CHI TIẾT DANH MỤC";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Danh sách danh mục sản phẩm
+        <small>Control panel</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Chi tiet danh mục</h3>
+                </div>
+                <div class="box-body">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">TÊN DANH MỤC</label>
+                            @Html.Label(Model.Name, new { @class = "span-value-control col-md-9" })
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3">TÊN DANH MỤC CHA</label>
+                            @Html.Label(Model.ParentCategory, new { @class = "span-value-control col-md-9" })
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3">MÔ TẢ</label>
+                            @Html.Label(Model.Description, new { @class = "span-value-control col-md-9" })
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3">ĐƯỜNG DẪN</label>
+                            @Html.Label(Model.Url, new { @class = "span-value-control col-md-9" })
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3">SẮP XẾP</label>
+                            @Html.Label(Model.SortOrder.ToString(), new { @class = "span-value-control col-md-9" })
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3">TRẠNG THÁI</label>
+                            @Html.Label(Model.Status, new { @class = "span-value-control col-md-9" })
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3">NGƯỜI TẠO</label>
+                            @Html.Label(Model.CreatedBy, new { @class = "span-value-control col-md-9" })
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3">NGÀY TẠO</label>
+                            @Html.Label(Model.CreatedDate, new { @class = "span-value-control col-md-9" })
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3">NGƯỜI CẬP NHẬT GẦN NHẤT</label>
+                            @Html.Label(Model.ModifiedBy, new { @class = "span-value-control col-md-9" })
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3">NGÀY CẬP NHẬT GẦN NHẤT</label>
+                            @Html.Label(Model.ModifiedDate, new { @class = "span-value-control col-md-9" })
+                        </div>
+
+                    </div>
+                    <p>
+                        @Html.ActionLink("SỬA", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" })
+                        @Html.ActionLink("TRỞ LẠI DANH SÁCH", "Index", null, new { @class = "btn btn-default" })
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

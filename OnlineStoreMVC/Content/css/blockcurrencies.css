@@ -1,0 +1,111 @@
+#currencies-block-top {
+    float: right;
+    position: relative;
+    margin: 35px -5px 0 14px;
+}
+
+@media (max-width: 479px) {
+    #currencies-block-top {
+        float: none;
+        display: inline-block;
+        margin: 35px 15px 0;
+    }
+}
+
+#currencies-block-top span.firstWord {
+    display: none;
+}
+
+#currencies-block-top div.current {
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    font: 300 14px/18px "Ubuntu",sans-serif;
+    margin-left: 10px;
+    cursor: pointer;
+    color: #8998a3;
+}
+
+@media (max-width: 767px) {
+    #currencies-block-top div.current {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 479px) {
+    #currencies-block-top div.current {
+        margin-left: 0;
+    }
+}
+
+#currencies-block-top div.current strong {
+    font-weight: 300;
+    margin-left: 3px;
+}
+
+#currencies-block-top div.current:hover, #currencies-block-top div.current.active {
+    color: #526a7c;
+}
+
+#currencies-block-top div.current:after {
+    content: "\e313";
+    font-family: "material-icons";
+    font-size: 22px;
+    line-height: 22px;
+    vertical-align: -7px;
+    opacity: 0.22;
+    margin-left: 10px;
+}
+
+#currencies-block-top div.current.active:after {
+    content: "\e316";
+}
+
+@media (max-width: 767px) {
+    #currencies-block-top div.current .cur-label {
+        display: none;
+    }
+}
+
+#currencies-block-top ul {
+    display: none;
+    position: absolute;
+    top: 33px;
+    right: 0;
+    width: 157px;
+    background: #fff;
+    z-index: 111;
+    border: 1px solid #d9d9d9;
+    -moz-box-shadow: 0 1px 10px 5px rgba(0,0,0,0.08);
+    -webkit-box-shadow: 0 1px 10px 5px rgba(0,0,0,0.08);
+    box-shadow: 0 1px 10px 5px rgba(0,0,0,0.08);
+    text-align: left;
+}
+
+@media (max-width: 479px) {
+    #currencies-block-top ul {
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        left: 50%;
+    }
+}
+
+#currencies-block-top ul li {
+    line-height: 35px;
+    font-size: 13px;
+}
+
+    #currencies-block-top ul li a, #currencies-block-top ul li > span {
+        font: 400 13px/20px "Ubuntu",sans-serif;
+        padding: 6px 10px 6px 15px;
+        display: block;
+        color: #526a7c;
+        text-transform: uppercase;
+    }
+
+    #currencies-block-top ul li.selected, #currencies-block-top ul li:hover a {
+        background: #eef5f9;
+    }

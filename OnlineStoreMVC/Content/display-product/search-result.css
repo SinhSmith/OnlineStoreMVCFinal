@@ -1,0 +1,9 @@
+﻿.noresult-panel{
+    margin-left:15px;
+    font-style:italic;
+}
+/* css for list product on main content panel */
+.productimage-listproduct-displayproductview{
+    width:250px!important;
+    height:250px!important;
+}

@@ -1,0 +1,53 @@
+.sociallogininfo .social-avatar {
+    float: left;
+    max-width: 150px;
+    margin: 10px 15px 15px 0;
+}
+
+.btn.btn-login-facebook, .btn.btn-login-google {
+    display: inline-block;
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+    .btn.btn-login-facebook:before, .btn.btn-login-google:before {
+        font-family: 'FontAwesome';
+        padding-right: 5px;
+        font-size: 15px;
+        vertical-align: middle;
+    }
+
+    .btn.btn-login-facebook:before {
+        content: '\f09a';
+    }
+
+.btn.btn-login-facebook {
+    background: #3b5998;
+    border-color: #3b5998;
+}
+
+    .btn.btn-login-facebook:hover {
+        background: #fff;
+        color: #3b5998;
+        border-color: #3b5998;
+    }
+
+.btn.btn-login-google:before {
+    content: '\f1a0';
+}
+
+.btn.btn-login-google {
+    background: #df4a32;
+    border-color: #df4a32;
+}
+
+    .btn.btn-login-google:hover {
+        background: #fff;
+        color: #df4a32;
+        border-color: #df4a32;
+    }

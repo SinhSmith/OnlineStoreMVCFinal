@@ -1,0 +1,161 @@
+#tool_customization {
+    background: #f1f1f1;
+    font-size: 15px;
+    color: #5e5652;
+    width: 280px;
+}
+
+    #tool_customization > p {
+        color: #5e5652;
+        padding: 26px 55px 0px 30px;
+        font-size: 15px;
+        line-height: 22px;
+    }
+
+#gear-right {
+    background: #f1f1f1;
+    color: #5e5652;
+    border-radius: 0 2px 2px 0;
+}
+
+#tool_customization #block-advertisement, #tool_customization #block-advertisement2 {
+    padding: 0;
+}
+
+#tool_customization .list-tools p {
+    color: #5e5652;
+}
+
+form #tool_customization #color-box {
+    overflow: hidden;
+}
+
+form #tool_customization #color-box {
+    padding: 0;
+}
+
+    form #tool_customization #color-box li {
+        width: 40px;
+        height: 40px;
+        border-width: 1px;
+        border-color: #fff;
+        float: left;
+        margin-right: 20px;
+        margin-bottom: 12px;
+    }
+
+        form #tool_customization #color-box li:hover {
+            border-width: 4px;
+        }
+
+    form #tool_customization #color-box .color1 {
+        border-width: 19px !important;
+    }
+
+    form #tool_customization #color-box li:hover .color1 {
+        border-width: 16px !important;
+    }
+
+    form #tool_customization #color-box .color2 {
+        height: 38px;
+        top: -38px;
+        width: 38px;
+    }
+
+    form #tool_customization #color-box li:hover .color2 {
+        height: 32px;
+        top: -32px;
+        width: 32px;
+    }
+
+form #tool_customization .list-tools {
+    background: none;
+    border: none;
+    height: auto;
+}
+
+    form #tool_customization .list-tools p {
+        font-size: 16px;
+        color: #5e5652;
+        padding: 13px 0 17px 30px;
+        height: auto;
+        margin-bottom: 0;
+    }
+
+form #tool_customization #color-box {
+    padding-left: 30px;
+}
+
+form #tool_customization .buttons-box {
+    padding: 0 30px 15px;
+}
+
+    form #tool_customization .buttons-box button {
+        width: 100%;
+        display: block;
+        height: 41px;
+        border: 1px solid #d8d8d8;
+        background: #fff;
+        border-radius: 2px;
+        overflow: hidden;
+        padding: 2px;
+        font-size: 14px;
+        font-weight: 700;
+        position: relative;
+        color: #fff;
+    }
+
+        form #tool_customization .buttons-box button span {
+            width: 50%;
+            height: 100%;
+            display: block;
+            float: left;
+            border-radius: 2px;
+            height: 35px;
+            line-height: 35px;
+            position: relative;
+            z-index: 1;
+        }
+
+            form #tool_customization .buttons-box button span.bg {
+                position: absolute;
+                right: 0;
+                top: 0;
+                margin: 2px;
+                background: #de4a4a;
+                z-index: 0;
+                transition: all 0.3s ease-out 0s;
+                -webkit-transition: all 0.3s ease-out 0s;
+            }
+
+        form #tool_customization .buttons-box button.disable span.bg {
+            position: absolute;
+            right: 48%;
+            background: #1c64a1;
+            z-index: 0;
+        }
+
+form #tool_customization .btn-tools {
+    background: none;
+    border-top-color: #d8d8d8;
+    border-bottom: none;
+    text-align: center;
+    padding: 30px;
+    height: 101px;
+    margin-top: 15px;
+}
+
+    form #tool_customization .btn-tools .btn {
+        float: none;
+        width: 100%;
+        display: block;
+        margin: 0;
+        padding: 8px 5px 9px;
+        font-size: 15px;
+        font-weight: 700;
+        background: #5e5652;
+    }
+
+        form #tool_customization .btn-tools .btn:hover {
+            background: #46403d;
+        }

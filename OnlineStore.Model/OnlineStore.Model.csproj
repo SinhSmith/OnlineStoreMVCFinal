@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CE99FAD2-058D-494F-910C-1EF59C8279F1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OnlineStore.Model</RootNamespace>
+    <AssemblyName>OnlineStore.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LinqKit">
+      <HintPath>..\Library\LinqKit.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Context\AspNetRole.cs">
+      <DependentUpon>OnlineStoreMVCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\AspNetUser.cs">
+      <DependentUpon>OnlineStoreMVCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\AspNetUserClaim.cs">
+      <DependentUpon>OnlineStoreMVCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\AspNetUserLogin.cs">
+      <DependentUpon>OnlineStoreMVCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\cms_Categories.cs">
+      <DependentUpon>OnlineStoreMVCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\cms_News.cs">
+      <DependentUpon>OnlineStoreMVCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\C__MigrationHistory.cs">
+      <DependentUpon>OnlineStoreMVCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\ecom_Brands.cs">
+      <DependentUpon>OnlineStoreMVCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\ecom_Categories.cs">
+      <DependentUpon>OnlineStoreMVCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\ecom_OrderDetails.cs">
+      <DependentUpon>OnlineStoreMVCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\ecom_Orders.cs">
+      <DependentUpon>OnlineStoreMVCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\ecom_Products.cs">
+      <DependentUpon>OnlineStoreMVCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\OnlineStoreMVCEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OnlineStoreMVCEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\OnlineStoreMVCEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OnlineStoreMVCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\OnlineStoreMVCEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OnlineStoreMVCEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Context\share_Categories.cs">
+      <DependentUpon>OnlineStoreMVCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\share_Images.cs">
+      <DependentUpon>OnlineStoreMVCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\system_Banners.cs">
+      <DependentUpon>OnlineStoreMVCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\system_Config.cs">
+      <DependentUpon>OnlineStoreMVCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\system_Menu.cs">
+      <DependentUpon>OnlineStoreMVCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\system_Profiles.cs">
+      <DependentUpon>OnlineStoreMVCEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper\BrandMapper.cs" />
+    <Compile Include="Mapper\CategoryMapper.cs" />
+    <Compile Include="Mapper\ProductMapper.cs" />
+    <Compile Include="MessageModel\BrandManagement.cs" />
+    <Compile Include="MessageModel\CategoryManagement.cs" />
+    <Compile Include="MessageModel\ProductManagement.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\BrandRepository.cs" />
+    <Compile Include="Repository\CategoryRepository.cs" />
+    <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\ProductRepository.cs" />
+    <Compile Include="Repository\Repository.cs" />
+    <Compile Include="ViewModel\BannerViewModel.cs" />
+    <Compile Include="ViewModel\ProfileViewModel.cs" />
+    <Compile Include="ViewModel\CMSNewsView.cs" />
+    <Compile Include="ViewModel\CMSCategoryView.cs" />
+    <Compile Include="ViewModel\CategoryView.cs" />
+    <Compile Include="ViewModel\MenuView.cs" />
+    <Compile Include="ViewModel\BrandManagementView.cs" />
+    <Compile Include="ViewModel\ProductDisplayView.cs" />
+    <Compile Include="ViewModel\ProductManagementView.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OnlineStore.Infractructure\OnlineStore.Infractructure.csproj">
+      <Project>{74bfdb94-2049-478a-93b3-ba5391d5d398}</Project>
+      <Name>OnlineStore.Infractructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="Context\OnlineStoreMVCEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>OnlineStoreMVCEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Context\OnlineStoreMVCEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OnlineStoreMVCEntities.edmx</DependentUpon>
+      <LastGenOutput>OnlineStoreMVCEntities.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Context\OnlineStoreMVCEntities.edmx.diagram">
+      <DependentUpon>OnlineStoreMVCEntities.edmx</DependentUpon>
+    </None>
+    <None Include="Context\OnlineStoreMVCEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OnlineStoreMVCEntities.edmx</DependentUpon>
+      <LastGenOutput>OnlineStoreMVCEntities.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

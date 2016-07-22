@@ -1,0 +1,215 @@
+﻿@using Microsoft.AspNet.Identity
+
+<div class="header-container">
+    <header id="header">
+        <div class="nav">
+            <div class="container">
+                <div class="row">
+                    <div id="header_logo">
+                        <a href="/" title="Garden Furniture">
+                            <img class="logo img-responsive" src="~/Content/Images/Banners/XaviaLogo.png" alt="Xavia decorator" width="270" height="151">
+                        </a>
+                    </div>
+                    <nav>
+                        <ul id="header_links">
+                            <li id="header_link_home">
+                                <a class="active" href="/" title="home">Trang chủ</a>
+                            </li>
+                            <li id="header_link_contact">
+                                <a href="@Url.Action("About", "Home")" title="contact">Giới thiệu</a>
+                            </li>
+                            <li id="header_link_blog">
+                                <a href="@Url.Action("Index", "News", new { id = 1 })" title="news">Tin tức</a>
+                            </li>
+                            <li id="header_link_blog">
+                                <a href="@Url.Action("Index", "News", new { id = 5 })" title="blog">Blog</a>
+                            </li>
+                            <li id="header_link_contact">
+                                <a href="@Url.Action("Contact", "Home")" title="contact">Liên hệ</a>
+                            </li>
+                        </ul>
+
+                        <div class="wrap-cart">
+                            <div class="shopping_cart">
+                                <a href="#" title="View my shopping cart" rel="nofollow">
+                                    <b>Cart</b>
+                                    <span class="ajax_cart_quantity unvisible">0</span>
+                                    <span class="ajax_cart_product_txt unvisible">Product</span>
+                                    <span class="ajax_cart_product_txt_s unvisible">Products</span>
+                                    <span class="ajax_cart_total unvisible">
+                                    </span>
+                                    <span class="ajax_cart_no_product">(empty)</span>
+                                </a>
+                                <div class="cart_block block">
+                                    <div class="block_content">
+
+                                        <div class="cart_block_list">
+                                            <p class="cart_block_no_products">
+                                                No products
+                                            </p>
+                                            <div class="cart-prices">
+                                                <div class="cart-prices-line first-line  unvisible">
+                                                    <span class="cart_block_shipping_cost ajax_cart_shipping_cost">
+                                                        To be determined
+                                                    </span>
+                                                    <span>
+                                                        Shipping
+                                                    </span>
+                                                </div>
+                                                <div class="cart-prices-line last-line">
+                                                    <span class="price cart_block_total ajax_block_cart_total">$0.00</span>
+                                                    <span>Total</span>
+                                                </div>
+                                                <p>
+                                                    Prices are tax excluded
+                                                </p>
+                                            </div>
+                                            <p class="cart-buttons">
+                                                <a id="button_order_cart" class="btn btn-default btn-sm icon-right" href="#" title="Check out" rel="nofollow">
+                                                    <span>
+                                                        Check out
+                                                    </span>
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="layer_cart">
+                            <div class="clearfix">
+                                <div class="layer_cart_product col-xs-12 col-md-6">
+                                    <span class="cross" title="Close window"></span>
+                                    <span class="title">
+                                        <i class="fa fa-check"></i>
+                                        Product successfully added to your shopping cart
+                                    </span>
+                                    <div class="product-image-container layer_cart_img">
+                                    </div>
+                                    <div class="layer_cart_product_info">
+                                        <span id="layer_cart_product_title" class="product-name"></span>
+                                        <span id="layer_cart_product_attributes"></span>
+                                        <div>
+                                            <strong class="dark">Quantity</strong>
+                                            <span id="layer_cart_product_quantity"></span>
+                                        </div>
+                                        <div>
+                                            <strong class="dark">Total</strong>
+                                            <span id="layer_cart_product_price"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layer_cart_cart col-xs-12 col-md-6">
+                                    <span class="title">
+
+                                        <span class="ajax_cart_product_txt_s  unvisible">
+                                            There are <span class="ajax_cart_quantity">0</span> items in your cart.
+                                        </span>
+
+                                        <span class="ajax_cart_product_txt ">
+                                            There is 1 item in your cart.
+                                        </span>
+                                    </span>
+                                    <div class="layer_cart_row">
+                                        <strong class="dark">
+                                            Total products
+                                            (tax excl.)
+                                        </strong>
+                                        <span class="ajax_block_products_total">
+                                        </span>
+                                    </div>
+                                    <div class="layer_cart_row">
+                                        <strong class="dark unvisible">
+                                            Total shipping&nbsp;(tax excl.)
+                                        </strong>
+                                        <span class="ajax_cart_shipping_cost unvisible">
+                                            To be determined
+                                        </span>
+                                    </div>
+                                    <div class="layer_cart_row">
+                                        <strong class="dark">
+                                            Total
+                                            (tax excl.)
+                                        </strong>
+                                        <span class="ajax_block_cart_total">
+                                        </span>
+                                    </div>
+                                    <div class="button-container">
+                                        <span class="continue btn btn-default btn-md icon-left" title="Continue shopping">
+                                            <span>
+                                                Continue shopping
+                                            </span>
+                                        </span>
+                                        <a class="btn btn-default btn-md icon-right" href="#" title="Proceed to checkout" rel="nofollow">
+                                            <span>
+                                                Proceed to checkout
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="crossseling"></div>
+                        </div>
+                        <div class="layer_cart_overlay"></div>
+
+                        <div id="header-login">
+                            <div class="header_user_info">
+                                @if (Request.IsAuthenticated)
+                                {
+                                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+
+                                        <ul class="nav navbar-nav navbar-right" style="margin-right: 0px !important;">
+                                            <li>
+                                                @Html.ActionLink("Xin chào " + User.Identity.GetUserName() + ", ", "ChangePassword", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                                            </li>
+                                            <li><a href="javascript:document.getElementById('logoutForm').submit()"><i class="glyphicon glyphicon-log-out"></i> Thoát</a></li>
+                                        </ul>
+                                    }
+                                }
+                                else
+                                {
+                                    <a href="/Account/Register">Đăng ký</a>
+                                    <span>|</span>
+                                    <a href="/Account/Login">Đăng nhập</a>
+                                }
+                            </div>
+                        </div>
+                        <div id="tmsearch" class="clearfix">
+                            <div id="tmsearchbox">
+                                <input class="tm_search_query form-control ac_input" type="text" id="tm_search_query" name="search_query" placeholder="Nhập từ khóa" value="" autocomplete="off">
+                                <button id="SearchProduct_Btn" name="tm_submit_search" class="btn btn-default button-search">
+                                    <span>Search</span>
+                                </button>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="container">
+                <div class="row">
+                    <div class="top_menu top-level tmmegamenu_item">
+                        <div class="stickUpTop isStuck" style="top: 0px; position: fixed;">
+                            <div class="stickUpHolder container">
+                                <div class="menu-title tmmegamenu_item">Menu</div>
+                                <ul class="menu clearfix top-level-menu tmmegamenu_item sf-js-enabled sf-arrows">
+                                    @foreach (var item in ViewBag.TopCategoryList)
+                                    {
+                                        <li class="top-level-menu-li tmmegamenu_item it_23637660">
+                                            <a class="it_23637660 top-level-menu-li-a tmmegamenu_item" href="/Product/GetProductByCategory/@item.Id">@item.Name</a>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pseudoStickyBlock" style="position: relative; display: block; height: 30px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</div>

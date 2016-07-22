@@ -1,0 +1,25 @@
+﻿@model IList<OnlineStore.Model.ViewModel.BannerViewModel>
+
+<script>
+    $(document).ready(function () {
+        $('#homeslider').bxSlider({
+            auto: true,
+            pager: false,
+            controls: false,
+            minSlides: 2
+        });
+    });
+</script>
+
+<div id="homepage-slider">
+    <ul id="homeslider">
+        @foreach (var item in Model)
+        {
+            <li class="homeslider-container">
+                <a href="#" title="sample-1">
+                    <img src="@(item.ImagePath)" width="1770" height="721" alt="" />
+                </a>
+            </li>
+        }
+    </ul>
+</div>

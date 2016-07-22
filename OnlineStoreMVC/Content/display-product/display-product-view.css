@@ -1,0 +1,80 @@
+﻿.price-range-container{
+    display:inline-block;
+    float:left;
+    background-color: transparent;
+    width: 100%;
+    padding: 15px;
+}
+.price-range-input-panel{
+    display:inline-block;
+    float:left;
+    width:196px
+}
+.btn-filter-after-price-wrapper{
+    display:inline-block;
+    float:left;
+    margin-left: 10px;
+    margin-top:20px;
+}
+
+.btn-filter-after-price{
+    padding:5px;
+}
+.btn-filter-after-price>i{
+    font-size:25px;
+    color: #526a7c;
+}
+.btn-filter-after-price>i:hover, .btn-filter-after-price>i:focus {
+    color:#2dcc70;
+}
+
+.tooltip {
+    position: absolute;
+    z-index: 1030;
+    display: block;
+    font-size: 12px;
+    line-height: 1.4;
+    opacity: 0.3;
+    filter: alpha(opacity=0);
+    visibility: visible;
+    top:0!important;
+}
+.tooltip-inner {
+    max-width: 200px;
+    padding: 3px 8px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    background-color: #000;
+    border-radius: 4px;
+}
+.noresult-panel{
+    margin-left:15px;
+    font-style:italic;
+}
+
+/* css for vertical list product on the left panel */
+.productimage-verticallistproduct{
+    width:98px!important;
+    height:98px!important;
+}
+
+/* css for list product on main content panel */
+.productimage-listproduct-displayproductview{
+    /*width:250px!important;
+    height:250px!important;*/
+    max-width: 100%!important;
+    max-height: 250px!important;
+}
+
+ul.product_list.grid > li .product-container .product-image-container.image-container-displayproductview {
+    height:250px;
+}
+
+.left-category-link-displayproduct{
+    margin-left:10px;
+}
+
+.left-category-link-displayproduct:hover{
+    color:#2dcc70;
+}

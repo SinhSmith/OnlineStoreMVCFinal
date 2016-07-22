@@ -1,0 +1,221 @@
+﻿@model OnlineStore.Model.ViewModel.CMSNewsView
+
+@{
+    ViewBag.Title = Model.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="columns-container">
+    <div id="columns" class="container">
+
+        <div class="breadcrumb clearfix">
+            <a class="home" href="/" title="Trở về Trang chủ">
+                <i class="fa fa-home"></i>
+            </a>
+            <span class="">&gt;</span>
+            <span class="navigation_page">
+                <span class="navigation-page">
+                    <span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a itemprop="url" href="#">All Blog News</a></span>
+                </span>
+            </span>
+        </div>
+
+        <div id="slider_row" class="row">
+        </div>
+
+        <div class="row">
+            <div class="large-left col-sm-12">
+                <div class="row">
+
+                    <div id="center_column" class="center_column col-xs-12 col-sm-9 accordionBox">
+                        <div id="sdsblogArticle" class="blog-post">
+                            <h1 class="title_block_exclusive">@Model.Title</h1>
+                            <div class="articleHeader">
+                                <div class="postInfo">
+                                    Đăng bởi<span itemprop="author"><i class="fa fa-user"></i> @Model.Authors</span>
+                                    <span itemprop="dateCreated">
+                                        <i class="fa fa-calendar"></i>
+                                        &nbsp;@(Model.CreatedDate.HasValue ? Model.CreatedDate.Value.ToString("MMM dd, yyyy") : DateTime.Now.ToString("MMM dd, yyyy"))
+                                    </span>
+                                    <span itemprop="articleSection">
+                                        <i class="fa fa-tags"></i>
+                                        <a href="#">@Model.Tags</a>
+                                    </span>
+                                    <span class="comments"><i class="fa fa-comments"></i> 5 bình luận</span>
+                                </div>
+                            </div>
+                            <div itemprop="articleBody">
+                                <div class="post-image">
+                                    <img class="img-responsive" src="@Model.CoverImagePath" alt="@Model.Title">
+                                </div>
+                                <div class="sdsarticle-des">
+                                    @Html.Raw(Model.ContentNews)
+                                </div>
+                                <div class="sdstags-update">
+                                    <span class="tags">
+                                        <b>Tags: </b>
+                                        @Model.Tags
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="sdsarticleBottom">
+                                <div class="block-addthis">
+                                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4fccc98d09eb20ae"></script>
+                                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                                    <div class="addthis_native_toolbox"></div>
+                                </div>
+                                <div id="articleRelated" class="block">
+                                    <h4 class="title_block">Bài viết liên quan: </h4>
+                                    <div class="block_content">
+                                        <ul class="row">
+                                            @foreach (var item in (IList<OnlineStore.Model.ViewModel.CMSNewsView>)ViewBag.RelatedNews)
+                                            {
+                                                <li class="col-xs-12 col-sm-6 col-md-4">
+                                                    <a class="products-block-image" title="@item.Title" href="@Url.Action("Details", "News", new { id = item.Id })">
+                                                        <img class="img-responsive" style="width: 300px; height: 165px;" alt="@item.Title" src="@item.CoverImagePath">
+                                                    </a>
+                                                    <p><a class="post-name" title="@item.Title" href="@Url.Action("Details", "News", new { id = item.Id })">@item.Title</a></p>
+                                                    <span class="info">@(Model.CreatedDate.HasValue ? Model.CreatedDate.Value.ToString("MMM dd, yyyy") : DateTime.Now.ToString("MMM dd, yyyy"))</span>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        @*<div id="articleComments" class="block">
+                                <h2 class="title_block">5 Comments</h2>
+                                <div id="comments">
+                                    <div class="commentList">
+                                        <ul class="commentList">
+                                            <li id="comment-5" class="even">
+                                                <div class="well">
+                                                    <div class="comment-content clearfix">
+                                                        <img class="avatar" alt="Avatar" src="/prestashop_58023/modules//smartblog/images/avatar/avatar-author-default.jpg">
+                                                        <div class="reply pull-right">
+                                                            <a onclick="return addComment.moveForm('comment-5', '5', 'respond', '4')" class="comment-reply-link btn btn-default btn-sm"><span>Reply</span></a>
+                                                        </div>
+                                                        <div class="name"><strong>Anny Dawson</strong></div>
+                                                        <div class="created">
+                                                            <span itemprop="commentTime">Oct 15, 2014</span>
+                                                        </div>
+                                                        <p>The author did a great job with all these research work. Really valuable information, thank you! </p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>*@
+
+                        <div class="smartblogcomments" id="respond">
+                            <h4 class="comment-reply-title page-subheading" id="reply-title">Nhận xét</h4>
+                            <div id="commentInput">
+                                <form action="" method="post" id="commentform">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <b>Name:</b>
+                                                </td>
+                                                <td>
+                                                    <input type="text" tabindex="1" class="inputName form-control grey" value="" name="name">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <b>E-mail: </b>
+                                                </td>
+                                                <td>
+                                                    <input type="text" tabindex="2" class="inputMail form-control grey" value="" name="mail">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <b> Comment:</b>
+                                                </td>
+                                                <td>
+                                                    <textarea tabindex="4" class="inputContent form-control grey" rows="8" cols="50" name="comment"></textarea>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="text-right">
+                                        <div class="submit">
+                                            <input type="submit" name="addComment" id="submitComment" class="bbutton btn btn-default button-medium" value="Submit">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="left_column" class="column col-xs-12 col-sm-3">
+                        <section id="category_blog_block_left" class="block">
+                            <h4 class="title_block">
+                                <a href="#">Danh mục</a>
+                            </h4>
+                            <div class="block_content list-block">
+                                <ul>
+                                    @foreach (var item in (IList<OnlineStore.Model.ViewModel.CMSCategoryView>)ViewBag.ChildCategories)
+                                    {
+                                        <li>
+                                            <a href="@Url.Action("Index", "News", new { id = item.Id })">@item.Title</a>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </section>
+                        <section id="recent_article_smart_blog_block_left" class="block">
+                            <h4 class="title_block">
+                                <a href="#">Bài viết gần đây</a>
+                            </h4>
+                            <div class="block_content products-block" style="">
+                                <ul>
+                                    @foreach (var item in (IList<OnlineStore.Model.ViewModel.CMSNewsView>)ViewBag.RecentNews)
+                                    {
+                                        <li class="clearfix">
+                                            <a class="products-block-image" title="@item.Title" href="@Url.Action("Details", "News", new { id = item.Id })">
+                                                <img width="98" height="54" alt="@item.Title" src="@item.CoverImagePath" />
+                                            </a>
+                                            <div class="product-content">
+                                                <a class="post-name" title="@item.Title" href="@Url.Action("Details", "News", new { id = item.Id })">@item.Title</a>
+                                                <span class="info">@(item.CreatedDate.HasValue ? item.CreatedDate.Value.ToShortDateString() : "")</span>
+                                            </div>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </section>
+                        <div class="block" id="smartblogsearch">
+                            <h4 class="title_block">
+                                <a href="#">Tìm kiếm</a>
+                            </h4>
+                            <div id="sdssearch_block_top" class="block_content clearfix" style="">
+                                <form action="#" method="post" id="searchbox">
+                                    <input type="hidden" value="0" name="smartblogaction">
+                                    <input type="text" value="" placeholder="Search" name="smartsearch" id="search_query_top" class="search_query form-control ac_input" autocomplete="off">
+                                    <button class="btn btn-default button-search" name="smartblogsubmit" type="submit">
+                                        <span>Search</span>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        <section id="tags_blog_block_left" class="block">
+                            <h4 class="title_block">
+                                <a href="#">Tags Post</a>
+                            </h4>
+                            <div class="block_content clearfix" style="">
+                                <a href="#">lorem</a>
+                                <a href="#">ipsum</a>
+                                <a href="#">dolore</a>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,82 @@
+﻿@model OnlineStore.Model.ViewModel.ListImageProductPartialViewModels
+@if (Model != null)
+{
+    <table class="table">
+        <tr>
+            <th>
+                Tên ảnh
+            </th>
+            <th>
+                Ảnh
+            </th>
+            <th>
+                Trạng thái
+            </th>
+            <th>
+                Ảnh đại diện
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model.Images)
+        {
+            <tr data-id="@item.Id" class="display-mode">
+                <td>
+                  @item.ImageName
+                </td>
+                <td>
+                    <img src="@item.ImagePath" height="70" width="70" alt="ảnh không tồn tại" />
+                </td>
+                <td>
+                    @if(item.IsActive){
+                        <span>Hiện</span>
+                    }
+                    else
+                    {
+                        <span>Ẩn</span>
+                    }
+                </td>
+                <td>
+                    @if (Model.CoverImageId == item.Id)
+                    {
+                        <span class="glyphicon glyphicon-ok"></span>
+                    }
+                    else
+                    {
+                        <span class="glyphicon glyphicon-remove"></span>
+                    }
+                </td>
+
+                <td>
+                    <input type="button" id="EditProductImage" onclick="ProductManagement.editProductImage(this,@item.Id)" value="Sửa" class="btn btn-primary">
+                    <input type="button" id="DeleteProductImage" onclick="ProductManagement.requestDeleteProductImage(@Model.ProductId,@item.Id)" value="Xóa" class="btn btn-danger">
+                </td>
+            </tr>
+            <tr data-id="@item.Id" class="edit-mode hidden">
+                <td>
+                    @Html.EditorFor(modelItem => item.ImageName, new { htmlAttributes = new { @class = "txt-imagename" } })
+                </td>
+                <td>
+                    <img src="@item.ImagePath" height="70" width="70" alt="ảnh không tồn tại" />
+                </td>
+                <td>
+                    @Html.EditorFor(modelItem => item.IsActive, new { htmlAttributes = new { @class = "ckb-isactive" } })
+                </td>
+                <td>
+                    @if (Model.CoverImageId == item.Id)
+                    {
+                        <input type="checkbox" class="ckb-iscoverimage" checked />
+                    }
+                    else
+                    {
+                        <input type="checkbox" class="ckb-iscoverimage" />
+                    }
+                </td>
+
+                <td>
+                    <input type="button" id="UpdateProductImage" onclick="ProductManagement.updateProductImage(this,@Model.ProductId,@item.Id)" value="Cập nhật" class="btn btn-primary">
+                    <input type="button" id="CancelUpdateProductImage" onclick="ProductManagement.cancelUpdateProductImage(this,@item.Id)" value="Hủy" class="btn btn-danger">
+                </td>
+            </tr>
+        }
+    </table>
+}

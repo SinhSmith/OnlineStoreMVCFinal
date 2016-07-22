@@ -1,0 +1,43 @@
+﻿@model IEnumerable<OnlineStore.Model.ViewModel.ProductSummaryView>
+
+@foreach (OnlineStore.Model.ViewModel.ProductSummaryView item in @Model)
+{
+    <li class="ajax_block_product col-xs-12 col-sm-4 col-md-2">
+        <div class="product-container" itemscope="" itemtype="https://schema.org/Product">
+            <div class="left-block">
+                <div class="product-image-container">
+                    <a class="product_img_link" href="/Product/ProductDetails/@item.Id" title="Side Table" itemprop="url">
+                        <img class="replace-2x img-responsive" src=@item.CoverImageUrl alt=@item.Name title=@item.Name itemprop="image">
+                    </a>
+                </div>
+            </div>
+            <div class="right-block">
+                <h5 itemprop="name">
+                    <a class="product-name" href="https://livedemo00.template-help.com/prestashop_58023/index.php?id_product=8&amp;controller=product&amp;id_lang=1" title="Side Table" itemprop="url">
+                        <span class="grid-name">@item.Name</span>
+                    </a>
+                </h5>
+                <p class="product-desc" itemprop="description">
+                    <span class="grid-desc">Fashion in this case is really...</span>
+                </p>
+                <div class="content_price" itemprop="offers" itemscope="" itemtype="https://schema.org/Offer">
+                    <span class="price product-price product-price-new">
+                        @item.Price
+                    </span>
+                </div>
+                <span class="availability">
+                    <span class=" label-success">
+                        Còn hàng
+                    </span>
+                </span>
+                <div class="wrap_block">
+                    <div class="button-container">
+                        <a itemprop="url" class="lnk_view btn btn-default" href="/Product/ProductDetails/@item.Id" title="View">
+                            <span>Chi tiết</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+}

@@ -1,0 +1,337 @@
+﻿@model OnlineStore.Model.ViewModel.ProductFullView
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Content/ckeditor/ckeditor.js"></script>
+<script src="~/Scripts/Admin/product-management.js"></script>
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Danh sách sản phẩm
+        <small>Control panel</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#common">Thông tin cơ bản</a></li>
+            <li><a data-toggle="tab" href="#images">Hình ảnh</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <!-- Common properties of product tab-->
+            <div id="common" class="tab-pane fade in active"><!-- Common properties of product tab-->
+                <div class="row">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">Thông tin cơ bản sản phẩm</h3>
+                        </div>
+                        <div class="box-body">
+                            @using (Html.BeginForm())
+                            {
+                                <div class="form-horizontal">
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    @Html.HiddenFor(model => model.Id)
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.ProductCode, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.ProductCode, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.ProductCode, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Unit, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Unit, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Unit, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.BrandId, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.DropDownList("BrandId", @ViewBag.BrandId as SelectList,"Chọn thương hiệu",new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.BrandId, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Categories, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.DropDownList("CategoryId", ViewBag.Categories as MultiSelectList, new { multiple = "multiple", @class = "chzn-select form-control", data_placeholder = "Chọn danh mục" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Description2, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.TextAreaFor(model => model.Description2, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Description2, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.TotalView, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.DisplayFor(model => model.TotalView, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.TotalView, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.TotalBuy, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.DisplayFor(model => model.TotalBuy, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.TotalBuy, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Tags, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Tags, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Tags, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.IsNewProduct, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            <div class="checkbox">
+                                                @Html.EditorFor(model => model.IsNewProduct)
+                                                @Html.ValidationMessageFor(model => model.IsNewProduct, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.IsBestSellProduct, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            <div class="checkbox">
+                                                @Html.EditorFor(model => model.IsBestSellProduct)
+                                                @Html.ValidationMessageFor(model => model.IsBestSellProduct, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.SortOrder, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.SortOrder, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.SortOrder, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.DropDownList("Status",@ViewBag.Status as SelectList,"Chọn trạng thái", new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.CreatedBy, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.DisplayFor(model => model.CreatedBy, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.CreatedBy, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.CreatedDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.DisplayFor(model => model.CreatedDate, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.CreatedDate, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.ModifiedBy, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.DisplayFor(model => model.ModifiedBy, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.ModifiedBy, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.ModifiedDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.DisplayFor(model => model.ModifiedDate, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.ModifiedDate, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="submit" value="Cập nhật" class="btn btn-primary" />
+                                            @Html.ActionLink("Trở lại danh sách", "Index", null, new { @class="btn btn-default"})
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- images of product-->
+            <div id="images" class="tab-pane fade"><!-- images of product-->
+                <div class="row">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">Danh mục hình ảnh sản phẩm</h3>
+                        </div>
+                        <div class="box-body">
+                            <div id="EditProduct_ListProductImages">
+                                <table class="table">
+                                    <tr>
+                                        <th>
+                                            Tên ảnh
+                                        </th>
+                                        <th>
+                                            Ảnh
+                                        </th>
+                                        <th>
+                                            Hiển thị
+                                        </th>
+                                        <th>
+                                            Ảnh đại diện
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                    @foreach (var item in Model.share_Images)
+                                    {
+                                        <tr data-id="@item.Id" class="display-mode">
+                                            <td>
+                                                @item.ImageName
+                                            </td>
+                                            <td>
+                                                <img src="@item.ImagePath" height="70" width="70" alt="ảnh không tồn tại" />
+                                            </td>
+                                            <td>
+                                                @if (item.IsActive)
+                                                {
+                                                    <span>Hiện</span>
+                                                }
+                                                else
+                                                {
+                                                    <span>Ẩn</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (Model.CoverImageId == item.Id)
+                                                {
+                                                    <span class="glyphicon glyphicon-ok"></span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="glyphicon glyphicon-remove"></span>
+                                                }
+                                            </td>
+                                            <td>
+                                                <input type="button" id="EditProductImage" onclick="ProductManagement.editProductImage(this,@item.Id)" value="Sửa" class="btn btn-primary">
+                                                <input type="button" id="DeleteProductImage" onclick="ProductManagement.requestDeleteProductImage(@Model.Id,@item.Id)" value="Xóa" class="btn btn-danger">
+                                            </td>
+                                        </tr>
+                                        <tr data-id="@item.Id" class="edit-mode hidden">
+                                            <td>
+                                                @Html.EditorFor(modelItem => item.ImageName, new { htmlAttributes = new { @class = "txt-imagename" } })
+                                            </td>
+                                            <td>
+                                                <img src="@item.ImagePath" height="70" width="70" alt="ảnh không tồn tại" />
+                                            </td>
+                                            <td>
+                                                @Html.EditorFor(modelItem => item.IsActive, new { htmlAttributes = new { @class = "ckb-isactive" } })
+                                            </td>
+                                            <td>
+                                                @if (Model.CoverImageId == item.Id)
+                                                {
+                                                    <input type="checkbox" class="ckb-iscoverimage" checked/>
+                                                }
+                                                else
+                                                {
+                                                    <input type="checkbox" class="ckb-iscoverimage" />
+                                                }
+                                            </td>
+                                            <td>
+                                                <input type="button" id="UpdateProductImage" onclick="ProductManagement.updateProductImage(this,@Model.Id,@item.Id)" value="Cập nhật" class="btn btn-primary">
+                                                <input type="button" id="CancelUpdateProductImage" onclick="ProductManagement.cancelUpdateProductImage(this,@item.Id)" value="Hủy" class="btn btn-danger">
+                                            </td>
+                                        </tr>
+                                    }
+                                </table>
+
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10" id="ProductEdit_UploadPartialView">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            @if (ViewBag.Error != null)
+                                            {
+                                                <h4 style="color:red">@ViewBag.Error</h4>
+                                            }
+                                            @using (Ajax.BeginForm("UploadImage", "Product", new AjaxOptions() { UpdateTargetId = "EditProduct_ListProductImages", HttpMethod = "POST" }, new { enctype = "multipart/form-data" }))
+                                            {
+                                                @Html.AntiForgeryToken()
+                                                <input type="file" name="files" class="btn btn-info" style="display:inline-block;margin-right:10px;">
+                                                <input type="hidden" value=@Model.Id name="productId" />
+                                                <input type="submit" value="upload" class="btn btn-danger" style="display:inline-block;width:100px;" />
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    $(document).ready(function () {
+        ProductManagement.init();
+    })
+</script>

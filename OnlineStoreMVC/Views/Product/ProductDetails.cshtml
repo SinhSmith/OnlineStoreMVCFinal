@@ -1,0 +1,134 @@
+﻿@model OnlineStore.Model.ViewModel.ProductDetailsView
+@{
+    ViewBag.Title = "Chi tiết sản phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/display-product/product.css" rel="stylesheet" />
+<link href="~/Content/display-product/detail-product.css" rel="stylesheet" />
+<script src="~/Content/plugins/magnifying-glass/prefixfree.js"></script>
+<script src="~/Content/plugins/slider-bar-library/plugins.js"></script>
+<script src="~/Content/plugins/slider-bar-library/sly.min.js"></script>
+<script src="~/Scripts/DisplayProduct/DetailProduct.js"></script>
+
+<div class="columns-container">
+    <div id="columns" class="container">
+        <div class="breadcrumb clearfix">
+            <a class="home" href="/" title="Trở về Trang chủ">
+                <i class="fa fa-home"></i>
+            </a>
+            <span class="navigation-pipe">&gt;</span>
+            @Model.Name
+        </div> <!-- breadcrumbs -->
+        <div class="row">
+            <div class="large-left col-sm-12">
+                <div class="row">
+                    <div id="center_column" class="center_column col-xs-12 col-sm-12 accordionBox">
+                        <div itemscope="" itemtype="https://schema.org/Product">
+                            <div class="primary_block row">
+
+                                <div class="pb-left-column col-sm-6 col-md-6 col-lg-8">
+
+                                    <div id="image-block" class="clearfix is_caroucel">
+                                        <!-- This is the magnifying glass which will contain the original/large version -->
+                                        <div class="zoom-image-area"></div>
+                                        <span id="view_full_size">
+                                            <a class="jqzoom" title="" rel="gal1" href="imagesProduct/124-tm_thickbox_default.jpg" style="outline-style: none; text-decoration: none;">
+                                                <div class="zoomPad">
+                                                    <img id="CoverImage" src=@Model.CoverImageUrl title="" alt=" Sofa Sectional Furniture Set" style="opacity: 1;">
+                                                    <div class="zoomPup" style="width: 531px; height: 531px; position: absolute; display: none; border-width: 1px; left: 124.5px; top: 186.5px;"></div>
+                                                    <div class="zoomPreload" style="top: 352px; left: 328.5px; position: absolute; visibility: hidden;">Loading zoom</div>
+                                                </div>
+                                            </a>
+                                        </span>
+                                    </div>
+
+                                    <div id="views_block" class="clearfix">
+                                        <a id="view_scroll_left" class="" title="Other views" href="javascript:{}" style="cursor: default; opacity: 0; display: none;">
+                                            Previous
+                                        </a>
+                                        <div id="thumbs_list">
+                                            <ul id="thumbs_list_frame" style="height: 576px;">
+                                                @foreach (var item in Model.share_Images)
+                                                {
+                                                    <li id="thumbnail_120" data-imagePath=@item>
+                                                        <a href="javascript:void(0);" title=@Model.Name>
+                                                            <img class="img-responsive" id="thumb_120" src=@item alt=@Model.Name title=@Model.Name height="80" width="80" itemprop="image">
+                                                        </a>
+                                                    </li>
+                                                }
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="pb-right-column col-sm-6 col-md-6 col-lg-4">
+                                    <div class="product-info-line">
+                                        <p id="product_reference">
+                                            <label>Mã sản phẩm: </label>
+                                            <span class="editable" itemprop="sku" content="00115">@Model.ProductCode</span>
+                                        </p>
+                                    </div>
+                                    <h1 itemprop="name"> @Model.Name</h1>
+                                    <div class="product-info-line">
+                                        <p id="product_condition">
+                                            <label>Trạng thái: </label>
+                                            @if (Model.IsNewProduct)
+                                            {
+                                                <span class="editable">Sản phẩm mới</span>
+                                            }
+                                        </p>
+                                    </div>
+
+                                    <div id="buy_block">
+                                        <div class="box-info-product">
+                                            <div class="content_prices clearfix">
+                                                <p class="our_price_display" itemprop="offers" itemscope="" itemtype="https://schema.org/Offer">
+                                                    <span id="our_price_display" itemprop="price" content="1200">@Model.Price</span>
+                                                </p>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div class="product-info-line">
+                                                <p id="product_reference">
+                                                    <label>Nhà sản xuất: </label>
+                                                    <span class="editable">@Model.BrandName</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="clearfix product-information">
+                                <ul class="product-info-tabs nav nav-stacked col-sm-3 col-md-3 col-lg-3">
+                                    <li class="product-description-tab active"><a data-toggle="tab" href="#product-description-tab-content">Thông tin chi tiết</a></li>
+                                    <li class="product-features-tab"><a data-toggle="tab" href="#product-features-tab-content">Giới thiệus</a></li>
+                                </ul>
+                                <div class="tab-content col-sm-9 col-md-9 col-lg-9">
+                                    <div id="product-description-tab-content" class="product-description-tab-content tab-pane active">
+                                        @Model.Description
+                                    </div>
+
+                                    <div id="product-features-tab-content" class="product-features-tab-content tab-pane">
+                                        @Html.Raw(Model.Description2)
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <section class="page-product-box blockproductscategory">
+                                @Html.Partial("HorizontalListProductBar", (IEnumerable<OnlineStore.Model.ViewModel.ProductSummaryView>)ViewBag.NewProductList, new ViewDataDictionary { { "Title", "Sản phẩm mới" } })
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        DetailProductManagement.init();
+    });
+</script>

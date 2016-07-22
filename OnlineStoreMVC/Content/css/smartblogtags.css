@@ -1,0 +1,10 @@
+#tags_blog_block_left .block_content a {
+    border: 1px solid #d6d4d4;
+    display: inline-block;
+    float: left;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 16px;
+    margin: 0 3px 3px 0;
+    padding: 4px 9px 5px;
+}

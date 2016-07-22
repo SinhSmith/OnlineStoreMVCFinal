@@ -1,0 +1,29 @@
+﻿@model IList<OnlineStore.Model.ViewModel.CMSNewsView>
+
+<section id="homepage-blog" class="block">
+    <h4 class="title_block">
+        <a href="#">Latest News</a>
+    </h4>
+    <div class="block_content">
+        <ul class="row">
+            @foreach (var item in Model)
+            {
+                <li class="col-xs-4 col-md-4" style="opacity: 1; left: 0px;">
+                    <div class="wrap-block" style="font-size: 18.7215px;">
+                        <div class="blog-image">
+                            <img alt="@item.Title" style="width: 410px; height: 226px;" class="img-responsive" src="@item.CoverImagePath">
+                        </div>
+                        <div class="blog-cont">
+                            <p class="date-added">@(item.CreatedDate.HasValue ? item.CreatedDate.Value.ToString("MMM dd, yyyy") : DateTime.Now.ToString("MMM dd, yyyy"))</p>
+                            <h5>@item.Title</h5>
+                            <p class="post-descr">
+                                @item.SubTitle
+                            </p>
+                            <a href="@Url.Action("Details", "News", new { id = item.Id })" class="btn btn-default"><span>Chi tiết</span></a>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</section>

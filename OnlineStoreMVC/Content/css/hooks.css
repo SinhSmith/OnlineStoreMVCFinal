@@ -1,0 +1,334 @@
+#htmlcontent_top ul {
+    margin-bottom: 0;
+}
+
+@media (max-width: 767px) {
+    #htmlcontent_top ul {
+        padding: 0 10px;
+    }
+}
+
+#htmlcontent_top ul li {
+    margin-bottom: 30px;
+}
+
+@media (max-width: 767px) {
+    #htmlcontent_top ul li {
+        padding: 0 5px;
+    }
+}
+
+@media (max-width: 479px) {
+    #htmlcontent_top ul li {
+        width: 100%;
+    }
+}
+
+#htmlcontent_top ul li img {
+    -moz-transition: all 0.45s ease-in;
+    -o-transition: all 0.45s ease-in;
+    -webkit-transition: all 0.45s ease-in;
+    transition: all 0.45s ease-in;
+    width: 100%;
+    opacity: 0.85;
+}
+
+#htmlcontent_top ul li .item-html {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    left: 0;
+    top: 0;
+    padding: 16.8% 4% 4%;
+}
+
+@media (max-width: 1199px) {
+    #htmlcontent_top ul li .item-html {
+        padding-top: 12%;
+    }
+}
+
+@media (max-width: 767px) {
+    #htmlcontent_top ul li .item-html {
+        padding-top: 10%;
+    }
+}
+
+#htmlcontent_top ul li a {
+    display: block;
+    text-align: center;
+    font-size: 60px;
+    color: white;
+    text-transform: uppercase;
+    position: relative;
+    background: #5e7485;
+    overflow: hidden;
+}
+
+    #htmlcontent_top ul li a h3 {
+        -moz-transition: -moz-transform 0.4s ease-in;
+        -o-transition: -o-transform 0.4s ease-in;
+        -webkit-transition: -webkit-transform 0.4s ease-in;
+        transition: transform 0.4s ease-in;
+        font: 700 100%/1.3em "Montserrat",sans-serif;
+        color: inherit;
+        margin: 0 0 2.4%;
+    }
+
+@media (min-width: 1200px) {
+    #htmlcontent_top ul li a h3 {
+        -moz-transform: scale(0,0);
+        -ms-transform: scale(0,0);
+        -webkit-transform: scale(0,0);
+        transform: scale(0,0);
+    }
+}
+
+@media (max-width: 767px) {
+    #htmlcontent_top ul li a h3 {
+        margin: 0 0 4%;
+    }
+}
+
+#htmlcontent_top ul li a button {
+    font: 500 16px/1.3em "Ubuntu",sans-serif;
+    text-transform: inherit;
+    background: #2dcc70;
+    padding: 10px 19px;
+}
+
+@media (max-width: 1199px) {
+    #htmlcontent_top ul li a button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+    #htmlcontent_top ul li a button {
+        font-size: 12px;
+        padding: 6px 13px;
+    }
+}
+
+@media (max-width: 767px) and (min-width: 480px) {
+    #htmlcontent_top ul li a button {
+        font-size: 11px;
+        padding: 4px 12px;
+        text-transform: none;
+    }
+}
+
+#htmlcontent_top ul li a button:hover {
+    background: #5e7485;
+}
+
+@media (min-width: 1200px) {
+    #htmlcontent_top ul li a.active_hover h3 {
+        -moz-transform: scale(1,1);
+        -ms-transform: scale(1,1);
+        -webkit-transform: scale(1,1);
+        transform: scale(1,1);
+    }
+
+    #htmlcontent_top ul li a:hover img {
+        -moz-transform: scale(1.05,1.05);
+        -ms-transform: scale(1.05,1.05);
+        -webkit-transform: scale(1.05,1.05);
+        transform: scale(1.05,1.05);
+        opacity: 1;
+    }
+}
+
+#htmlcontent_top ul li + li a h3 {
+    -moz-transition: -moz-transform 0.4s ease-in 0.2s;
+    -o-transition: -o-transform 0.4s ease-in 0.2s;
+    -webkit-transition: -webkit-transform 0.4s ease-in;
+    -webkit-transition-delay: 0.2s;
+    transition: transform 0.4s ease-in 0.2s;
+}
+
+#htmlcontent_top ul li + li + li a h3 {
+    -moz-transition: -moz-transform 0.4s ease-in 0.4s;
+    -o-transition: -o-transform 0.4s ease-in 0.4s;
+    -webkit-transition: -webkit-transform 0.4s ease-in;
+    -webkit-transition-delay: 0.4s;
+    transition: transform 0.4s ease-in 0.4s;
+}
+
+#htmlcontent_home {
+    position: relative;
+}
+
+    #htmlcontent_home ul {
+        margin-bottom: 30px;
+    }
+
+        #htmlcontent_home ul li {
+            width: 100%;
+            position: relative;
+        }
+
+            #htmlcontent_home ul li img {
+                width: 100%;
+                -moz-transition: all 9.5s ease;
+                -o-transition: all 9.5s ease;
+                -webkit-transition: all 9.5s ease;
+                transition: all 9.5s ease;
+            }
+
+            #htmlcontent_home ul li .item-html {
+                position: absolute;
+                width: 100%;
+                text-align: center;
+                left: 0;
+                top: 0;
+                padding: 14.2% 2% 3%;
+                z-index: 1;
+            }
+
+@media (max-width: 991px) {
+    #htmlcontent_home ul li .item-html {
+        padding: 10% 2% 3%;
+    }
+}
+
+@media (max-width: 767px) {
+    #htmlcontent_home ul li .item-html {
+        padding: 8% 2% 3%;
+    }
+}
+
+#htmlcontent_home ul li a {
+    display: block;
+    text-align: center;
+    font-size: 60px;
+    color: white;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+}
+
+@media (max-width: 1199px) {
+    #htmlcontent_home ul li a:after {
+        opacity: 0.45;
+        background: #5e7485;
+        position: absolute;
+        content: "";
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+}
+
+#htmlcontent_home ul li a h4 {
+    -moz-transition: -moz-transform 0.35s ease-in;
+    -o-transition: -o-transform 0.35s ease-in;
+    -webkit-transition: -webkit-transform 0.35s ease-in;
+    transition: transform 0.35s ease-in;
+    font: 400 83.33%/1.3em "Montserrat",sans-serif;
+    color: inherit;
+    margin: 0 0 1.5%;
+}
+
+@media (min-width: 1200px) {
+    #htmlcontent_home ul li a h4 {
+        -moz-transform: scale(0,0);
+        -ms-transform: scale(0,0);
+        -webkit-transform: scale(0,0);
+        transform: scale(0,0);
+    }
+}
+
+@media (max-width: 991px) {
+    #htmlcontent_home ul li a h4 {
+        font-size: 140%;
+        margin: 0 0 1.2%;
+    }
+}
+
+#htmlcontent_home ul li a h3 {
+    -moz-transition: -moz-transform 0.35s ease-in 0.1s;
+    -o-transition: -o-transform 0.35s ease-in 0.1s;
+    -webkit-transition: -webkit-transform 0.35s ease-in;
+    -webkit-transition-delay: 0.1s;
+    transition: transform 0.35s ease-in 0.1s;
+    font: 700 100%/1.3em "Montserrat",sans-serif;
+    color: inherit;
+    margin: 0 0 1.82%;
+}
+
+@media (min-width: 1200px) {
+    #htmlcontent_home ul li a h3 {
+        -moz-transform: scale(0,0);
+        -ms-transform: scale(0,0);
+        -webkit-transform: scale(0,0);
+        transform: scale(0,0);
+    }
+}
+
+@media (max-width: 991px) {
+    #htmlcontent_home ul li a h3 {
+        font-size: 160%;
+        margin: 0 0 1.4%;
+    }
+}
+
+#htmlcontent_home ul li a button {
+    font: 500 16px/1.3em "Ubuntu",sans-serif;
+    background: none;
+    text-decoration: underline;
+    text-transform: uppercase;
+    position: relative;
+}
+
+@media (min-width: 1200px) {
+    #htmlcontent_home ul li a button {
+        -moz-transform: scale(0,0);
+        -ms-transform: scale(0,0);
+        -webkit-transform: scale(0,0);
+        transform: scale(0,0);
+        -moz-transition: all 0.35s ease-in 0.2s;
+        -o-transition: all 0.35s ease-in 0.2s;
+        -webkit-transition: all 0.35s ease-in;
+        -webkit-transition-delay: 0.2s;
+        transition: all 0.35s ease-in 0.2s;
+    }
+}
+
+@media (max-width: 991px) {
+    #htmlcontent_home ul li a button {
+        font-size: 14px;
+    }
+}
+
+#htmlcontent_home ul li a button:hover {
+    text-decoration: none;
+    color: #2dcc70;
+}
+
+@media (min-width: 1200px) {
+    #htmlcontent_home ul li a.active_hover h4, #htmlcontent_home ul li a.active_hover h3, #htmlcontent_home ul li a.active_hover button {
+        -moz-transform: scale(1,1);
+        -ms-transform: scale(1,1);
+        -webkit-transform: scale(1,1);
+        transform: scale(1,1);
+    }
+
+    #htmlcontent_home ul li a:hover button {
+        -moz-transition: all 0.3s ease-in;
+        -o-transition: all 0.3s ease-in;
+        -webkit-transition: all 0.3s ease-in;
+        transition: all 0.3s ease-in;
+        font-size: 23px;
+    }
+
+    #htmlcontent_home ul li a:hover img {
+        -moz-transform: scale(1.15,1.15);
+        -ms-transform: scale(1.15,1.15);
+        -webkit-transform: scale(1.15,1.15);
+        transform: scale(1.15,1.15);
+    }
+}

@@ -1,0 +1,106 @@
+﻿.content_scene_cat {
+    line-height: 19px;
+    margin: 0 0 26px 0;
+}
+.content_scene_cat .content_scene_cat_bg {
+    padding: 20px 0 0 0;
+}
+.content_scene_cat span.category-name {
+    font: 600 25px/30px "Ubuntu", sans-serif;
+    margin-bottom: 12px;
+    display: inline-block;
+}
+@media (max-width: 1199px) {
+    .content_scene_cat span.category-name {
+        font-size: 25px;
+        line-height: 30px;
+    }
+}
+.content_scene_cat p {
+    margin-bottom: 0;
+}
+.content_scene_cat a.lnk_more {
+    font-weight: bold;
+}
+.content_scene_cat a:hover {
+    text-decoration: underline;
+}
+.content_scene_cat .content_scene {
+    color: #8998a3;
+}
+.content_scene_cat .content_scene .cat_desc {
+    padding-top: 20px;
+}
+.content_scene_cat .content_scene .cat_desc a {
+    color: #8998a3;
+}
+.content_scene_cat .content_scene .cat_desc a:hover {
+    color: #526a7c;
+}
+#subcategories {
+    border-top: 1px solid #d6d4d4;
+    padding: 15px 0 0 0;
+}
+#subcategories p.subcategory-heading {
+    font-weight: bold;
+    color: #526a7c;
+    margin: 0 0 15px 0;
+}
+#subcategories ul {
+    margin: 0 0 0 -20px;
+}
+@media (max-width: 479px) {
+    #subcategories ul {
+        margin: 0;
+        text-align: center;
+    }
+}
+#subcategories ul li {
+    float: left;
+    width: 128px;
+    margin: 0 0 13px 20px;
+    text-align: center;
+    height: 202px;
+}
+@media (max-width: 479px) {
+    #subcategories ul li {
+        width: 45%;
+        float: none;
+        margin: 0 1% 13px;
+        display: inline-block;
+        vertical-align: top;
+    }
+}
+#subcategories ul li .subcategory-image {
+    padding: 0 0 8px 0;
+}
+#subcategories ul li .subcategory-image a {
+    display: block;
+    border: 1px solid #d6d4d4;
+    padding: 9px;
+    position: relative;
+    background: white;
+}
+#subcategories ul li .subcategory-image a img {
+    max-width: 100%;
+    vertical-align: top;
+    height: auto;
+}
+#subcategories ul li h5 {
+    margin: 0;
+}
+#subcategories ul li .subcategory-name {
+    font: 600 15px/18px "Ubuntu", sans-serif;
+    color: #526a7c;
+    text-transform: uppercase;
+}
+#subcategories ul li .subcategory-name:hover {
+    opacity: 0.65;
+}
+#subcategories ul li .cat_desc {
+    display: none;
+}
+#subcategories ul li:hover .subcategory-image a {
+    border-width: 5px;
+    padding: 5px;
+}

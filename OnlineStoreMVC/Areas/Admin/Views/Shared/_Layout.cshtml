@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Admin site</title>
+    @Styles.Render("~/Content/adminCss")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/others")
+    @Scripts.Render("~/bundles/adminScript")
+    <script>
+        $(document).ready(function () {
+            $("#Panel_MessageBox").initMessageBox()
+        })
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            @*var navItems = $("#Panel_NavigateBar_AdminPage li").removeClass("active");
+            var activeItem = $("#Panel_NavigateBar_AdminPage li[data-navigateType = @ViewBag.CurrentPageName]").first();
+            $(activeItem).addClass("active");*@
+        })
+    </script>
+
+</head>
+<body class="sidebar-mini skin-green">
+    <div class="wrapper">
+        @RenderPage("_HeaderPartial.cshtml")
+        
+        <div class="content-wrapper">
+            @RenderBody()
+        </div>
+        
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+            </div>
+            <strong>Copyright &copy; @DateTime.Now.Year <a href="#" target="_blank"></a>.</strong> All rights reserved.
+        </footer>
+    </div>
+    <!-- MessageBox -->
+    <div id="Panel_MessageBox">
+    </div>
+    <!-- MessageBox -->
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

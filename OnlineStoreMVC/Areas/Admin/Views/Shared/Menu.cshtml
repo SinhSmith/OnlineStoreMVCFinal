@@ -1,0 +1,8 @@
+﻿@model List<OnlineStore.Model.ViewModel.MenuView>
+
+@foreach (var item in Model)
+{
+    <li class="treeview" id=@("naviLink" + item.Id)>
+        <a href=@item.Url><i class='fa @item.Icon'></i><span>@item.Name</span></a>
+    </li>
+}
