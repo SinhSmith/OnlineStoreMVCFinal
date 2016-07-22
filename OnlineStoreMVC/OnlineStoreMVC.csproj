@@ -193,6 +193,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\20160722.sql" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap\css\bootstrap.css" />
@@ -1802,20 +1803,6 @@
     <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Product\ListImageProduct.cshtml" />
-    <Content Include="Content\template\fonts\fontawesome-webfont.eot" />
-    <Content Include="Content\template\fonts\fontawesome-webfont.ttf" />
-    <Content Include="Content\template\fonts\fontawesome-webfont.woff" />
-    <Content Include="Content\template\fonts\fontawesome-webfont.woff2" />
-    <Content Include="Content\template\fonts\FontAwesome.otf" />
-    <Content Include="Content\template\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\template\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Content\template\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Content\template\fonts\MaterialIcons-Regular.eot" />
-    <Content Include="Content\template\fonts\MaterialIcons-Regular.ttf" />
-    <Content Include="Content\template\fonts\MaterialIcons-Regular.woff" />
-    <Content Include="Content\template\fonts\MaterialIcons-Regular.woff2" />
-    <Content Include="Content\template\js\p" />
-    <Content Include="Content\template\js\visits" />
     <Content Include="Areas\Admin\Views\Shared\_HeaderPartial.cshtml" />
     <Content Include="Areas\Admin\Views\Profile\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Profile\Delete.cshtml" />
@@ -2017,7 +2004,6 @@
     <Content Include="Views\Home\BlogPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Content\custom-file-input\" />
     <Folder Include="Content\Images\CMSNewsImages\" />
