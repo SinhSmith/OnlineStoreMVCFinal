@@ -111,7 +111,7 @@
                             <div class="form-group">
                                 <label class="control-label col-md-2" for="DisplayHomePage">Hiện ở trang chủ</label>
                                 <div class="col-md-10">
-                                    @Html.CheckBoxFor(x => x.DisplayHomePage.Value, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.CheckBox("DisplayHomePage", new { htmlAttributes = new { @class = "form-control" } })
                                     @Html.ValidationMessageFor(model => model.DisplayHomePage, "", new { @class = "text-danger" })
                                 </div>
                             </div>
