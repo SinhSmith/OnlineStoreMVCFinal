@@ -64,7 +64,7 @@
 
 .top_menu > ul > li, .top_menu .stickUpHolder > ul > li {
     display: inline-block;
-    padding: 19px 15px 22px;
+    padding: 19px 0 22px;
 }
 
 @media (max-width: 991px) {
@@ -90,7 +90,7 @@
     transition: all 0.3s ease;
     font: 800 16px/32px "Open Sans",sans-serif;
     display: block;
-    padding: 0 4px;
+    padding: 0 20px;
     border-left: 0;
     color: #526a7c;
     border-left: 1px solid #e0e7ed;
