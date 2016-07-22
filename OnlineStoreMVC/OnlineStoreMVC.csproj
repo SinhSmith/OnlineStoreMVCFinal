@@ -2007,7 +2007,6 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Content\custom-file-input\" />
     <Folder Include="Content\Images\CMSNewsImages\" />
-    <Folder Include="Template\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

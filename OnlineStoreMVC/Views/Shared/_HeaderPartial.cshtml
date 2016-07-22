@@ -197,10 +197,10 @@
                             <div class="stickUpHolder container">
                                 <div class="menu-title tmmegamenu_item">Menu</div>
                                 <ul class="menu clearfix top-level-menu tmmegamenu_item sf-js-enabled sf-arrows">
-                                    @foreach (var item in ViewBag.TopCategoryList)
+                                    @foreach (var item in (IList<OnlineStore.Model.ViewModel.MenuView>)ViewBag.TopCategoryList)
                                     {
                                         <li class="top-level-menu-li tmmegamenu_item it_23637660">
-                                            <a class="it_23637660 top-level-menu-li-a tmmegamenu_item" href="/Product/GetProductByCategory/@item.Id">@item.Name</a>
+                                            <a class="it_23637660 top-level-menu-li-a tmmegamenu_item" href="@item.Url">@item.Name</a>
                                         </li>
                                     }
                                 </ul>

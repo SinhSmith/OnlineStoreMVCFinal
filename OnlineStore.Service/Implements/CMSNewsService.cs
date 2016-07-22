@@ -259,6 +259,7 @@ namespace OnlineStore.Service.Implements
                 {
                     Id = news.Id,
                     CategoryId = news.CategoryId,
+                    CategoryTitle = news.cms_Categories.Title,
                     CoverImageId = news.CoverImageId,
                     CoverImageName = news.share_Images.ImageName,
                     CoverImagePath = news.share_Images.ImagePath,

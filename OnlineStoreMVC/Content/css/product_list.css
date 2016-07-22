@@ -37,9 +37,16 @@ ul.product_list .product-image-container {
 
 ul.product_list .product-image-container img {
     margin: 0 auto;
-    max-width:100%;
-    max-height:150px;
+    max-width: 100%;
+    max-height: 150px;
 }
+
+    ul.product_list .product-image-container img:hover {
+        -moz-transform: scale(1.05,1.05);
+        -ms-transform: scale(1.05,1.05);
+        -webkit-transform: scale(1.05,1.05);
+        transform: scale(1.05,1.05);
+    }
 
 ul.product_list .product-image-container .quick-view {
     font: 500 12px/17px "Ubuntu",sans-serif;
@@ -240,8 +247,7 @@ ul.product_list.grid > li .product-container {
         position: relative;
         margin-bottom: 24px;
         /*padding: 25px;*/
-        height:150px;
-
+        height: 150px;
     }
 
 @media (max-width: 1199px) {

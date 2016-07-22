@@ -16,7 +16,6 @@ namespace OnlineStoreMVC.Controllers
 {
     public class NewsController : Controller
     {
-        private OnlineStoreMVCEntities db = new OnlineStoreMVCEntities();
         private ICMSNewsService _cmsNewsService = new CMSNewsService();
         private ICMSCategoryService _cmsCategoryService = new CMSCategoryService();
 
@@ -46,6 +45,9 @@ namespace OnlineStoreMVC.Controllers
             PopulateCMSChildCategoriesByParentId(id.Value);
             PopulateRecentNews();
 
+            var category = _cmsCategoryService.GetCategoryById(id.Value);
+            ViewBag.CategoryTitle = category.Title;
+
             int totalItems = 0;
             var news = _cmsNewsService.GetCMSNewsByCategoryId(id.Value, page, OnlineStore.Infractructure.Utility.Define.PAGE_SIZE, out totalItems);
             IPagedList<CMSNewsView> pageNews = new StaticPagedList<CMSNewsView>(news, page, OnlineStore.Infractructure.Utility.Define.PAGE_SIZE, totalItems);
@@ -69,17 +71,9 @@ namespace OnlineStoreMVC.Controllers
             PopulateCMSChildCategoriesByParentId(news.CategoryId);
             PopulateRecentNews();
             PopulateRelatedNews(id.Value);
+            ViewBag.CategoryTitle = news.CategoryTitle;
 
             return View(news);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

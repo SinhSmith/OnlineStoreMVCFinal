@@ -100,6 +100,7 @@
             <div class="bottom-footer col-xs-12">
                 <div>
                     © <span class="current-year">@DateTime.Now.Year.ToString()</span> <a class="_blank" title="prestashop" href="/" target="_blank">Copyright by XAVIADECOR™</a>
+                    | Tổng lượt truy cập: @(Convert.ToInt32(ApplicationInstance.Application["TotalVisitors"].ToString()).ToString("N0"))
                 </div>
             </div>
 
@@ -127,7 +128,10 @@
                     <h4>Liên hệ</h4>
                     <ul class="toggle-footer" style="">
                         <li>
-                            Cửa hàng nội thất Xavia - 144 Phan Châu Trinh, Đà Nẵng
+                            <strong>Cửa hàng nội thất Xavia</strong>
+                        </li>
+                        <li>
+                            Địa chỉ: 144 Phan Châu Trinh, TP.Đà Nẵng
                         </li>
                         <li>
                             Tel:
@@ -135,7 +139,7 @@
                             <span>0905 245 001</span>
                         </li>
                         <li>
-                            <span><a href="mailto:">Xaviadeco144@gmail.com</a></span>
+                            <span><a href="mailto:xaviadeco144@gmail.com">xaviadeco144@gmail.com</a></span>
                         </li>
                         <li>
                             <span><a href="https://www.facebook.com/xaviahomedecordanang/">Facebook.com/xavia-decor</a></span>

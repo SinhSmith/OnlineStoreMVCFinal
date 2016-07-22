@@ -4,7 +4,7 @@
 @model IPagedList<OnlineStore.Model.ViewModel.CMSNewsView>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = ViewBag.CategoryTitle;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -15,11 +15,9 @@
             <a class="home" href="/" title="Trở về Trang chủ">
                 <i class="fa fa-home"></i>
             </a>
-            <span class="">&gt;</span>
-            <span class="navigation_page">
-                <span class="navigation-page">
-                    <span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a itemprop="url" href="#">All Blog News</a></span>
-                </span>
+            <span>&gt;</span>
+            <span>
+                @ViewBag.CategoryTitle
             </span>
         </div>
 

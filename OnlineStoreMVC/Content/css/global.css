@@ -5665,7 +5665,7 @@ div.star a:hover {
         .footer-container #footer .footer-block {
           padding-top: 20px; } }
     .footer-container #footer h4 {
-      font: 500 16px/1.4em "Open Sans", sans-serif;
+      /*font: 500 16px/1.4em "Open Sans", sans-serif;*/
       color: #526a7c;
       margin: 0 0 17px;
       text-transform: uppercase;
