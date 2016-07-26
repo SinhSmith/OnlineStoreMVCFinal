@@ -10,7 +10,8 @@ namespace OnlineStore.Service.Interfaces
 {
     public interface IBannerService
     {
-        IList<BannerViewModel> GetBannersForHomePage();
+        IList<BannerViewModel> GetBanners1ForHomePage();
+        BannerViewModel GetBanners2ForHomePage();
         IList<BannerViewModel> GetBanners(int pageNumber, int pageSize, out int totalItems);
         bool AddBanner(BannerViewModel bannerViewModel);
         bool EditBanner(BannerViewModel bannerViewModel);

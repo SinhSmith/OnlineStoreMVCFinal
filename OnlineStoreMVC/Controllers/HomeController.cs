@@ -10,11 +10,16 @@ namespace OnlineStoreMVC.Controllers
 {
     public class HomeController : BaseController
     {
+        IBannerService _bannerService = new BannerService();
+        ICMSNewsService _cmsNewsService = new CMSNewsService();
+
         public ActionResult Index()
         {
             PopulateNewProductList();
             PopulateBestSellProductList();            
             PopulateHighPriorityOrderProductList();
+            ViewBag.Banner2 = _bannerService.GetBanners2ForHomePage();
+
             return View();
         }
 
@@ -40,13 +45,11 @@ namespace OnlineStoreMVC.Controllers
 
         public ActionResult BannerPartial()
         {
-            IBannerService _bannerService = new BannerService();
-            return PartialView(_bannerService.GetBannersForHomePage());
+            return PartialView(_bannerService.GetBanners1ForHomePage());
         }
 
         public ActionResult BlogPartial()
         {
-            ICMSNewsService _cmsNewsService = new CMSNewsService();
             return PartialView(_cmsNewsService.GetCMSNewsForHomePage());
         }
     }
