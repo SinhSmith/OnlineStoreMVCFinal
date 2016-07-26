@@ -39,7 +39,10 @@
                                         <i class="fa fa-tags"></i>
                                         <a href="#">@Model.Tags</a>
                                     </span>
-                                    <span class="comments"><i class="fa fa-comments"></i> 5 bình luận</span>
+                                    @*<span class="comments"><i class="fa fa-comments"></i> 5 bình luận</span>*@
+                                    <span class="views">
+                                        <i class="fa fa-eye"></i> @Model.TotalView.ToString() lượt xem
+                                    </span>
                                 </div>
                             </div>
                             <div itemprop="articleBody">
@@ -108,46 +111,46 @@
                                 </div>
                             </div>*@
 
-                        <div class="smartblogcomments" id="respond">
-                            <h4 class="comment-reply-title page-subheading" id="reply-title">Nhận xét</h4>
-                            <div id="commentInput">
-                                <form action="" method="post" id="commentform">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <b>Name:</b>
-                                                </td>
-                                                <td>
-                                                    <input type="text" tabindex="1" class="inputName form-control grey" value="" name="name">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <b>E-mail: </b>
-                                                </td>
-                                                <td>
-                                                    <input type="text" tabindex="2" class="inputMail form-control grey" value="" name="mail">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <b> Comment:</b>
-                                                </td>
-                                                <td>
-                                                    <textarea tabindex="4" class="inputContent form-control grey" rows="8" cols="50" name="comment"></textarea>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <div class="text-right">
-                                        <div class="submit">
-                                            <input type="submit" name="addComment" id="submitComment" class="bbutton btn btn-default button-medium" value="Submit">
+                        @*<div class="smartblogcomments" id="respond">
+                                <h4 class="comment-reply-title page-subheading" id="reply-title">Nhận xét</h4>
+                                <div id="commentInput">
+                                    <form action="" method="post" id="commentform">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <b>Name:</b>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" tabindex="1" class="inputName form-control grey" value="" name="name">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <b>E-mail: </b>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" tabindex="2" class="inputMail form-control grey" value="" name="mail">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <b> Comment:</b>
+                                                    </td>
+                                                    <td>
+                                                        <textarea tabindex="4" class="inputContent form-control grey" rows="8" cols="50" name="comment"></textarea>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="text-right">
+                                            <div class="submit">
+                                                <input type="submit" name="addComment" id="submitComment" class="bbutton btn btn-default button-medium" value="Submit">
+                                            </div>
                                         </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
+                                    </form>
+                                </div>
+                            </div>*@
                     </div>
 
                     <div id="left_column" class="column col-xs-12 col-sm-3">
@@ -201,16 +204,16 @@
                                 </form>
                             </div>
                         </div>
-                        <section id="tags_blog_block_left" class="block">
-                            <h4 class="title_block">
-                                <a href="#">Tags Post</a>
-                            </h4>
-                            <div class="block_content clearfix" style="">
-                                <a href="#">lorem</a>
-                                <a href="#">ipsum</a>
-                                <a href="#">dolore</a>
-                            </div>
-                        </section>
+                        @*<section id="tags_blog_block_left" class="block">
+                                <h4 class="title_block">
+                                    <a href="#">Tags Post</a>
+                                </h4>
+                                <div class="block_content clearfix" style="">
+                                    <a href="#">lorem</a>
+                                    <a href="#">ipsum</a>
+                                    <a href="#">dolore</a>
+                                </div>
+                            </section>*@
                     </div>
                 </div>
             </div>

@@ -18,6 +18,7 @@ namespace OnlineStore.Service.Interfaces
         bool AddCMSNews(CMSNewsView cmsNewsView);
         bool EditCMSNews(CMSNewsView cmsNewsView);
         bool DeleteCMSNews(int id);
+        bool UpdateCMSNewsCountView(int? newsId);
         CMSNewsView GetCMSNewsById(int? newsId);
     }
 }
