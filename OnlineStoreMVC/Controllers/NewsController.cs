@@ -68,6 +68,9 @@ namespace OnlineStoreMVC.Controllers
                 return HttpNotFound();
             }
 
+            //Increase count view
+            _cmsNewsService.UpdateCMSNewsCountView(id);
+
             PopulateCMSChildCategoriesByParentId(news.CategoryId);
             PopulateRecentNews();
             PopulateRelatedNews(id.Value);

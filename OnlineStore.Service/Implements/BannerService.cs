@@ -13,7 +13,21 @@ namespace OnlineStore.Service.Implements
 {
     public class BannerService : IBannerService
     {
-        public IList<BannerViewModel> GetBannersForHomePage()
+        public IList<BannerViewModel> GetBanners1ForHomePage()
+        {
+            using (var db = new OnlineStoreMVCEntities())
+            {
+                return db.system_Banners.Where(x => x.Status == (int)OnlineStore.Infractructure.Utility.Define.Status.Active && x.Type == (int)OnlineStore.Infractructure.Utility.Define.BannerTypes.Banner1)
+                .Select(x => new BannerViewModel
+                    {
+                        Name = x.Name,
+                        ImageName = x.share_Images.ImageName,
+                        ImagePath = x.share_Images.ImagePath,
+                    }).ToList();
+            }
+        }
+
+        public BannerViewModel GetBanners2ForHomePage()
         {
             int month = DateTime.Now.Month;
             int brandType = 1;
@@ -22,33 +36,39 @@ namespace OnlineStore.Service.Implements
                 case 1:
                 case 2:
                 case 3:
-                    brandType = 1;//Spring
+                    brandType = 2;//Spring
                     break;
                 case 4:
                 case 5:
                 case 6:
-                    brandType = 2;//Summer
+                    brandType = 3;//Summer
                     break;
                 case 7:
                 case 8:
                 case 9:
-                    brandType = 3;//Autumn
+                    brandType = 4;//Autumn
                     break;
                 case 10:
                 case 11:
                 case 12:
-                    brandType = 4;//Winter
+                    brandType = 5;//Winter
                     break;
             }
 
             using (var db = new OnlineStoreMVCEntities())
             {
-                return db.system_Banners.Where(x => x.Status == (int)OnlineStore.Infractructure.Utility.Define.Status.Active && x.Type == brandType)
-                    .Select(x => new BannerViewModel
+                var banner2 = db.system_Banners.FirstOrDefault(x => x.Status == (int)OnlineStore.Infractructure.Utility.Define.Status.Active && x.Type == brandType);
+                if (banner2 != null)
+                {
+                    return new BannerViewModel
                     {
-                        ImageName = x.share_Images.ImageName,
-                        ImagePath = x.share_Images.ImagePath,
-                    }).ToList();
+                        Name = banner2.Name,
+                        ImageName = banner2.share_Images.ImageName,
+                        ImagePath = banner2.share_Images.ImagePath,
+                    };
+                }
+
+                return null;
             }
         }
 

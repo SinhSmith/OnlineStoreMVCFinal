@@ -247,6 +247,25 @@ namespace OnlineStore.Service.Implements
             }
         }
 
+        public bool UpdateCMSNewsCountView(int? newsId)
+        {
+            try
+            {
+                using (var db = new OnlineStoreMVCEntities())
+                {
+                    var news = db.cms_News.Find(newsId);
+                    news.TotalView++;
+                    db.SaveChanges();
+
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public CMSNewsView GetCMSNewsById(int? newsId)
         {
             if (newsId == null)

@@ -38,17 +38,20 @@ namespace OnlineStore.Infractructure.Utility
 
         public enum BannerTypes
         {
-            [Description("Banner mùa Xuân")]
-            SpringSeason = 1,
+            [Description("Banner 1 - Slide")]
+            Banner1 = 1,
 
-            [Description("Banner mùa Hạ")]
-            SummerSeason = 2,
+            [Description("Banner 2 - Mùa Xuân")]
+            SpringSeason = 2,
 
-            [Description("Banner mùa Thu")]
-            AutumnSeason = 3,
+            [Description("Banner 2 - Mùa Hạ")]
+            SummerSeason = 3,
 
-            [Description("Banner mùa Đông")]
-            WinterSeason = 4
+            [Description("Banner 2 - Mùa Thu")]
+            AutumnSeason = 4,
+
+            [Description("Banner 2 - Mùa Đông")]
+            WinterSeason = 5            
         }
     }
 }

@@ -5,7 +5,7 @@
 <div id="columns" class="container">
     <div id="slider_row" class="row">
         <div id="top_column" class="center_column col-xs-12 col-sm-12">
-            
+
             @Html.Action("BannerPartial")
 
             <div id="htmlcontent_top">
@@ -61,7 +61,30 @@
                             @Html.Partial("ListFeatureProducts", (IEnumerable<OnlineStore.Model.ViewModel.ProductSummaryView>)ViewBag.BestSellProductList)
                         </ul>
                     </div>
-                    @Html.Action("BlogPartial")
+
+                    <div class="home-column">
+                        <div id="htmlcontent_home">
+                            <ul class="htmlcontent-home clearfix row">
+                                <li class="htmlcontent-item-1 col-xs-12">
+                                    @if (ViewBag.Banner2 != null)
+                                    {
+                                        var banner2 = (OnlineStore.Model.ViewModel.BannerViewModel)ViewBag.Banner2;
+
+                                        <a href="#" class="item-link active_hover" title="" style="font-size: 43.6949px;">
+                                            <img src="@banner2.ImagePath" clas class="item-img" title="" alt="" width="100%" height="100%">
+                                            <div class="item-html">
+                                                <h4>2016</h4>
+                                                <h3>New Collections</h3>
+                                                <p><button type="button" class="btn btn-default">Shop now!</button></p>
+                                            </div>
+                                        </a>
+                                    }
+                                </li>
+                            </ul>
+                        </div>
+
+                        @Html.Action("BlogPartial")
+                    </div>
                 </div>
             </div>
         </div>
