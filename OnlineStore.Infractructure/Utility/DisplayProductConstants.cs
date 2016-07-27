@@ -10,7 +10,9 @@ namespace OnlineStore.Infractructure.Utility
     public static class DisplayProductConstants
     {
         public const int NumberProductPerPage = 10;
-        public const string NoImagePath = @"~\Content\Images\no-image.png";
+        public const string NoImagePath = @"/Content/Images/no-image.png";
+        public const string LargeProductImageFolderPath = @"/Content/Images/ProductImages/LargeImages/";
+        public const string SmallProductImageFolderPath = @"/Content/Images/ProductImages/SmallImages/";
     }
 
     public enum ProductsSortBy

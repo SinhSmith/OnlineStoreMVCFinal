@@ -59,7 +59,7 @@ namespace OnlineStore.Service.Interfaces
         /// <param name="listImages">list images of product after do action</param>
         /// <param name="imagePath">path of deteled image(using for delete image in folder)</param>
         /// <returns>return true if action is success or false if action is fail</returns>
-        bool DeleteImage(int productId, int imageId, out string imagePath);
+        bool DeleteImage(int productId, int imageId, out share_Images deleteImages);
         /// <summary>
         /// Delete product (set status is Delete)
         /// </summary>

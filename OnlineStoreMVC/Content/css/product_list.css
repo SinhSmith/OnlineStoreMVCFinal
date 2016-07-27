@@ -75,7 +75,7 @@ ul.product_list .product-image-container .quick-view {
         left: 0;
         width: 100%;
         height: 100%;
-        background: #2dcc70;
+        background: #960247;
         opacity: 0.75;
         z-index: -1;
     }
@@ -109,7 +109,7 @@ ul.product_list .product-desc {
 
 ul.product_list .btn.ajax_add_to_cart_button, ul.product_list .btn.ajax_add_to_cart_product_button {
     font: 700 14px/20px "Ubuntu",sans-serif;
-    color: #2dcc70;
+    color: #960247;
     text-transform: uppercase;
     background: none;
     padding: 0;

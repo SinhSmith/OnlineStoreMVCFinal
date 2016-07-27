@@ -1,5 +1,6 @@
 .primary_block {
     margin-bottom: 10px;
+    /*min-height:300px;*/
 }
 
 .product-heading-h5 {
@@ -39,6 +40,7 @@
 
 .pb-left-column {
     margin-bottom: 15px;
+    min-height:300px;
 }
 
 @media only screen and (max-width: 479px) {
@@ -63,6 +65,7 @@
     padding: 5px;
     border: 1px solid #d6d4d4;
     background: white;
+    min-height:420px;
 }
 
     .pb-left-column #image-block.is_caroucel {
@@ -169,36 +172,37 @@
     top: 0;
     left: 15px;
     z-index: 1;
+    height:100%;
+    overflow-y:auto;
 }
 
 #thumbs_list {
     overflow: hidden;
     width: 86px;
-    height: 662px;
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
     #thumbs_list {
-        height: 359px;
+        /*height: 359px;*/
     }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
     #thumbs_list {
-        height: 264px;
+        /*height: 264px;*/
     }
 }
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
     #thumbs_list {
-        height: 356px;
+        /*height: 356px;*/
         width: 86px;
     }
 }
 
 @media only screen and (max-width: 479px) {
     #thumbs_list {
-        height: 212px;
+        /*height: 212px;*/
         width: 68px;
     }
 }
@@ -909,17 +913,17 @@
 #reduction_percent, #reduction_amount {
     display: inline-block;
     font-weight: 400;
-    color: #2dcc70;
+    color: #960247;
     font-size: 18px;
 }
 
 #our_price_display {
     font-size: 30px;
-    color: #2dcc70;
+    color: #960247;
 }
 
     #our_price_display.new-price {
-        color: #2dcc70;
+        color: #960247;
     }
 
 .pb-right-column p.online_only {

@@ -93,7 +93,7 @@
 #htmlcontent_top ul li a button {
     font: 500 16px/1.3em "Ubuntu",sans-serif;
     text-transform: inherit;
-    background: #2dcc70;
+    background: #960247;
     padding: 10px 19px;
 }
 
@@ -306,7 +306,7 @@
 
 #htmlcontent_home ul li a button:hover {
     text-decoration: none;
-    color: #2dcc70;
+    color: #960247;
 }
 
 @media (min-width: 1200px) {

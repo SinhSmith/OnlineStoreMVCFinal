@@ -20,7 +20,106 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
 {
     public class ProductController : BaseManagementController
     {
+        #region properties
+
         private IProductService service = new ProductService();
+        //private static readonly string LoadPath = "/Content/Images/ProductImages/";
+
+        #endregion
+
+        #region private functions
+
+        /// <summary>
+        /// Delete image from server
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        [NonAction]
+        private bool DeleteImageInFolder(string path)
+        {
+
+            string filePath = Server.MapPath("~/" + path);
+            if (System.IO.File.Exists(filePath))
+            {
+                try
+                {
+                    System.IO.File.Delete(filePath);
+                    //System.IO.File.Delete("_small"+filePath);
+                    return true;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Create SelectList using as dataSource for dropdownlist
+        /// </summary>
+        /// <param name="selectedBrandId"></param>
+        /// <returns></returns>
+        private IEnumerable<SelectListItem> PopulateListBrand(int? selectedBrandId = null)
+        {
+            IEnumerable<ecom_Brands> brands = service.GetListBrand();
+
+            IEnumerable<SelectListItem> listBrands = brands.Select(b => new SelectListItem()
+            {
+                Text = b.Name,
+                Value = b.Id.ToString(),
+                Selected = b.Id == selectedBrandId
+            });
+
+            return listBrands;
+        }
+
+        /// <summary>
+        /// Create SelectList using as dataSource for dropdownlist
+        /// </summary>
+        /// <param name="selectedBrandId"></param>
+        /// <returns></returns>
+        private IEnumerable<SelectListItem> PopulateListCategory(int[] selectedCategories = null)
+        {
+            IEnumerable<ecom_Categories> categories = service.GetListCategory();
+
+            return new MultiSelectList(categories, "Id", "Name", selectedCategories);
+        }
+
+        /// <summary>
+        /// Upload product image with 2 size(large and small)
+        /// </summary>
+        /// <param name="file"></param>
+        /// <param name="counter"></param>
+        /// <returns></returns>
+        public bool UploadProductImages(HttpPostedFileBase file, out string largeFileName,Int32 counter = 0)
+        {
+            try
+            {
+                ImageUpload largeImage = new ImageUpload { Width = 600, SavePath = DisplayProductConstants.LargeProductImageFolderPath};
+                ImageUpload smallImage = new ImageUpload { Width = 200,SavePath = DisplayProductConstants.SmallProductImageFolderPath };
+                var fileName = Path.GetFileName(file.FileName);
+                string finalFileName = "ProductImage_" + ((counter).ToString()) + "_" + fileName;
+                if (System.IO.File.Exists(HttpContext.Request.MapPath("~" + DisplayProductConstants.LargeProductImageFolderPath + finalFileName)) || System.IO.File.Exists(HttpContext.Request.MapPath("~" + DisplayProductConstants.SmallProductImageFolderPath + finalFileName)))
+                {
+                    return UploadProductImages(file, out largeFileName, ++counter);
+                }
+                ImageResult uploadLargeImage = largeImage.UploadFile(file, finalFileName);
+                ImageResult uploadSmallImage = smallImage.UploadFile(file, finalFileName);
+                largeFileName = uploadSmallImage.ImageName;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                largeFileName = null;
+                return false;
+            }
+        }
+
+        #endregion
+
+        #region actions
+
 
         /// <summary>
         /// Return view with list product
@@ -181,10 +280,6 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
         [HttpPost, ValidateInput(false)]
         public ActionResult UploadImage(IEnumerable<HttpPostedFileBase> files, int productId)
         {
-            //if (productId == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
             if (files != null)
             {
 
@@ -192,25 +287,24 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
                 {
                     if (file.ContentLength > 0)
                     {
-                        ImageUpload imageUpload = new ImageUpload { Width = 600 };
-                        ImageResult imageResult = imageUpload.RenameUploadFile(file);
-                        if (imageResult.Success)
+                        string largeFileName = null;
+                        bool isSuccess = UploadProductImages(file,out largeFileName);
+                        if (isSuccess)
                         {
-                            share_Images photo = new share_Images
+                            share_Images largeImage = new share_Images
                             {
-                                ImageName = imageResult.ImageName,
-                                ImagePath = Path.Combine(ImageUpload.LoadPath, imageResult.ImageName)
+                                ImageName = largeFileName,
+                                ImagePath = Path.Combine(ImageUpload.LoadPath, largeFileName)
                             };
 
-                            service.AddImageForProduct(productId, photo);
+                            service.AddImageForProduct(productId, largeImage);
                         }
                         else
                         {
                             // use imageResult.ErrorMessage to show the error
-                            ViewBag.Error = imageResult.ErrorMessage;
+                            ViewBag.Error = "Upload product image fail";
                         }
                     }
-
                 }
             }
             return ListImageProduct(productId);
@@ -234,25 +328,19 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
         {
             try
             {
-                string imagePath = "";
-                bool isSuccess = service.DeleteImage(productId, imageId, out imagePath);
+                share_Images deleteImages;
+                bool isSuccess = service.DeleteImage(productId, imageId, out deleteImages);
                 if (isSuccess)
                 {
-                    DeleteImageInFolder(imagePath);
+                    string largeImagePath = DisplayProductConstants.LargeProductImageFolderPath + deleteImages.ImageName + Path.GetExtension(deleteImages.ImageName);
+                    DeleteImageInFolder(largeImagePath);
+                    DeleteImageInFolder(deleteImages.ImagePath);
                 }
                 else
                 {
                     ViewBag.Error = "Error when delete image";
                 }
                 return ListImageProduct(productId);
-                //ecom_Products product = service.GetProductById(productId);
-                //ListImageProductPartialViewModels listImageViewModels = new ListImageProductPartialViewModels()
-                //{
-                //    ProductId = productId,
-                //    Images = product.share_Images.ConvertToImageProductViewModels(),
-                //    CoverImageId = product.CoverImageId
-                //};
-                //return PartialView("ListImageProduct", listImageViewModels);
             }
             catch (Exception)
             {
@@ -278,14 +366,6 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
                 ViewBag.Error = "Error when delete image";
             }
             return ListImageProduct(productId);
-            //ecom_Products product = service.GetProductById(productId);
-            //ListImageProductPartialViewModels listImageViewModels = new ListImageProductPartialViewModels()
-            //{
-            //    ProductId = productId,
-            //    Images = product.share_Images.ConvertToImageProductViewModels(),
-            //    CoverImageId = product.CoverImageId
-            //};
-            //return PartialView("ListImageProduct", listImageViewModels);
         }
 
         /// <summary>
@@ -347,60 +427,7 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
             return PartialView("ListImageProduct", listImageViewModels);
         }
 
-        /// <summary>
-        /// Delete image from server
-        /// </summary>
-        /// <param name="path"></param>
-        /// <returns></returns>
-        [NonAction]
-        private bool DeleteImageInFolder(string path)
-        {
 
-            string filePath = Server.MapPath("~/" + path);
-            if (System.IO.File.Exists(filePath))
-            {
-                try
-                {
-                    System.IO.File.Delete(filePath);
-                    return true;
-                }
-                catch (Exception)
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        /// <summary>
-        /// Create SelectList using as dataSource for dropdownlist
-        /// </summary>
-        /// <param name="selectedBrandId"></param>
-        /// <returns></returns>
-        private IEnumerable<SelectListItem> PopulateListBrand(int? selectedBrandId = null)
-        {
-            IEnumerable<ecom_Brands> brands = service.GetListBrand();
-
-            IEnumerable<SelectListItem> listBrands = brands.Select(b => new SelectListItem()
-            {
-                Text = b.Name,
-                Value = b.Id.ToString(),
-                Selected = b.Id == selectedBrandId
-            });
-
-            return listBrands;
-        }
-
-        /// <summary>
-        /// Create SelectList using as dataSource for dropdownlist
-        /// </summary>
-        /// <param name="selectedBrandId"></param>
-        /// <returns></returns>
-        private IEnumerable<SelectListItem> PopulateListCategory(int[] selectedCategories = null)
-        {
-            IEnumerable<ecom_Categories> categories = service.GetListCategory();
-
-            return new MultiSelectList(categories, "Id", "Name", selectedCategories);
-        }
+        #endregion
     }
 }

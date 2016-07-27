@@ -15,6 +15,7 @@ namespace OnlineStoreMVC.Controllers
             PopulateNewProductList();
             PopulateBestSellProductList();            
             PopulateHighPriorityOrderProductList();
+            PopulateCategoryList();
             return View();
         }
 

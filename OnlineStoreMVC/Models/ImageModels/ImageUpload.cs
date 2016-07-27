@@ -7,11 +7,12 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 
+
 namespace OnlineStoreMVC.Models.ImageModels
 {
     public class ImageUpload
     {
-        public static readonly string LoadPath = "/Content/Images/ProductImages/";
+        public static readonly string LoadPath = "/Content/Images/ProductImages/SmallImages/";
         public static readonly string LoadPathCMSNews = "/Content/Images/CMSNewsImages/";
         public static readonly string LoadPathBanners = "/Content/Images/Banners/";
 
@@ -43,11 +44,11 @@ namespace OnlineStoreMVC.Models.ImageModels
             return UploadFile(file, finalFileName);
         }
 
-        private ImageResult UploadFile(HttpPostedFileBase file, string fileName)
+        public ImageResult UploadFile(HttpPostedFileBase file, string fileName)
         {
             ImageResult imageResult = new ImageResult { Success = true, ErrorMessage = null };
 
-            var path = Path.Combine(HttpContext.Current.Request.MapPath("~" + SavePath), fileName);
+            var path = Path.Combine(HttpContext.Current.Request.MapPath(SavePath), fileName);
             string extension = Path.GetExtension(file.FileName);
 
             //make sure the file is valid
@@ -71,7 +72,7 @@ namespace OnlineStoreMVC.Models.ImageModels
                     imgActual.Dispose();
                 }
 
-                imageResult.ImageName = fileName;
+                imageResult.ImageName = Path.GetFileName(fileName);
                 imageResult.ImagePath = Path.Combine(SavePath, fileName);
                 return imageResult;
             }

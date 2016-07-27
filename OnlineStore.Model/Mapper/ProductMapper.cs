@@ -73,7 +73,7 @@ namespace OnlineStore.Model.Mapper
                 Id = product.Id,
                 Name = product.Name,
                 BrandName = product.ecom_Brands !=null? product.ecom_Brands.Name:"",
-                Price = String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", product.Price),
+                Price = String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:C0}", product.Price),
                 CoverImageUrl = product.CoverImage != null ? product.CoverImage.ImagePath : DisplayProductConstants.NoImagePath,
                 IsNew = product.IsNewProduct,
                 ShortDescription = product.Description

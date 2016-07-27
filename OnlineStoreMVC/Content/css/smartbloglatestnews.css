@@ -110,7 +110,7 @@
 
 #homepage-blog li .wrap-block .date-added {
     font: 700 53.85%/1.3em "Ubuntu",sans-serif;
-    color: #2dcc70;
+    color: #960247;
     margin-bottom: 3%;
     text-transform: uppercase;
 }
@@ -203,7 +203,7 @@
 
 #homepage-blog li .wrap-block .btn.btn-default:hover {
     text-decoration: none;
-    color: #2dcc70;
+    color: #960247;
 }
 
 @media (min-width: 1200px) {

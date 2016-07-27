@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OnlineStore.Model.Mapper;
+using System.IO;
 
 namespace OnlineStore.Service.Implements
 {
@@ -144,6 +145,18 @@ namespace OnlineStore.Service.Implements
             }
         }
 
+        private string GetLargeProductImagePathFromSmallImage(string imageName, string imagePath)
+        {
+            if (imagePath != null)
+            {
+                return DisplayProductConstants.LargeProductImageFolderPath + imageName;
+            }
+            else
+            {
+                return "/Content/Images/no-image.png";
+            }
+        }
+
         /// <summary>
         /// Get list product after category
         /// </summary>
@@ -191,16 +204,29 @@ namespace OnlineStore.Service.Implements
                     Id = product.Id,
                     ProductCode = product.ProductCode,
                     Name = product.Name,
-                    Price = String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", product.Price),
+                    Price = String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:C0}", product.Price),
                     BrandName = product.ecom_Brands!=null? product.ecom_Brands.Name:"",
-                    CoverImageUrl = product.CoverImage!=null?product.CoverImage.ImagePath:"/Content/Images/no-image.png",
                     Description = product.Description,
                     Description2 = product.Description2,
                     Tags = product.Tags,
                     IsNewProduct = product.IsNewProduct,
-                    IsBestSellProduct = product.IsBestSellProduct,
-                    share_Images = product.share_Images.Select(i => i.ImagePath).ToArray()
+                    IsBestSellProduct = product.IsBestSellProduct
                 };
+
+                ImageInfor coverImage = new ImageInfor()
+                {
+                    smallImagePath = product.CoverImage != null ? product.CoverImage.ImagePath : "/Content/Images/no-image.png",
+                    largeImagePath = GetLargeProductImagePathFromSmallImage(product.CoverImage.ImageName, product.CoverImage.ImagePath)
+                };
+
+                List<ImageInfor> productImages = product.share_Images.Select(i => new ImageInfor()
+                {
+                    smallImagePath = i.ImagePath,
+                    largeImagePath = GetLargeProductImagePathFromSmallImage(i.ImageName, i.ImagePath)
+                }).ToList();
+
+                productViewModel.CoverImageUrl = coverImage;
+                productViewModel.share_Images = productImages;
 
                 return productViewModel;
             }

@@ -229,25 +229,25 @@ namespace OnlineStore.Service.Implements
         /// <param name="listImages">list images of product after do action</param>
         /// <param name="imagePath">path of deteled image(using for delete image in folder)</param>
         /// <returns>return true if action is success or false if action is fail</returns>
-        public bool DeleteImage(int productId, int imageId, out string imagePath)
+        public bool DeleteImage(int productId, int imageId, out share_Images deleteImages)
         {
             try
             {
                 ecom_Products product = GetProductById(productId);
                 share_Images image = product.share_Images.Where(i => i.Id == imageId).SingleOrDefault();
+                deleteImages = image;
                 //Delete image in product
                 product.share_Images.Remove(image);
                 db.Save();
                 // Delete image in table share_images
                 var deleteImage = imageRepository.GetByID(imageId);
-                imagePath = deleteImage.ImagePath;
                 imageRepository.Delete(deleteImage);
                 imageRepository.Save();
                 return true;
             }
             catch (Exception)
             {
-                imagePath = null;
+                deleteImages = null;
                 return false;
             }
         }
