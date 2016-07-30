@@ -20,13 +20,7 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
 {
     public class ProductController : BaseManagementController
     {
-        #region properties
-
-        private IProductService service = new ProductService();
-        //private static readonly string LoadPath = "/Content/Images/ProductImages/";
-
-        #endregion
-
+       
         #region private functions
 
         /// <summary>

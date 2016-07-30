@@ -27,6 +27,14 @@ namespace OnlineStore.Service.Implements
 
         #region Functions
 
+        public void RefreshAll()
+        {
+            foreach (var entity in context.ChangeTracker.Entries())
+            {
+                entity.Reload();
+            }
+        }
+
         /// <summary>
         /// Get list product with selected category, seach string, order, filter after price range, filter after brands, paging
         /// </summary>

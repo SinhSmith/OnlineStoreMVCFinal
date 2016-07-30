@@ -1,5 +1,7 @@
 ﻿using OnlineStore.Infractructure.Helper;
 using OnlineStore.Infractructure.Utility;
+using OnlineStore.Service.Implements;
+using OnlineStore.Service.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +13,12 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
     [Authorize(Roles = "Administrator")]
     public class BaseManagementController : Controller
     {
+        protected IProductService service = new ProductService();
+
+        public BaseManagementController()
+        {
+            service.RefreshAll();
+        }
         protected virtual void PopulateStatusDropDownList(Define.Status status = Define.Status.Active)
         {
             IEnumerable<Define.Status> values = Enum.GetValues(typeof(Define.Status)).Cast<Define.Status>();

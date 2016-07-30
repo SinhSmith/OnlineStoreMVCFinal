@@ -27,6 +27,15 @@ namespace OnlineStore.Service.Implements
         #endregion
 
         #region Functions
+
+        public void RefreshAll()
+        {
+            foreach (var entity in context.ChangeTracker.Entries())
+            {
+                entity.Reload();
+            }
+        }
+
         public IEnumerable<ProductSummaryViewModel> GetListProducts()
         {
             IEnumerable<ProductSummaryViewModel> listProducts = db.GetAllProducts().Select(p => new ProductSummaryViewModel()
@@ -212,6 +221,7 @@ namespace OnlineStore.Service.Implements
                 }
 
                 db.Save();
+                RefreshAll();
                 return true;
             }
         }
@@ -264,6 +274,7 @@ namespace OnlineStore.Service.Implements
                 ecom_Products product = GetProductById(id);
                 product.Status = (int)Define.Status.Delete;
                 db.Save();
+                RefreshAll();
                 return true;
             }
             catch (Exception)
@@ -288,6 +299,7 @@ namespace OnlineStore.Service.Implements
                 product.CoverImageId = imageId;
                 db.Update(product);
                 db.Save();
+                RefreshAll();
                 return true;
             }
             catch (Exception)
@@ -331,6 +343,7 @@ namespace OnlineStore.Service.Implements
                 db.Update(product);
                 db.Save();
                 imageRepository.Save();
+                RefreshAll();
 
                 return true;
             }

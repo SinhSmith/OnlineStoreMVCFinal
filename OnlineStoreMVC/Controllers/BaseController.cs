@@ -14,6 +14,11 @@ namespace OnlineStoreMVC.Controllers
 
         public IDisplayProductService service = new DisplayProductService();
 
+        public BaseController()
+        {
+            service.RefreshAll();
+        }
+
         #endregion
 
         #region private functions

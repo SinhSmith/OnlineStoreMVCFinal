@@ -11,8 +11,9 @@ namespace OnlineStore.Service.Interfaces
 {
     public interface IProductService
     {
-         IEnumerable<ProductSummaryViewModel> GetListProducts();
-         IEnumerable<ProductSummaryViewModel> GetProducts(int pageNumber, int pageSize, out int totalItems);
+        void RefreshAll();
+        IEnumerable<ProductSummaryViewModel> GetListProducts();
+        IEnumerable<ProductSummaryViewModel> GetProducts(int pageNumber, int pageSize, out int totalItems);
 
         /// <summary>
         /// Get list brand using for create brand dropdownlist to let user choose brand for product 

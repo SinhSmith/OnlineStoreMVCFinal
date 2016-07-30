@@ -11,6 +11,7 @@ namespace OnlineStore.Service.Interfaces
 {
     public interface IDisplayProductService
     {
+        void RefreshAll();
         GetProductsByCategoryResponse GetProductsByCategory(GetProductsByCategoryRequest request);
         ProductDetailsView GetProductDetails(int id);
         IEnumerable<ProductSummaryView> GetAllNewProduct();
