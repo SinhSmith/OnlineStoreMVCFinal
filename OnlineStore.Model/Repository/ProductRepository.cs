@@ -10,6 +10,8 @@ namespace OnlineStore.Model.Repository
 {
     public class ProductRepository : Repository<ecom_Products>
     {
+        private bool disposed = false;
+
         public ProductRepository(OnlineStoreMVCEntities context)
             : base(context)
         {
@@ -38,6 +40,5 @@ namespace OnlineStore.Model.Repository
         {
             return dbSet.Include("share_Images").Include("CoverImage").Where(c => c.Id == id && c.Status != (int)Define.Status.Delete).FirstOrDefault();
         }
-
     }
 }

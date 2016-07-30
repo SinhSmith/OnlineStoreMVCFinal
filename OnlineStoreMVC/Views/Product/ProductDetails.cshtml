@@ -37,7 +37,7 @@
                                         <span id="view_full_size">
                                             <a class="jqzoom" title="" style="outline-style: none; text-decoration: none;">
                                                 <div class="zoomPad">
-                                                    <img id="CoverImage" src=@Model.CoverImageUrl.largeImagePath data-zoom-image="@Model.CoverImageUrl.largeImagePath" title="" alt=" Sofa Sectional Furniture Set" style="opacity: 1;">
+                                                    <img id="CoverImage" src='@Model.CoverImageUrl.largeImagePath' data-zoom-image="@Model.CoverImageUrl.largeImagePath" title="" alt=" Sofa Sectional Furniture Set" style="opacity: 1;">
                                                     <div class="zoomPup" style="width: 531px; height: 531px; position: absolute; display: none; border-width: 1px; left: 124.5px; top: 186.5px;"></div>
                                                     <div class="zoomPreload" style="top: 352px; left: 328.5px; position: absolute; visibility: hidden;">Loading zoom</div>
                                                 </div>
@@ -53,9 +53,9 @@
                                             <ul id="thumbs_list_frame">
                                                 @foreach (var item in Model.share_Images)
                                                 {
-                                                    <li id="thumbnail_120" data-imagePath=@item.largeImagePath>
-                                                        <a href="javascript:void(0);" title=@Model.Name>
-                                                            <img class="img-responsive" id="thumb_120" data-zoom-image=@item.largeImagePath src=@item.smallImagePath alt=@Model.Name title=@Model.Name height="80" width="80" itemprop="image">
+                                                    <li id="thumbnail_120" data-imagePath='@item.largeImagePath'>
+                                                        <a href="javascript:void(0);" title='@Model.Name'>
+                                                            <img class="img-responsive" id="thumb_120" data-zoom-image='@item.largeImagePath' src='@item.smallImagePath' alt='@Model.Name' title='@Model.Name' height="80" width="80" itemprop="image">
                                                         </a>
                                                     </li>
                                                 }

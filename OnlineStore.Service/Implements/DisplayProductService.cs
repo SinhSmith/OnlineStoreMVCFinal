@@ -213,11 +213,22 @@ namespace OnlineStore.Service.Implements
                     IsBestSellProduct = product.IsBestSellProduct
                 };
 
-                ImageInfor coverImage = new ImageInfor()
+                ImageInfor coverImage;
+                if (product.CoverImage != null)
                 {
-                    smallImagePath = product.CoverImage != null ? product.CoverImage.ImagePath : "/Content/Images/no-image.png",
-                    largeImagePath = GetLargeProductImagePathFromSmallImage(product.CoverImage.ImageName, product.CoverImage.ImagePath)
-                };
+                    coverImage = new ImageInfor()
+                    {
+                        smallImagePath = product.CoverImage.ImagePath,
+                        largeImagePath = GetLargeProductImagePathFromSmallImage(product.CoverImage.ImageName, product.CoverImage.ImagePath)
+                    };
+                }else{
+                    coverImage = new ImageInfor()
+                    {
+                        smallImagePath = "/Content/Images/no-image.png",
+                        largeImagePath = "/Content/Images/no-image.png"
+                    };
+                }
+                
 
                 List<ImageInfor> productImages = product.share_Images.Select(i => new ImageInfor()
                 {

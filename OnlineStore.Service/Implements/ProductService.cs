@@ -311,23 +311,26 @@ namespace OnlineStore.Service.Implements
                 share_Images image = imageRepository.GetByID(imageInfor.ImageId);
                 image.ImageName = imageInfor.Name;
                 image.Status = imageInfor.IsActive ? (int)Define.Status.Active : (int)Define.Status.Deactive;
-                imageRepository.Update(image);
-                imageRepository.Save();
+                
 
                 ecom_Products product = db.GetProductById(productId);
                 if (isCoverImage)
                 {
-                    product.CoverImageId = image.Id;
+                    //product.CoverImageId = image.Id;
+                    product.CoverImage = image;
                 }
                 else
                 {
                     if (product.CoverImageId == image.Id)
                     {
-                        product.CoverImageId = null;
+                        //product.CoverImageId = null;
+                        product.CoverImage = null;
                     }
                 }
+                imageRepository.Update(image);
                 db.Update(product);
                 db.Save();
+                imageRepository.Save();
 
                 return true;
             }

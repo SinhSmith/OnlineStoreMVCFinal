@@ -19,7 +19,7 @@
             @foreach (var item in @Model)
             {
                 <li class="product-box item product-box-horizontal-list-product-bar" style="float: left; list-style: none; position: relative; margin-right: 20px;">
-                    <a href="/Product/ProductDetails/@item.Id" class="lnk_img product-image product-image-horizontal-list-product-bar" title="Side Table"><img src=@item.CoverImageUrl alt="Side Table"></a>
+                    <a href="/Product/ProductDetails/@item.Id" class="lnk_img product-image product-image-horizontal-list-product-bar" title="Side Table"><img src='@item.CoverImageUrl' alt="Side Table"></a>
                     <h5 itemprop="name" class="product-name">
                         <a href="/Product/ProductDetails/@item.Id" title="Side Table">@item.Name</a>
                     </h5>

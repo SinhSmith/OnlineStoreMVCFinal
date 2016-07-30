@@ -332,7 +332,7 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
                 bool isSuccess = service.DeleteImage(productId, imageId, out deleteImages);
                 if (isSuccess)
                 {
-                    string largeImagePath = DisplayProductConstants.LargeProductImageFolderPath + deleteImages.ImageName + Path.GetExtension(deleteImages.ImageName);
+                    string largeImagePath = DisplayProductConstants.LargeProductImageFolderPath + deleteImages.ImageName;
                     DeleteImageInFolder(largeImagePath);
                     DeleteImageInFolder(deleteImages.ImagePath);
                 }

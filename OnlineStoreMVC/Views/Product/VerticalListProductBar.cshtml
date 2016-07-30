@@ -10,12 +10,12 @@
         @foreach (var item in @Model)
         {
             <li class="clearfix">
-                <a class="products-block-image" href="/Product/ProductDetails/@item.Id" title=@item.Name>
-                    <img class="replace-2x img-responsive productimage-verticallistproduct" src=@item.CoverImageUrl alt=@item.Name>
+                <a class="products-block-image" href="/Product/ProductDetails/@item.Id" title='@item.Name'>
+                    <img class="replace-2x img-responsive productimage-verticallistproduct" src='@item.CoverImageUrl' alt='@item.Name'>
                 </a>
                 <div class="product-content">
                     <h5>
-                        <a class="product-name" href="/Product/ProductDetails/@item.Id" title=@item.Name>@item.Name</a>
+                        <a class="product-name" href="/Product/ProductDetails/@item.Id" title='@item.Name'>@item.Name</a>
                     </h5>
                     <p class="product-description">@item.ShortDescription</p>
                     <div class="price-box">
