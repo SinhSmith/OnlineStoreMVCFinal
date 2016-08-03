@@ -1550,6 +1550,7 @@
     <Content Include="Content\plugins\timepicker\bootstrap-timepicker.js" />
     <Content Include="Content\plugins\timepicker\bootstrap-timepicker.min.css" />
     <Content Include="Content\plugins\timepicker\bootstrap-timepicker.min.js" />
+    <Content Include="Content\plugins\zoom-image\jquery-1.8.3.min.js" />
     <Content Include="Content\plugins\zoom-image\jquery.elevateZoom-3.0.8.min.js" />
     <Content Include="Content\plugins\zoom-image\jquery.elevatezoom.js" />
     <Content Include="Content\response\1.4.2\respond.min.js" />

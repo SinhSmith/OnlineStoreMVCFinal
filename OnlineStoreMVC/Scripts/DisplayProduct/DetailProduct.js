@@ -6,14 +6,9 @@
     bindEvents: function () {
         $("#thumbs_list_frame li").unbind("click").bind("click", function () {
             var imagePath = $(this).data("imagepath") || "/Content/Images/no-image.png";
-            
-            //var fileName = imagePath.replace(/\.[^.$]+$/, '');
-            //var extensions = imagePath.match(/\.[^.$]+$/);
-            //var fileExt = (extensions === null) ? "" : extensions[0];
-            //var smallImagePath = fileName + "_small"+fileExt;
             $("#CoverImage").attr("src", imagePath);
-            $("#CoverImage").attr("data-zoom-image",  imagePath);
-            //$(".zoom-image-area").css("background", "url('" + imagePath + "') no-repeat;")
+            $("#CoverImage").data("zoom-image", imagePath);
+            DetailProductManagement.initZoomImageControl();
         });
 
         // search control

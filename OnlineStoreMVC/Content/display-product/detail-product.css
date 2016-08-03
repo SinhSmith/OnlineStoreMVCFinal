@@ -15,3 +15,7 @@
     /*hide the glass by default*/
     display: none;
 }
+
+.zoomLens{
+    z-index:999!important;
+}

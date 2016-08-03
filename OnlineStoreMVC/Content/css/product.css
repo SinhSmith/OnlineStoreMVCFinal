@@ -61,7 +61,7 @@
 
 .pb-left-column #image-block {
     position: relative;
-    z-index: 1;
+    /*z-index: 1;*/
     padding: 5px;
     border: 1px solid #d6d4d4;
     background: white;
