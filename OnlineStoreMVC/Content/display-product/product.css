@@ -32,7 +32,7 @@
 }
 .primary_block .pb-left-column img {
     max-width: 100%;
-    max-height: 500px;
+    max-height: 700px;
     margin: auto;
     display: block;
 }
@@ -56,7 +56,7 @@
 }
 .pb-left-column #image-block {
     position: relative;
-    z-index: 1;
+    /*z-index: 1;*/
     padding: 5px;
     border: 1px solid #d6d4d4;
     background: white;

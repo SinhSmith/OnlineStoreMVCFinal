@@ -90,16 +90,16 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
         {
             try
             {
-                ImageUpload largeImage = new ImageUpload { Width = 600, SavePath = DisplayProductConstants.LargeProductImageFolderPath};
-                ImageUpload smallImage = new ImageUpload { Width = 200,SavePath = DisplayProductConstants.SmallProductImageFolderPath };
+                ImageUpload largeImage = new ImageUpload { SavePath = DisplayProductConstants.LargeProductImageFolderPath};
+                ImageUpload smallImage = new ImageUpload { SavePath = DisplayProductConstants.SmallProductImageFolderPath };
                 var fileName = Path.GetFileName(file.FileName);
                 string finalFileName = "ProductImage_" + ((counter).ToString()) + "_" + fileName;
                 if (System.IO.File.Exists(HttpContext.Request.MapPath("~" + DisplayProductConstants.LargeProductImageFolderPath + finalFileName)) || System.IO.File.Exists(HttpContext.Request.MapPath("~" + DisplayProductConstants.SmallProductImageFolderPath + finalFileName)))
                 {
                     return UploadProductImages(file, out largeFileName, ++counter);
                 }
-                ImageResult uploadLargeImage = largeImage.UploadFile(file, finalFileName);
-                ImageResult uploadSmallImage = smallImage.UploadFile(file, finalFileName);
+                ImageResult uploadLargeImage = largeImage.UploadProductImage(file, finalFileName,1000);
+                ImageResult uploadSmallImage = smallImage.UploadProductImage(file, finalFileName,700);
                 largeFileName = uploadSmallImage.ImageName;
                 return true;
             }
@@ -113,7 +113,6 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
         #endregion
 
         #region actions
-
 
         /// <summary>
         /// Return view with list product
@@ -276,7 +275,6 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
         {
             if (files != null)
             {
-
                 foreach (HttpPostedFileBase file in files)
                 {
                     if (file.ContentLength > 0)
@@ -302,15 +300,6 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
                 }
             }
             return ListImageProduct(productId);
-            //ecom_Products product = service.GetProductById((int)IdProduct);
-
-            //ListImageProductPartialViewModels listImageViewModels = new ListImageProductPartialViewModels()
-            //{
-            //    ProductId = (int)IdProduct,
-            //    Images = product.share_Images.ConvertToImageProductViewModels(),
-            //    CoverImageId = product.CoverImageId
-            //};
-            //return PartialView("ListImageProduct", listImageViewModels);
         }
 
         /// <summary>
@@ -420,7 +409,6 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
             };
             return PartialView("ListImageProduct", listImageViewModels);
         }
-
 
         #endregion
     }
