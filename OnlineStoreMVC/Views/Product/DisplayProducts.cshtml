@@ -26,26 +26,11 @@
                     <div id="center_column" class="center_column col-xs-12 col-sm-9 accordionBox">
                         <h1 class="page-heading product-listing">
                             <span class="cat-name">@Model.SelectedCategoryName </span>
-                            <span class="heading-counter">Có @Model.Products.Count() sản phẩm</span>
                         </h1> <!-- title category panel -->
                         <div class="content_sortPagiBar clearfix">
                             <!-- content filter-display bar -->
                             <div class="sortPagiBar clearfix">
-                                <ul class="display hidden-xs">
-                                    <li class="display-title">View:</li>
-                                    <li id="grid" class="selected">
-                                        <a rel="nofollow" href="#" title="Grid">
-                                            <i class="fa fa-th-large"></i>
-                                            Grid
-                                        </a>
-                                    </li>
-                                    <li id="list">
-                                        <a rel="nofollow" href="#" title="List">
-                                            <i class="fa fa-th-list"></i>
-                                            List
-                                        </a>
-                                    </li>
-                                </ul>
+                                <span class=" display hidden-xs">Có @Model.Products.Count() sản phẩm</span>
                                 <div class="form-group">
                                     <label>Sắp xếp theo</label>
                                     @Html.DropDownList("SortProductOptionsSelectListItems")
