@@ -20,7 +20,7 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
 {
     public class BrandController : BaseManagementController
     {
-        private IBrandManagementService service = new BrandManagementService();
+        private IBrandManagementService brandService = new BrandManagementService();
 
         /// <summary>
         /// Return list of brand
@@ -31,7 +31,7 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
         public ActionResult Index(string keyword, int page = 1)
         {
             int totalItems = 0;
-            var brands = service.GetBrands(page, OnlineStore.Infractructure.Utility.Define.PAGE_SIZE, out totalItems);
+            var brands = brandService.GetBrands(page, OnlineStore.Infractructure.Utility.Define.PAGE_SIZE, out totalItems);
 
             IPagedList<ecom_Brands> pageBrands = new StaticPagedList<ecom_Brands>(brands, page, OnlineStore.Infractructure.Utility.Define.PAGE_SIZE, totalItems);
             return View(pageBrands);
@@ -47,7 +47,7 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DetailsBrandManagementView viewModel = service.GetDetailBrand((int)id);
+            DetailsBrandManagementView viewModel = brandService.GetDetailBrand((int)id);
             if (viewModel == null)
             {
                 return HttpNotFound();
@@ -73,7 +73,7 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                bool isSuccess = service.AddBrand(brand.ConvertToBrandModel());
+                bool isSuccess = brandService.AddBrand(brand.ConvertToBrandModel());
                 if (isSuccess)
                 {
                     return RedirectToAction("Index");
@@ -97,7 +97,7 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ecom_Brands brand = service.GetBrandById((int)id);
+            ecom_Brands brand = brandService.GetBrandById((int)id);
             if (brand == null)
             {
                 return HttpNotFound();
@@ -115,7 +115,7 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                bool isSuccess = service.UpdateBrand(brand.ConvertToBrandModel());
+                bool isSuccess = brandService.UpdateBrand(brand.ConvertToBrandModel());
                 if (isSuccess)
                 {
                     return RedirectToAction("Index");
@@ -135,7 +135,7 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            bool isSuccess = service.DeleteBrand(id);
+            bool isSuccess = brandService.DeleteBrand(id);
             if (!isSuccess)
             {
                 ModelState.AddModelError("ServerError", "Delete brand fail!");

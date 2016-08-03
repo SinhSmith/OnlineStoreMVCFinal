@@ -19,7 +19,7 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
 {
     public class CategoryController : BaseManagementController
     {
-        private ICategoryManagementService service = new CategoryManagementService();
+        private ICategoryManagementService categoryService = new CategoryManagementService();
 
         /// <summary>
         /// Get list available category 
@@ -30,7 +30,7 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
         public ActionResult Index(string keyword, int page = 1)
         {
             int totalItems = 0;
-            var categories = service.GetCategories(page, OnlineStore.Infractructure.Utility.Define.PAGE_SIZE, out totalItems);
+            var categories = categoryService.GetCategories(page, OnlineStore.Infractructure.Utility.Define.PAGE_SIZE, out totalItems);
 
             IPagedList<SummaryCategoryViewModel> pageCategories = new StaticPagedList<SummaryCategoryViewModel>(categories, page, OnlineStore.Infractructure.Utility.Define.PAGE_SIZE, totalItems);
             return View(pageCategories);
@@ -47,7 +47,7 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DetailCategoryViewModel category = service.GetDetailCategory((int)id);
+            DetailCategoryViewModel category = categoryService.GetDetailCategory((int)id);
             if (category == null)
             {
                 return HttpNotFound();
@@ -76,7 +76,7 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                bool isSuccess = service.AddCategory(category);
+                bool isSuccess = categoryService.AddCategory(category);
                 if (isSuccess)
                 {
                     return RedirectToAction("Index");
@@ -101,7 +101,7 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CategoryViewModel category = service.getCategoryViewModel((int)id);
+            CategoryViewModel category = categoryService.getCategoryViewModel((int)id);
             if (category == null)
             {
                 return HttpNotFound();
@@ -121,7 +121,7 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                service.UpdateCategory(category);
+                categoryService.UpdateCategory(category);
                 return RedirectToAction("Index");
             }
             return View(category);
@@ -135,7 +135,7 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            bool isSuccess = service.DeleteCategory(id);
+            bool isSuccess = categoryService.DeleteCategory(id);
             if (!isSuccess)
             {
                 ModelState.AddModelError("ServerError", "Delete brand fail!");
@@ -151,7 +151,7 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
         private void PopulateParentCategoryDropDownList(int? parentId = null, int? id = null)
         {
             IEnumerable<ecom_Categories> listCategories;
-            IEnumerable<ecom_Categories> categories = service.GetAllCategories();
+            IEnumerable<ecom_Categories> categories = categoryService.GetAllCategories();
             if (parentId != null)
             {
                 listCategories = categories.Where(c => c.Id != id).ToList();
