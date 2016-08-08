@@ -48,12 +48,21 @@ namespace OnlineStoreMVC.Controllers
         }
 
         /// <summary>
-        /// Create list category using in top horizontal menu bar
+        /// Create list category using in top vertical menu bar
         /// </summary>
         protected void PopulateCategoryList()
         {
             //ViewBag.TopCategoryList = service.GetTopCategories().Take(7);
-            ViewBag.TopCategoryList = (new MenuService()).GetMenuByType((int)OnlineStore.Infractructure.Utility.Define.MenuEnum.User);
+            ViewBag.CategoryList = (new MenuService()).GetMenuByType((int)OnlineStore.Infractructure.Utility.Define.MenuEnum.User);
+        }
+
+        /// <summary>
+        /// Create list category using in top horizontal menu bar
+        /// </summary>
+        protected void PopulateTopCategoryList()
+        {
+            //ViewBag.TopCategoryList = service.GetTopCategories().Take(7);
+            ViewBag.TopCategoryList = (new MenuService()).GetMenuByType((int)OnlineStore.Infractructure.Utility.Define.MenuEnum.User).Take(6).ToList();
         }
 
         #endregion
