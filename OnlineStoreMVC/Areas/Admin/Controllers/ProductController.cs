@@ -103,7 +103,7 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
                 largeFileName = uploadSmallImage.ImageName;
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 largeFileName = null;
                 return false;

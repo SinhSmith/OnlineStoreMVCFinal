@@ -24,6 +24,8 @@ namespace OnlineStore.Model.Context
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public Nullable<System.Guid> ModifiedBy { get; set; }
         public Nullable<System.DateTime> ModifiedDate { get; set; }
+        public Nullable<System.DateTime> StartDate { get; set; }
+        public Nullable<System.DateTime> EndDate { get; set; }
     
         public virtual share_Images share_Images { get; set; }
     }
