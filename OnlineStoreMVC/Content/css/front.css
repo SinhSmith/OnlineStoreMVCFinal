@@ -21,7 +21,7 @@
 
     #header-login .header_user_info a {
         font: 300 14px/18px "Ubuntu",sans-serif;
-        color: #960247;
+        color: #630a34;
         /*display: block;*/
         cursor: pointer;
         padding: 3px;
@@ -139,7 +139,7 @@
     }
 
     #header-login-content .btn.btn-default:hover, #header-login-content a.create:hover {
-        background: #960247;
+        background: #630a34;
     }
 
 #header-login-content #HeaderSubmitLogin {

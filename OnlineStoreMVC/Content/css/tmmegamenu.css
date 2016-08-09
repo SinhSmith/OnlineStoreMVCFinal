@@ -184,7 +184,7 @@
 }
 
 .top_menu > ul > li > a:hover, .top_menu .stickUpHolder > ul > li > a:hover {
-    color: #960247;
+    color: #630a34;
 }
 
     .top_menu > ul > li > a:hover:before, .top_menu .stickUpHolder > ul > li > a:hover:before {
@@ -197,7 +197,7 @@
     }
 
 .top_menu > ul > li.sfHover > a, .top_menu > ul > li.sfHoverForce > a, .top_menu .stickUpHolder > ul > li.sfHover > a, .top_menu .stickUpHolder > ul > li.sfHoverForce > a {
-    color: #960247;
+    color: #630a34;
 }
 
 @media only screen and (min-width: 768px) {
@@ -281,7 +281,7 @@
             top: 7px;
             left: 0;
             content: "";
-            background: #960247;
+            background: #630a34;
             width: 7px;
             height: 7px;
             -moz-border-radius: 8px;
@@ -290,11 +290,11 @@
         }
 
         .top_menu li li a:hover, .top_menu .stickUpHolder li li a:hover {
-            color: #960247;
+            color: #630a34;
         }
 
     .top_menu li li.sfHoverForce > a, .top_menu .stickUpHolder li li.sfHoverForce > a {
-        color: #960247;
+        color: #630a34;
     }
 
 .top_menu .menu_badge, .top_menu .stickUpHolder .menu_badge {
@@ -421,11 +421,11 @@
 }
 
 .top_menu .is-megamenu ul.content > li > a:hover, .top_menu .stickUpHolder .is-megamenu ul.content > li > a:hover {
-    color: #960247;
+    color: #630a34;
 }
 
 .top_menu .is-megamenu ul.content > li.sfHoverForce > a, .top_menu .stickUpHolder .is-megamenu ul.content > li.sfHoverForce > a {
-    color: #960247;
+    color: #630a34;
 }
 
 .top_menu .is-megamenu ul.content ul, .top_menu .stickUpHolder .is-megamenu ul.content ul {
