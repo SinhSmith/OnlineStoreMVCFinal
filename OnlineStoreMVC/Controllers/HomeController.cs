@@ -19,6 +19,7 @@ namespace OnlineStoreMVC.Controllers
             PopulateBestSellProductList();            
             PopulateHighPriorityOrderProductList();
             PopulateCategoryList();
+            PopulateTopCategoryList();
             ViewBag.Banner2 = _bannerService.GetBanners2ForHomePage();
             return View();
         }
@@ -40,6 +41,7 @@ namespace OnlineStoreMVC.Controllers
         public ActionResult _HeaderPartial()
         {
             PopulateCategoryList();
+            PopulateTopCategoryList();
             return PartialView();
         }
 

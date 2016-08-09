@@ -82,7 +82,49 @@
 .top_menu > ul > li:first-child a, .top_menu .stickUpHolder > ul > li:first-child a {
     border: none;
 }
+.top_menu .dropbtn {
+    background: #f7f9fb;
+    color: #526a7c;
+    padding-left: 12px;
+    font: 800 14px/32px "Open Sans",sans-serif;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+}
 
+.top_menu .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.top_menu .dropdown-content {
+    display: none;
+    position: absolute;
+    background: #f7f9fb;
+    min-width: 215px;
+    box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.2);
+}
+
+.top_menu .dropdown-content a {
+    color: #526a7c;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.top_menu .dropdown-content a:hover {
+    background-color: #f1f1f1;
+    color: #960247;
+}
+
+.top_menu .dropdown:hover .dropdown-content {
+    display: block;
+    color: #960247;
+}
+
+.top_menu .dropdown:hover .dropbtn {
+    color: #960247;
+}
 .top_menu > ul > li > a, .top_menu .stickUpHolder > ul > li > a {
     -moz-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
