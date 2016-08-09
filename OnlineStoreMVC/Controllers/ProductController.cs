@@ -150,6 +150,7 @@ namespace OnlineStoreMVC.Controllers
             PopulateNewProductList();
             PopulateBestSellProductList();
             PopulateCategoryList();
+            PopulateTopCategoryList();
             return View("DisplayProducts",response);
         }
 
@@ -180,6 +181,7 @@ namespace OnlineStoreMVC.Controllers
             ProductDetailsView product = service.GetProductDetails((int)id);
             PopulateNewProductList();
             PopulateCategoryList();
+            PopulateTopCategoryList();
 
             return View("ProductDetails", product);
         }
