@@ -859,15 +859,15 @@ table.table-product-discounts tr th {
 #reduction_amount {
     display: inline-block;
     font-weight: 400;
-    color: #960247;
+    color: #630a34;
     font-size: 18px;
 }
 #our_price_display {
     font-size: 30px;
-    color: #960247;
+    color: #630a34;
 }
 #our_price_display.new-price {
-    color: #960247;
+    color: #630a34;
 }
 .pb-right-column p.online_only {
     font-weight: 700;

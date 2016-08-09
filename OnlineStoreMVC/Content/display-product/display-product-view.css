@@ -25,7 +25,7 @@
     color: #526a7c;
 }
 .btn-filter-after-price>i:hover, .btn-filter-after-price>i:focus {
-    color:#960247;
+    color:#630a34;
 }
 
 .tooltip {
@@ -76,5 +76,5 @@ ul.product_list.grid > li .product-container .product-image-container.image-cont
 }
 
 .left-category-link-displayproduct:hover{
-    color:#960247;
+    color:#630a34;
 }

@@ -45,10 +45,11 @@ ul#header_links li a {
     -o-transition: all 0.3s ease;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
-    font: 300 14px/18px "Open Sans",sans-serif;
+    font: 300 15px/18px "Open Sans",sans-serif;
     margin-right: 10px;
     cursor: pointer;
     color: #8998a3;
+    font-weight: 600;
 }
 
 @media (max-width: 767px) {

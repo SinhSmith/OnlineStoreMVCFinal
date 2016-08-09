@@ -4472,7 +4472,7 @@ span.exclusive {
     margin-left: 5px; }
   .btn.btn-default:hover, .btn.btn-default:active, .btn.btn-default:active:focus, .btn.btn-default:focus {
     color: white;
-    background: #960247;
+    background: #630a34;
     border: none;
     outline: none; }
 
@@ -4643,13 +4643,13 @@ a.product-name:hover {
 
 .price {
   font-size: 17px;
-  color: #960247;
+  color: #630a34;
   white-space: nowrap;
   margin-bottom: 7px; }
 
 .price.product-price {
   font: 500 18px/23px "Ubuntu", sans-serif;
-  color: #960247; }
+  color: #630a34; }
 
 .old-price {
   font: 400 15px/23px "Ubuntu", sans-serif;
@@ -4659,7 +4659,7 @@ a.product-name:hover {
   margin-left: 3px; }
 
 .special-price {
-  color: #960247; }
+  color: #630a34; }
 
 .price-percent-reduction {
   background: #5e7485;
@@ -4691,7 +4691,7 @@ a.product-name:hover {
 
 .new-label {
   font: 700 12px/16px "Ubuntu", sans-serif;
-  color: #960247;
+  color: #630a34;
   background: #fff;
   padding: 3px 10px 6px;
   text-align: center;
@@ -4710,7 +4710,7 @@ a.product-name:hover {
 .sale-label {
   font: 700 12px/16px "Ubuntu", sans-serif;
   color: white;
-  background: #960247;
+  background: #630a34;
   padding: 3px 7px 6px 8px;
   text-align: center;
   display: block;
@@ -4859,12 +4859,12 @@ a.product-name:hover {
       border: none; }
   #home-page-tabs > li.active a,
   #home-page-tabs > li a:hover {
-    color: #960247;
+    color: #630a34;
     background: none; }
     @media (max-width: 767px) {
       #home-page-tabs > li.active a,
       #home-page-tabs > li a:hover {
-        color: #960247; } }
+        color: #630a34; } }
 
 .block {
   margin-bottom: 30px; }
@@ -4916,7 +4916,7 @@ a.product-name:hover {
     color: #526a7c; }
     .block .title_block a:hover,
     .block h4 a:hover {
-      color: #960247; }
+      color: #630a34; }
 .block .list-block {
   margin-top: -8px; }
   @media (max-width: 767px) {
@@ -5202,12 +5202,12 @@ ul.footer_links {
       .bottom-pagination-content ul.pagination li.pagination_previous > a:focus,
       .bottom-pagination-content ul.pagination li.pagination_next > a:hover,
       .bottom-pagination-content ul.pagination li.pagination_next > a:focus {
-        color: #960247 !important; }
+        color: #630a34 !important; }
     .top-pagination-content ul.pagination li > a:hover,
     .top-pagination-content ul.pagination li > a:focus,
     .bottom-pagination-content ul.pagination li > a:hover,
     .bottom-pagination-content ul.pagination li > a:focus {
-      background: #960247;
+      background: #630a34;
       color: white; }
     .top-pagination-content ul.pagination #pagination_previous_bottom > a:hover,
     .top-pagination-content ul.pagination #pagination_previous_bottom > a:focus,
@@ -5238,7 +5238,7 @@ ul.footer_links {
   .bottom-pagination-content .pagination > .active > span,
   .bottom-pagination-content .pagination > .active > span:hover,
   .bottom-pagination-content .pagination > .active > span:focus {
-    background: #960247;
+    background: #630a34;
     z-index: 0; }
   .top-pagination-content .compare-form,
   .bottom-pagination-content .compare-form {
@@ -5623,7 +5623,7 @@ div.star a:hover {
     text-decoration: none;
     font-weight: normal; }
     .breadcrumb a:hover {
-      color: #960247; }
+      color: #630a34; }
     .breadcrumb a:before, .breadcrumb a:after {
       bottom: 0;
       content: "";
@@ -5692,14 +5692,14 @@ div.star a:hover {
         font: inherit;
         color: inherit; }
         .footer-container #footer h4 a:hover {
-          color: #960247; }
+          color: #630a34; }
     .footer-container #footer ul {
       margin-bottom: 0; }
       .footer-container #footer ul li {
         padding-bottom: 10px; }
         .footer-container #footer ul li a {
           font: 300 14px/1.5em "Ubuntu", sans-serif;
-          color: #960247;
+          color: #630a34;
           text-decoration: underline; }
           .footer-container #footer ul li a:hover {
             color: #526a7c;
@@ -5898,7 +5898,7 @@ a.price_discount_delete {
         font: 600 13px/22px "Ubuntu", sans-serif; } }
   #cart_summary tfoot td#total_price_container {
     font: 600 21px/25px "Ubuntu", sans-serif;
-    color: #960247;
+    color: #630a34;
     background: white; }
 
 @media (max-width: 767px) {
@@ -7237,13 +7237,13 @@ div.star.star_hover:after {
   clear: right; }
 
 ul.step li.step_current {
-  background: #960247; }
+  background: #630a34; }
 
 ul.step li.step_current span:after {
-  background: #960247; }
+  background: #630a34; }
 
 .socialsharing_product {
   margin-bottom: 20px; }
 
 #habla_window_div #habla_topbar_div {
-  background: #960247 !important; }
+  background: #630a34 !important; }
