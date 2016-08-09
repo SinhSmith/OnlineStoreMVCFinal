@@ -4,6 +4,10 @@
     clear: right;
 }
 
+.wrap-cart{
+    display: none;
+}
+
 @media (max-width: 767px) {
     .wrap-cart {
         padding: 25px 0 20px 26px;
