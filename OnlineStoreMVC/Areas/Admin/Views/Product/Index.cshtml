@@ -79,8 +79,8 @@
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Status)
                                 </td>
-                                <td>
-                                    @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "btn btn-primary glyphicon glyphicon-edit" }) 
+                                <td class="center-text">
+                                    @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "btn btn-primary glyphicon glyphicon-edit" })
                                     <a class="btn btn-danger glyphicon glyphicon-trash" onclick="ProductManagement.deleteProduct(@item.Id, '@item.Name')"></a>
                                 </td>
                             </tr>

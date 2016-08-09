@@ -55,7 +55,7 @@
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Description)
                                 </td>
-                                <td>
+                                <td class="center-text">
                                     @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "btn btn-primary glyphicon glyphicon-edit" })
                                     @Html.ActionLink(" ", "Details", new { id = item.Id }, new { @class = "btn btn-info glyphicon glyphicon-info-sign" })
                                     <a class="btn btn-danger glyphicon glyphicon-trash" onclick="BrandManagement.deleteBrand(@item.Id, '@item.Name')"></a>

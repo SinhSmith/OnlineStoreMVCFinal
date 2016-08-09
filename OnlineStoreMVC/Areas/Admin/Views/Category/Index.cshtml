@@ -60,7 +60,7 @@
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Status)
                                 </td>
-                                <td>
+                                <td class="center-text">
                                     @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "btn btn-primary glyphicon glyphicon-edit" })
                                     @Html.ActionLink(" ", "Details", new { id = item.Id }, new { @class = "btn btn-info glyphicon glyphicon-info-sign" })
                                     <a class="btn btn-danger glyphicon glyphicon-trash" onclick="CategoryManagement.deleteCategory(@item.Id, '@item.Name')"></a>
