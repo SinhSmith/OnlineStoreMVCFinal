@@ -1,16 +1,4 @@
 ﻿@model IList<OnlineStore.Model.ViewModel.BannerViewModel>
-
-<script>
-    $(document).ready(function () {
-        $('#homeslider').bxSlider({
-            auto: true,
-            pager: false,
-            controls: false,
-            minSlides: 2
-        });
-    });
-</script>
-
 <div id="homepage-slider">
     <ul id="homeslider">
         @foreach (var item in Model)
@@ -22,4 +10,12 @@
             </li>
         }
     </ul>
+    <div id="bx-pager-thumb">
+        @foreach (var item in Model)
+        {
+            <a class="thumb-1" data-slide-index="0" href="">
+                <img src="@(item.ImagePath)" alt="">
+            </a>
+        }
+    </div>
 </div>
