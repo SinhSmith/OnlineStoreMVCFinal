@@ -154,7 +154,7 @@
                         <div class="layer_cart_overlay"></div>
 
                         <div id="header-login">
-                            <div class="header_user_info">
+                            @*<div class="header_user_info">
                                 @if (Request.IsAuthenticated)
                                 {
                                     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
@@ -175,11 +175,11 @@
                                     <span>|</span>
                                     <a href="/Account/Login">Đăng nhập</a>
                                 }
-                            </div>
+                            </div>*@
                         </div>
                         <div id="tmsearch" class="clearfix">
                             <div id="tmsearchbox">
-                                <input class="tm_search_query form-control ac_input" type="text" id="tm_search_query" name="search_query" placeholder="Nhập từ khóa" value="" autocomplete="off">
+                                <input class="tm_search_query font-size-child-menu form-control ac_input" type="text" id="tm_search_query" name="search_query" placeholder="Nhập từ khóa" value="" autocomplete="off">
                                 <button id="SearchProduct_Btn" name="tm_submit_search" class="btn btn-default button-search">
                                     <span>Search</span>
                                 </button>
@@ -202,7 +202,7 @@
                                         <div class="dropdown-content">
                                             @foreach (var item in (IList<OnlineStore.Model.ViewModel.MenuView>)ViewBag.CategoryList)
                                             {
-                                                <a href="@item.Url">@item.Name</a>
+                                                <a class="font-size-child-menu" href="@item.Url">@item.Name</a>
                                             }
                                         </div>
                                     </li>
