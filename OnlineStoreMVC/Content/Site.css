@@ -4,3 +4,7 @@
     right: 20px;
     z-index: 9999;
 }
+
+.font-size-child-menu, .left-menu-product {
+font-size: 10.5pt !important;
+}

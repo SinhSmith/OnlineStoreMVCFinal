@@ -2,8 +2,12 @@
     position: relative;
     float: right;
     margin: 59px 0 30px 15px;
-    border-right: 1px solid #e0e7ed;
+    /*border-right: 1px solid #e0e7ed;*/
     z-index: 2;
+}
+
+#header-login {
+    clear: right;
 }
 
 @media (max-width: 767px) {

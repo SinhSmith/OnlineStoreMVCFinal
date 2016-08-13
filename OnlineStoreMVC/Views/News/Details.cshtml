@@ -163,7 +163,7 @@
                                     @foreach (var item in (IList<OnlineStore.Model.ViewModel.CMSCategoryView>)ViewBag.ChildCategories)
                                     {
                                         <li>
-                                            <a href="@Url.Action("Index", "News", new { id = item.Id })">@item.Title</a>
+                                            <a class="font-size-child-menu" href="@Url.Action("Index", "News", new { id = item.Id })">@item.Title</a>
                                         </li>
                                     }
                                 </ul>

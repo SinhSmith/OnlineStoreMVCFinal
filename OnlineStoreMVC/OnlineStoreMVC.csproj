@@ -193,7 +193,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\20160722.sql" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap\css\bootstrap.css" />
@@ -582,7 +581,7 @@
     <Content Include="Content\Images\Banners\faviorIcon.jpg" />
     <Content Include="Content\Images\Banners\item_0_3a5665a553a21342177dc39236c79ab1338d49f6_slide1.jpg" />
     <Content Include="Content\Images\Banners\item_0_de8f87bc1e4da3ee068cc6c6c076b2b7c8184e0a_banner4.jpg" />
-    <Content Include="Content\Images\Banners\XaviaLogo.png" />
+    <Content Include="Content\Images\Banners\XaviaLogo.jpg" />
     <Content Include="Content\Images\bx_loader.gif" />
     <Content Include="Content\Images\CMSNewsImages\item_0_21-3.jpg" />
     <Content Include="Content\Images\CMSNewsImages\item_0_3-home-default.jpg" />
