@@ -19,7 +19,54 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
 {
     public class CategoryController : BaseManagementController
     {
+        #region Properties
+
         private ICategoryManagementService categoryService = new CategoryManagementService();
+
+        #endregion
+
+        #region Constructures
+
+        public CategoryController()
+        {
+            categoryService = new CategoryManagementService();
+        }
+
+        #endregion
+
+        #region Private functions
+
+        /// <summary>
+        /// Create  Category SelectList using as DataSource of ParentId DropDownList 
+        /// </summary>
+        /// <param name="parentId"></param>
+        /// <param name="id"></param>
+        private void PopulateParentCategoryDropDownList(int? parentId = null, int? id = null)
+        {
+            IEnumerable<ecom_Categories> listCategories;
+            IEnumerable<ecom_Categories> categories = categoryService.GetAllCategories();
+            if (parentId != null)
+            {
+                listCategories = categories.Where(c => c.Id != id).ToList();
+            }
+            else
+            {
+                listCategories = categories;
+            }
+
+            IEnumerable<SelectListItem> items = from category in listCategories
+                                                select new SelectListItem
+                                                {
+                                                    Text = category.Name,
+                                                    Value = category.Id.ToString(),
+                                                    Selected = category.Id == parentId
+                                                };
+            ViewBag.ParentId = items;
+        }
+
+        #endregion
+
+        #region Actions
 
         /// <summary>
         /// Get list available category 
@@ -143,32 +190,20 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-        /// <summary>
-        /// Create  Category SelectList using as DataSource of ParentId DropDownList 
-        /// </summary>
-        /// <param name="parentId"></param>
-        /// <param name="id"></param>
-        private void PopulateParentCategoryDropDownList(int? parentId = null, int? id = null)
-        {
-            IEnumerable<ecom_Categories> listCategories;
-            IEnumerable<ecom_Categories> categories = categoryService.GetAllCategories();
-            if (parentId != null)
-            {
-                listCategories = categories.Where(c => c.Id != id).ToList();
-            }
-            else
-            {
-                listCategories = categories;
-            }
+        #endregion
 
-            IEnumerable<SelectListItem> items = from category in listCategories
-                                                select new SelectListItem
-                                                {
-                                                    Text = category.Name,
-                                                    Value = category.Id.ToString(),
-                                                    Selected = category.Id == parentId
-                                                };
-            ViewBag.ParentId = items;
+        #region Release resources
+
+        /// <summary>
+        /// Dispose database connection
+        /// </summary>
+        /// <param name="disposing"></param>
+        protected override void Dispose(bool disposing)
+        {
+            categoryService.Dispose();
+            base.Dispose(disposing);
         }
+
+        #endregion
     }
 }

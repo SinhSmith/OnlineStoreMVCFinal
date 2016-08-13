@@ -10,11 +10,22 @@ namespace OnlineStore.Model.Repository
 {
     public class CategoryRepository : Repository<ecom_Categories>
     {
+        #region Contructures
+
         public CategoryRepository(OnlineStoreMVCEntities context)
             : base(context)
         {
 
         }
+
+        #endregion
+
+        #region Public functions
+
+        /// <summary>
+        /// Get all category
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<ecom_Categories> GetAllCategories()
         {
             return dbSet.ToList();
@@ -38,6 +49,10 @@ namespace OnlineStore.Model.Repository
             return dbSet.Where(c =>c.Id == id && c.Status != (int)Define.Status.Delete).FirstOrDefault();
         }
 
+        /// <summary>
+        /// Get all category with status is active
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<ecom_Categories> GetAllActiveCategory()
         {
             return dbSet.Where(c => c.Status == (int)Define.Status.Active).ToList();
@@ -50,6 +65,8 @@ namespace OnlineStore.Model.Repository
         public IEnumerable<ecom_Categories> GetTopCategories()
         {
             return dbSet.Where(c => c.Status == (int)Define.Status.Active && c.ParentId == null).Take(8).ToList();
-        } 
+        }
+
+        #endregion
     }
 }

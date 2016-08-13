@@ -10,8 +10,13 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
 {
     public class HomeController : BaseManagementController
     {
+        #region Properties
+
         private IMenuService _menuService = new MenuService();
 
+        #endregion
+
+        #region Actions
         public ActionResult Index()
         {
             return View();
@@ -23,5 +28,7 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
             var menu = _menuService.GetMenuByType((int)OnlineStore.Infractructure.Utility.Define.MenuEnum.Admin);
             return PartialView(menu);
         }
+
+        #endregion
     }
 }

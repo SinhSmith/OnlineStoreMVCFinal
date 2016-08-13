@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OnlineStore.Service.Interfaces
 {
-    public interface IProductService
+    public interface IProductService:IDisposable
     {
         void RefreshAll();
         IEnumerable<ProductSummaryViewModel> GetListProducts();

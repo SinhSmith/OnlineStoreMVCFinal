@@ -61,7 +61,6 @@
     <Compile Include="Implements\BrandManagementService.cs" />
     <Compile Include="Implements\CategoryManagementService.cs" />
     <Compile Include="Implements\DisplayProductService.cs" />
-    <Compile Include="Implements\ManageProductService.cs" />
     <Compile Include="Implements\ProductService.cs" />
     <Compile Include="Interfaces\IBannerService.cs" />
     <Compile Include="Interfaces\ISystemConfigService.cs" />

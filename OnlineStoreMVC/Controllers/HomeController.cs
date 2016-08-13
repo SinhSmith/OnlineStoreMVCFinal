@@ -10,8 +10,24 @@ namespace OnlineStoreMVC.Controllers
 {
     public class HomeController : BaseController
     {
+        #region Properties
+
         IBannerService _bannerService = new BannerService();
         ICMSNewsService _cmsNewsService = new CMSNewsService();
+
+        #endregion
+
+        #region Constructures
+
+        public HomeController()
+        {
+            _bannerService = new BannerService();
+            _cmsNewsService = new CMSNewsService();
+        }
+
+        #endregion
+
+        #region Actions
 
         public ActionResult Index()
         {
@@ -54,5 +70,20 @@ namespace OnlineStoreMVC.Controllers
         {
             return PartialView(_cmsNewsService.GetCMSNewsForHomePage());
         }
+
+        #endregion
+
+        #region Release resources
+
+        /// <summary>
+        /// Dispose database connection
+        /// </summary>
+        /// <param name="disposing"></param>
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+        }
+
+        #endregion
     }
 }

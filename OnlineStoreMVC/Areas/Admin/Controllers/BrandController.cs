@@ -20,7 +20,22 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
 {
     public class BrandController : BaseManagementController
     {
+        #region Properties
+
         private IBrandManagementService brandService = new BrandManagementService();
+
+        #endregion
+
+        #region Constructures
+
+        public BrandController()
+        {
+            brandService = new BrandManagementService();
+        }
+
+        #endregion
+
+        #region Actions
 
         /// <summary>
         /// Return list of brand
@@ -142,5 +157,21 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
             }
             return Redirect("Index");
         }
+
+        #endregion
+
+        #region Release resources
+
+        /// <summary>
+        /// Dispose database connection
+        /// </summary>
+        /// <param name="disposing"></param>
+        protected override void Dispose(bool disposing)
+        {
+            brandService.Dispose();
+            base.Dispose(disposing);
+        }
+
+        #endregion
     }
 }

@@ -58,7 +58,7 @@
                                                 <span class="layered_subtitle">Danh mục sản phẩm</span>
                                             </div>
                                             <ul class="col-lg-12 layered_filter_ul">
-                                                @foreach (var category in ViewBag.TopCategoryList)
+                                                @foreach (var category in ViewBag.CategoryList)
                                                 {
                                                     <li class="nomargin col-lg-12">
                                                         <a class="left-category-link-displayproduct" href="/Product/GetProductByCategory/@category.Id">@category.Name</a>

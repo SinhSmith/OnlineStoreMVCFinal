@@ -26,8 +26,24 @@ namespace OnlineStore.Service.Implements
 
         #endregion
 
-        #region Functions
+        #region Constructures
 
+        public ProductService()
+        {
+            context = new OnlineStoreMVCEntities();
+            db = new ProductRepository(context);
+            brandRepository = new BrandRepository(context);
+            imageRepository = new Repository<share_Images>(context);
+            categoryRepository = new CategoryRepository(context);
+        }
+
+        #endregion
+
+        #region Public functions
+
+        /// <summary>
+        /// Refresh entities to clear cache of Entity framework
+        /// </summary>
         public void RefreshAll()
         {
             foreach (var entity in context.ChangeTracker.Entries())
@@ -36,6 +52,10 @@ namespace OnlineStore.Service.Implements
             }
         }
 
+        /// <summary>
+        /// Get list product with summary information
+        /// </summary>
+        /// <returns> Collection of summary product object </returns>
         public IEnumerable<ProductSummaryViewModel> GetListProducts()
         {
             IEnumerable<ProductSummaryViewModel> listProducts = db.GetAllProducts().Select(p => new ProductSummaryViewModel()
@@ -55,10 +75,10 @@ namespace OnlineStore.Service.Implements
         /// <summary>
         /// Get list products with paging, sort, filter
         /// </summary>
-        /// <param name="pageNumber"></param>
-        /// <param name="pageSize"></param>
-        /// <param name="totalItems"></param>
-        /// <returns></returns>
+        /// <param name="pageNumber">current page index are showing on Layout</param>
+        /// <param name="pageSize">total product are displayed on a page</param>
+        /// <param name="totalItems">number of found product</param>
+        /// <returns>List found product with summary information</returns>
         public IEnumerable<ProductSummaryViewModel> GetProducts(int pageNumber, int pageSize, out int totalItems)
         {
             IEnumerable<ecom_Products> products = db.GetAllProductsWithoutDelete();
@@ -226,6 +246,11 @@ namespace OnlineStore.Service.Implements
             }
         }
 
+        /// <summary>
+        /// Get product object by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ecom_Products GetProductById(int id)
         {
             return db.GetProductById(id);
@@ -360,6 +385,21 @@ namespace OnlineStore.Service.Implements
         public IEnumerable<ecom_Categories> GetListCategory()
         {
             return categoryRepository.GetAllActiveCategory();
+        }
+
+        #endregion
+
+        #region Release resources
+
+        /// <summary>
+        /// Dispose database connection using in repositories, which used in this service
+        /// </summary>
+        public void Dispose()
+        {
+            db.Dispose();
+            brandRepository.Dispose();
+            imageRepository.Dispose();
+            categoryRepository.Dispose();
         }
 
         #endregion

@@ -25,15 +25,18 @@ namespace OnlineStore.Service.Implements
 
         #endregion
 
-        #region Functions
+        #region Constructures
 
-        public void RefreshAll()
+        public DisplayProductService()
         {
-            foreach (var entity in context.ChangeTracker.Entries())
-            {
-                entity.Reload();
-            }
+            context = new OnlineStoreMVCEntities();
+            db = new ProductRepository(context);
+            categoryRepository = new CategoryRepository(context);
         }
+
+        #endregion
+
+        #region Private functions
 
         /// <summary>
         /// Get list product with selected category, seach string, order, filter after price range, filter after brands, paging
@@ -88,6 +91,12 @@ namespace OnlineStore.Service.Implements
 
         }
 
+        /// <summary>
+        /// Get list product match conditions(seach string, best sell products, new products, sort, filter, paging...)
+        /// </summary>
+        /// <param name="request">condition filters</param>
+        /// <param name="searchType">seach type(seach string or best products or new products)</param>
+        /// <returns>list product matched with conditions</returns>
         private IEnumerable<ecom_Products> GetAllProductsMatchingSearchString(SearchProductRequest request, SearchType searchType = SearchType.SearchString)
         {
             var searchQuery = PredicateBuilder.True<ecom_Products>();
@@ -135,10 +144,10 @@ namespace OnlineStore.Service.Implements
         /// <summary>
         /// Crop list product result to satisfy current page
         /// </summary>
-        /// <param name="productsFound"></param>
-        /// <param name="pageIndex"></param>
-        /// <param name="numberOfResultsPerPage"></param>
-        /// <returns></returns>
+        /// <param name="productsFound">list product need to paging</param>
+        /// <param name="pageIndex">current index of page on Layout</param>
+        /// <param name="numberOfResultsPerPage">total product displayed on a page</param>
+        /// <returns>list product result</returns>
         private IEnumerable<ecom_Products> CropProductListToSatisfyGivenIndex(IEnumerable<ecom_Products> productsFound, int pageIndex, int numberOfResultsPerPage)
         {
             if (pageIndex > 1)
@@ -153,9 +162,14 @@ namespace OnlineStore.Service.Implements
             }
         }
 
-        private string GetLargeProductImagePathFromSmallImage(string imageName, string imagePath)
+        /// <summary>
+        /// Get path of large size image of product 
+        /// </summary>
+        /// <param name="imageName">image name</param>
+        /// <returns>large image path</returns>
+        private string GetLargeProductImagePathFromSmallImage(string imageName)
         {
-            if (imagePath != null)
+            if (imageName != null)
             {
                 return DisplayProductConstants.LargeProductImageFolderPath + imageName;
             }
@@ -164,6 +178,10 @@ namespace OnlineStore.Service.Implements
                 return "/Content/Images/no-image.png";
             }
         }
+
+        #endregion
+
+        #region Public functions
 
         /// <summary>
         /// Get list product after category
@@ -175,7 +193,8 @@ namespace OnlineStore.Service.Implements
             string categoryName = categoryRepository.GetByID(request.CategoryId).Name;
             IEnumerable<ecom_Products> foundProducts = GetAllProductsMatchingQueryAndSort(request);
 
-            GetProductsByCategoryResponse reponse = new GetProductsByCategoryResponse(){
+            GetProductsByCategoryResponse reponse = new GetProductsByCategoryResponse()
+            {
                 SelectedCategoryName = categoryName,
                 SelectedCategory = request.CategoryId,
                 BeginPrice = request.BeginPrice,
@@ -187,7 +206,7 @@ namespace OnlineStore.Service.Implements
                 SortBy = (int)request.SortBy,
                 BrandIds = request.BrandIds,
                 Products = CropProductListToSatisfyGivenIndex(foundProducts, request.Index, request.NumberOfResultsPerPage).ConvertToProductSummaryViews(),
-                Brands = foundProducts.Select(p => p.ecom_Brands).Where(b => b!=null).Distinct().ToList().ConvertToBrandSummaryViews()// return list Brand exist in group product belong to selected category
+                Brands = foundProducts.Select(p => p.ecom_Brands).Where(b => b != null).Distinct().ToList().ConvertToBrandSummaryViews()// return list Brand exist in group product belong to selected category
             };
 
             return reponse;
@@ -196,8 +215,8 @@ namespace OnlineStore.Service.Implements
         /// <summary>
         /// Get details product
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">id of product</param>
+        /// <returns>Product details object</returns>
         public ProductDetailsView GetProductDetails(int id)
         {
             ecom_Products product = db.GetProductById(id);
@@ -213,7 +232,7 @@ namespace OnlineStore.Service.Implements
                     ProductCode = product.ProductCode,
                     Name = product.Name,
                     Price = String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:C0}", product.Price),
-                    BrandName = product.ecom_Brands!=null? product.ecom_Brands.Name:"",
+                    BrandName = product.ecom_Brands != null ? product.ecom_Brands.Name : "",
                     Description = product.Description,
                     Description2 = product.Description2,
                     Tags = product.Tags,
@@ -227,21 +246,23 @@ namespace OnlineStore.Service.Implements
                     coverImage = new ImageInfor()
                     {
                         smallImagePath = product.CoverImage.ImagePath,
-                        largeImagePath = GetLargeProductImagePathFromSmallImage(product.CoverImage.ImageName, product.CoverImage.ImagePath)
+                        largeImagePath = GetLargeProductImagePathFromSmallImage(product.CoverImage.ImageName)
                     };
-                }else{
+                }
+                else
+                {
                     coverImage = new ImageInfor()
                     {
                         smallImagePath = "/Content/Images/no-image.png",
                         largeImagePath = "/Content/Images/no-image.png"
                     };
                 }
-                
+
 
                 List<ImageInfor> productImages = product.share_Images.Select(i => new ImageInfor()
                 {
                     smallImagePath = i.ImagePath,
-                    largeImagePath = GetLargeProductImagePathFromSmallImage(i.ImageName, i.ImagePath)
+                    largeImagePath = GetLargeProductImagePathFromSmallImage(i.ImageName)
                 }).ToList();
 
                 productViewModel.CoverImageUrl = coverImage;
@@ -279,7 +300,7 @@ namespace OnlineStore.Service.Implements
         /// <returns></returns>
         public IEnumerable<ProductSummaryView> GetListHighPriorityOrderProduct()
         {
-            IEnumerable<ecom_Products> products = db.Get(filter: p => p.Status == (int)Define.Status.Active, orderBy:p => p.OrderBy(x =>x.SortOrder) ).Take(10);
+            IEnumerable<ecom_Products> products = db.Get(filter: p => p.Status == (int)Define.Status.Active, orderBy: p => p.OrderBy(x => x.SortOrder)).Take(10);
 
             return products.ConvertToProductSummaryViews();
         }
@@ -314,6 +335,30 @@ namespace OnlineStore.Service.Implements
                 Brands = foundProducts.Select(p => p.ecom_Brands).Where(b => b != null).Distinct().ToList().ConvertToBrandSummaryViews()// return list Brand exist in group product belong to selected category
             };
             return response;
+        }
+
+        #endregion
+
+        #region Release resources
+
+        /// <summary>
+        /// Refresh entities to clean cache of Entity framework
+        /// </summary>
+        public void RefreshAll()
+        {
+            foreach (var entity in context.ChangeTracker.Entries())
+            {
+                entity.Reload();
+            }
+        }
+
+        /// <summary>
+        /// Dispose database connection using in repositories, which used in this service
+        /// </summary>
+        public void Dispose()
+        {
+            db.Dispose();
+            categoryRepository.Dispose();
         }
 
         #endregion

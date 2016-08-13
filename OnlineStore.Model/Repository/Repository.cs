@@ -101,7 +101,6 @@ namespace OnlineStore.Model.Repository
         public virtual void Dispose()
         {
             Dispose(true);
-            //context.Dispose();
             GC.SuppressFinalize(this);
         }
     }

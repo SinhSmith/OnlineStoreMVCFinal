@@ -22,7 +22,18 @@ namespace OnlineStore.Service.Implements
 
         #endregion
 
+        #region Constructures
+
+        public CategoryManagementService()
+        {
+            db = new CategoryRepository(new OnlineStoreMVCEntities());
+            systemProfiles = new Repository<system_Profiles>(new OnlineStoreMVCEntities());
+        }
+
+        #endregion
+
         #region Public functions
+
         /// <summary>
         /// Get list summary category, which have status is Active or Deactive
         /// </summary>
@@ -182,6 +193,19 @@ namespace OnlineStore.Service.Implements
             {
                 return null;
             }
+        }
+
+        #endregion
+
+        #region Release resources
+
+        /// <summary>
+        /// Dispose database connection using in repositories, which used in this service
+        /// </summary>
+        public void Dispose()
+        {
+            db.Dispose();
+            systemProfiles.Dispose();
         }
 
         #endregion

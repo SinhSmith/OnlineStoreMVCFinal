@@ -15,8 +15,19 @@ namespace OnlineStore.Service.Implements
     public class BrandManagementService : IBrandManagementService
     {
         #region Properties
+
         private BrandRepository db = new BrandRepository(new OnlineStoreMVCEntities());
         private Repository<system_Profiles> systemProfiles = new Repository<system_Profiles>(new OnlineStoreMVCEntities());
+
+        #endregion
+
+        #region Constructures
+
+        public BrandManagementService()
+        {
+            db = new BrandRepository(new OnlineStoreMVCEntities());
+            systemProfiles = new Repository<system_Profiles>(new OnlineStoreMVCEntities());
+        }
 
         #endregion
 
@@ -116,6 +127,19 @@ namespace OnlineStore.Service.Implements
             {
                 return false;
             }
+        }
+
+        #endregion
+
+        #region Release resources
+
+        /// <summary>
+        /// Dispose database connection using in repositories, which used in this service
+        /// </summary>
+        public void Dispose()
+        {
+            db.Dispose();
+            systemProfiles.Dispose();
         }
 
         #endregion

@@ -20,8 +20,17 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
 {
     public class ProductController : BaseManagementController
     {
-       
-        #region private functions
+
+        #region Constructures
+
+        public ProductController()
+        {
+
+        }
+
+        #endregion
+
+        #region Private functions
 
         /// <summary>
         /// Delete image from server
@@ -38,7 +47,6 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
                 try
                 {
                     System.IO.File.Delete(filePath);
-                    //System.IO.File.Delete("_small"+filePath);
                     return true;
                 }
                 catch (Exception)
@@ -112,7 +120,7 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
 
         #endregion
 
-        #region actions
+        #region Actions
 
         /// <summary>
         /// Return view with list product
@@ -408,6 +416,19 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
                 CoverImageId = product.CoverImageId
             };
             return PartialView("ListImageProduct", listImageViewModels);
+        }
+
+        #endregion
+
+        #region Release resources
+
+        /// <summary>
+        /// Dispose database connection
+        /// </summary>
+        /// <param name="disposing"></param>
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
         }
 
         #endregion

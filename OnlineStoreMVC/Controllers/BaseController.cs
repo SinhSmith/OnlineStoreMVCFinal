@@ -10,18 +10,23 @@ namespace OnlineStoreMVC.Controllers
 {
     public class BaseController : Controller
     {
-        #region properties
+        #region Properties
 
         public IDisplayProductService service = new DisplayProductService();
 
+        #endregion
+        
+        #region Constructures
+
         public BaseController()
         {
-            service.RefreshAll();
+            service = new DisplayProductService();
+            //service.RefreshAll();
         }
 
         #endregion
 
-        #region private functions
+        #region Private functions
 
         /// <summary>
         /// Create list new products in system
@@ -52,8 +57,8 @@ namespace OnlineStoreMVC.Controllers
         /// </summary>
         protected void PopulateCategoryList()
         {
-            //ViewBag.TopCategoryList = service.GetTopCategories().Take(7);
-            ViewBag.CategoryList = (new MenuService()).GetMenuByType((int)OnlineStore.Infractructure.Utility.Define.MenuEnum.User);
+            //ViewBag.CategoryList = (new MenuService()).GetMenuByType((int)OnlineStore.Infractructure.Utility.Define.MenuEnum.User);
+            ViewBag.CategoryList = service.GetTopCategories();
         }
 
         /// <summary>
@@ -61,8 +66,21 @@ namespace OnlineStoreMVC.Controllers
         /// </summary>
         protected void PopulateTopCategoryList()
         {
-            //ViewBag.TopCategoryList = service.GetTopCategories().Take(7);
             ViewBag.TopCategoryList = (new MenuService()).GetMenuByType((int)OnlineStore.Infractructure.Utility.Define.MenuEnum.User).Take(6).ToList();
+        }
+
+        #endregion
+
+        #region Release resources
+
+        /// <summary>
+        /// Dispose database connection
+        /// </summary>
+        /// <param name="disposing"></param>
+        protected override void Dispose(bool disposing)
+        {
+            //service.Dispose();
+            base.Dispose(disposing);
         }
 
         #endregion

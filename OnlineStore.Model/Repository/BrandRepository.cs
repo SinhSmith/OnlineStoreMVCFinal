@@ -10,10 +10,17 @@ namespace OnlineStore.Model.Repository
 {
     public class BrandRepository : Repository<ecom_Brands>
     {
+        #region Constructures
+
         public BrandRepository(OnlineStoreMVCEntities context):base(context)
         {
             
         }
+
+        #endregion
+
+        #region Public functions
+
         /// <summary>
         /// Get all brand except which one have status equal Delete
         /// </summary>
@@ -22,5 +29,7 @@ namespace OnlineStore.Model.Repository
         {
             return dbSet.Where(b => b.Status!= (int)Define.Status.Delete).ToList();
         }
+
+        #endregion
     }
 }

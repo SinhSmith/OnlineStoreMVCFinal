@@ -10,13 +10,22 @@ namespace OnlineStore.Model.Repository
 {
     public class ProductRepository : Repository<ecom_Products>
     {
-        //private bool disposed = false;
+        #region Constructures
 
         public ProductRepository(OnlineStoreMVCEntities context)
             : base(context)
         {
 
         }
+
+        #endregion
+
+        #region Public functions
+
+        /// <summary>
+        /// Get all product
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<ecom_Products> GetAllProducts()
         {
             return dbSet.ToList();
@@ -29,7 +38,6 @@ namespace OnlineStore.Model.Repository
         public IEnumerable<ecom_Products> GetAllProductsWithoutDelete()
         {
             return dbSet.Include("share_Images").Include("CoverImage").Where(c => c.Status != (int)Define.Status.Delete).ToList();
-            //return dbSet.Include("share_Images,CoverImage").Where(c => c.Status != (int)Define.Status.Delete).ToList();
         }
 
         /// <summary>
@@ -40,5 +48,7 @@ namespace OnlineStore.Model.Repository
         {
             return dbSet.Include("share_Images").Include("CoverImage").Where(c => c.Id == id && c.Status != (int)Define.Status.Delete).FirstOrDefault();
         }
+
+        #endregion
     }
 }

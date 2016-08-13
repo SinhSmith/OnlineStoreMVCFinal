@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OnlineStore.Service.Interfaces
 {
-    public interface ICategoryManagementService
+    public interface ICategoryManagementService:IDisposable
     {
         IEnumerable<SummaryCategoryViewModel> GetListCategories();
         IEnumerable<ecom_Categories> GetAllCategories();

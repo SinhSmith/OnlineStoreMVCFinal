@@ -200,9 +200,9 @@
                                     <li class="dropdown">
                                         <a class="dropbtn"><span class="glyphicon glyphicon-align-justify"></span>  Danh mục sản phẩm</a>
                                         <div class="dropdown-content">
-                                            @foreach (var item in (IList<OnlineStore.Model.ViewModel.MenuView>)ViewBag.CategoryList)
+                                            @foreach (var item in (IEnumerable<OnlineStore.Model.ViewModel.SummaryCategoryViewModel>)ViewBag.CategoryList)
                                             {
-                                                <a href="@item.Url">@item.Name</a>
+                                                <a href="/Product/GetProductByCategory/@item.Id">@item.Name</a>
                                             }
                                         </div>
                                     </li>

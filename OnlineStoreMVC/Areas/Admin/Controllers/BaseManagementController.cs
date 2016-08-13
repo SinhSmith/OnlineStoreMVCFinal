@@ -13,12 +13,28 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
     [Authorize(Roles = "Administrator")]
     public class BaseManagementController : Controller
     {
+        #region Properties
+
         protected IProductService service = new ProductService();
+
+        #endregion
+
+        #region Constructures
 
         public BaseManagementController()
         {
-            service.RefreshAll();
+            service = new ProductService();
+            //service.RefreshAll();
         }
+
+        #endregion
+
+        #region Public functions
+
+        /// <summary>
+        /// Get list options for Status dropdownlist and assign to Variable in ViewBag of view
+        /// </summary>
+        /// <param name="status"></param>
         protected virtual void PopulateStatusDropDownList(Define.Status status = Define.Status.Active)
         {
             IEnumerable<Define.Status> values = Enum.GetValues(typeof(Define.Status)).Cast<Define.Status>();
@@ -34,6 +50,10 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
             ViewBag.Status = items;
         }
 
+        /// <summary>
+        /// Get list options for banner types dropdownlist and assign to Variable in ViewBag of view
+        /// </summary>
+        /// <param name="status"></param>
         protected virtual void PopulateBannerTypesDropDownList(Define.BannerTypes banner = Define.BannerTypes.SpringSeason)
         {
             IEnumerable<Define.BannerTypes> values = Enum.GetValues(typeof(Define.BannerTypes)).Cast<Define.BannerTypes>();
@@ -47,5 +67,21 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
 
             ViewBag.Type = items;
         }
+
+        #endregion
+
+        #region Release resources
+
+        /// <summary>
+        /// Dispose database connection
+        /// </summary>
+        /// <param name="disposing"></param>
+        protected override void Dispose(bool disposing)
+        {
+            service.Dispose();
+            base.Dispose(disposing);
+        }
+
+        #endregion
     }
 }

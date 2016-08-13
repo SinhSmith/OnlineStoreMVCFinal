@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OnlineStore.Service.Interfaces
 {
-    public interface IBrandManagementService
+    public interface IBrandManagementService : IDisposable
     {
         /// <summary>
         /// Get brand with conditions(sort, filter, paging, search)
