@@ -11,19 +11,19 @@
   margin-bottom: 28px;
   margin-top: 35px;
   font: bold 65px/85px "Ubuntu", sans-serif;
-  color: #526a7c;
+  color: #263f52;
   text-align: center;
   }
   #cms #center_column h1 a {
-    color: #526a7c; }
+    color: #263f52; }
     #cms #center_column h1 a:hover {
-      color: #8998a3; }
+      color: #263f52; }
   @media (max-width: 567px) {
     #cms #center_column h1 {
       font: bold 40px/55px "Ubuntu", sans-serif; } }
 #cms #center_column h2 {
   font: bold 36px/45px "Ubuntu", sans-serif;
-  color: #526a7c; }
+  color: #263f52; }
   #cms #center_column h2.icon:before {
     line-height: 45px;
     font-size: 56px;
@@ -37,13 +37,13 @@
   border-bottom: none;
   margin: 10px 0 26px;
   padding: 0;
-  color: #526a7c; }
+  color: #263f52; }
   @media (max-width: 567px) {
     #cms #center_column h3 {
       font: bold 16px/24px "Ubuntu", sans-serif; } }
 #cms #center_column h4 {
   font: bold 16px/30px "Ubuntu", sans-serif;
-  color: #526a7c;
+  color: #263f52;
   margin: 0 0 15px; }
   #cms #center_column h4:after {
     display: none; }
@@ -71,7 +71,7 @@
 #cms #center_column .animateCount li {
   text-align: center;
   font: bold 56px/45px "Ubuntu", sans-serif;
-  color: #526a7c;
+  color: #263f52;
   padding: 6px 15px 0; }
   @media (min-width: 768px) and (max-width: 991px) {
     #cms #center_column .animateCount li {
@@ -97,7 +97,7 @@
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
     border-radius: 3px;
-    color: #526a7c;
+    color: #263f52;
     background: #fbfbfb;
     padding: 54px 50px 0;
     font: bold 20px/34px "Ubuntu", sans-serif;
@@ -155,7 +155,7 @@
       -webkit-border-radius: 50%;
       border-radius: 50%;
       margin-right: 35px;
-      color: #526a7c;
+      color: #263f52;
       margin-bottom: 10px; }
       @media (max-width: 580px) {
         #cms #center_column .list-2 li:before {
@@ -188,7 +188,7 @@
       line-height: 30px;
       margin-right: 15px;
       font-weight: 300;
-      color: #8998a3; }
+      color: #263f52; }
   #cms #center_column .list-3.disk {
     padding-top: 31px; }
     #cms #center_column .list-3.disk li h4:before {
@@ -214,7 +214,7 @@
   #cms #center_column .list-4 li:before {
     font-size: 86px;
     line-height: 1em;
-    color: #526a7c;
+    color: #263f52;
     margin: 0 0 8px;
     display: inline-block; }
 #cms #center_column #testimonials li {
@@ -228,7 +228,7 @@
   #cms #center_column #testimonials li:before {
     font-size: 84px;
     line-height: 1em;
-    color: #526a7c;
+    color: #263f52;
     margin: 0 0 38px;
     display: block;
     text-align: center; }
@@ -258,7 +258,7 @@
     #cms #center_column .bx-wrapper .bx-controls-direction a.bx-next:before {
       content: "\f054"; }
   #cms #center_column .bx-wrapper .bx-controls-direction a:hover {
-    color: #526a7c; }
+    color: #263f52; }
 #cms #center_column .list-accordion > li > h3 {
   margin-bottom: 9px;
   cursor: pointer; }
@@ -382,7 +382,7 @@
           filter: none;
           background: #0084bf; }
       #cms #center_column #admin-action-cms p .btn.lnk_view {
-        color: #526a7c;
+        color: #263f52;
         text-shadow: 1px 1px white;
         border-color: #cacaca #b7b7b7 #9a9a9a #b7b7b7;
         background: #f7f7f7;

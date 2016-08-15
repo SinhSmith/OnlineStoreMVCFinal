@@ -73,7 +73,7 @@
 
     #categories_block_left li a {
         font-weight: bold;
-        color: #526a7c;
+        color: #263f52;
         display: block;
         font-size: 13px;
         line-height: 20px;
@@ -98,7 +98,7 @@
             vertical-align: middle;
             width: 30px;
             height: 30px;
-            color: #526a7c;
+            color: #263f52;
             line-height: 30px;
             text-align: center;
         }

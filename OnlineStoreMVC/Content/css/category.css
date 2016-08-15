@@ -26,16 +26,16 @@
     text-decoration: underline;
 }
 .content_scene_cat .content_scene {
-    color: #8998a3;
+    color: #263f52;
 }
 .content_scene_cat .content_scene .cat_desc {
     padding-top: 20px;
 }
 .content_scene_cat .content_scene .cat_desc a {
-    color: #8998a3;
+    color: #263f52;
 }
 .content_scene_cat .content_scene .cat_desc a:hover {
-    color: #526a7c;
+    color: #263f52;
 }
 #subcategories {
     border-top: 1px solid #d6d4d4;
@@ -43,7 +43,7 @@
 }
 #subcategories p.subcategory-heading {
     font-weight: bold;
-    color: #526a7c;
+    color: #263f52;
     margin: 0 0 15px 0;
 }
 #subcategories ul {
@@ -91,7 +91,7 @@
 }
 #subcategories ul li .subcategory-name {
     font: 600 15px/18px "Ubuntu", sans-serif;
-    color: #526a7c;
+    color: #263f52;
     text-transform: uppercase;
 }
 #subcategories ul li .subcategory-name:hover {

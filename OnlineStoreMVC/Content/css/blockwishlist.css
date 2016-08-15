@@ -94,7 +94,7 @@
 }
 
     #wishlist_block .ajax_cart_block_remove_link:hover {
-        color: #526a7c;
+        color: #263f52;
     }
 
 #wishlist_block .cart_block_product_name {
@@ -126,13 +126,13 @@
 
     #module-blockwishlist-mywishlist .wishlistLinkTop ul.display_list a {
         display: inline-block;
-        color: #526a7c;
+        color: #263f52;
         margin: 10px 10px 10px 0;
         font-weight: bold;
     }
 
         #module-blockwishlist-mywishlist .wishlistLinkTop ul.display_list a:hover {
-            color: #526a7c;
+            color: #263f52;
         }
 
 #module-blockwishlist-mywishlist .wishlistLinkTop li {

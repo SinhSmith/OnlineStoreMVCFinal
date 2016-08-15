@@ -23,7 +23,7 @@
     transition: all 0.3s ease;
     font: 300 14px/18px "Ubuntu",sans-serif;
     cursor: pointer;
-    color: #8998a3;
+    color: #263f52;
 }
 
 @media (max-width: 767px) {
@@ -37,7 +37,7 @@
 }
 
 #languages-block-top div.current:hover, #languages-block-top div.current.active {
-    color: #526a7c;
+    color: #263f52;
 }
 
 #languages-block-top div.current:after {
@@ -94,7 +94,7 @@
         font: 400 13px/20px "Ubuntu",sans-serif;
         padding: 6px 10px 6px 15px;
         display: block;
-        color: #526a7c;
+        color: #263f52;
         text-transform: uppercase;
     }
 

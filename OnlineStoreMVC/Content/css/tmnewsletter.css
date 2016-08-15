@@ -69,7 +69,7 @@
 }
 
 .newsletter-overlay #newsletter_popup .tmnewsletter-inner .icon.tmnewsletter-close:hover {
-    color: #526a7c;
+    color: #263f52;
 }
 
 .newsletter-overlay #newsletter_popup .tmnewsletter-inner .tmnewsletter-header {
@@ -121,7 +121,7 @@
     height: 40px;
     background: #fff;
     border: none;
-    color: #526a7c;
+    color: #263f52;
     padding: 4px 18px 5px;
     display: inline-block;
 }
@@ -181,5 +181,5 @@
 
     .newsletter-overlay #newsletter_popup .tmnewsletter-inner .tmnewsletter-footer .checkbox .checker {
         margin-right: 10px;
-        border: 1px solid #526a7c;
+        border: 1px solid #263f52;
     }

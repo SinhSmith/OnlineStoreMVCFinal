@@ -14,7 +14,7 @@
 
         #product_comments_block_extra .comments_note span, #product_comments_block_extra .star_content {
             float: left;
-            color: #526a7c;
+            color: #263f52;
         }
 
 .comments_advices {
@@ -52,7 +52,7 @@
 
 #new_comment_form {
     overflow: hidden;
-    color: #526a7c;
+    color: #263f52;
     text-align: left;
 }
 
@@ -98,7 +98,7 @@
 
         #new_comment_form .product .product_desc {
             line-height: 18px;
-            color: #8998a3;
+            color: #263f52;
         }
 
             #new_comment_form .product .product_desc .product_name {
@@ -228,7 +228,7 @@
                 #product_comments_block_tab div.comment .comment_details ul li:before {
                     font-family: "FontAwesome";
                     content: "\f0da";
-                    color: #526a7c;
+                    color: #263f52;
                     margin-right: 8px;
                 }
 }
@@ -240,7 +240,7 @@
 
     #product_comments_block_tab .comment_author_infos strong {
         display: block;
-        color: #526a7c;
+        color: #263f52;
     }
 
     #product_comments_block_tab .comment_author_infos em {

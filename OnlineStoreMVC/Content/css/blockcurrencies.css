@@ -24,7 +24,7 @@
     font: 300 14px/18px "Ubuntu",sans-serif;
     margin-left: 10px;
     cursor: pointer;
-    color: #8998a3;
+    color: #263f52;
 }
 
 @media (max-width: 767px) {
@@ -45,7 +45,7 @@
 }
 
 #currencies-block-top div.current:hover, #currencies-block-top div.current.active {
-    color: #526a7c;
+    color: #263f52;
 }
 
 #currencies-block-top div.current:after {
@@ -102,7 +102,7 @@
         font: 400 13px/20px "Ubuntu",sans-serif;
         padding: 6px 10px 6px 15px;
         display: block;
-        color: #526a7c;
+        color: #263f52;
         text-transform: uppercase;
     }
 

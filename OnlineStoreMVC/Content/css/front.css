@@ -46,7 +46,7 @@
     }
 
     #header-login .header_user_info.current.active a, #header-login .header_user_info.current:hover a {
-        color: #526a7c;
+        color: #263f52;
     }
 
 #header-login .form-group {
@@ -92,7 +92,7 @@
 
 #header-login-content label {
     font: 400 14px/18px "Ubuntu",sans-serif;
-    color: #526a7c;
+    color: #263f52;
 }
 
 #header-login-content .form-control {
@@ -212,7 +212,7 @@
 
             #header-login-content li ul li a {
                 font: 400 13px/27px "Ubuntu",sans-serif;
-                color: #8998a3;
+                color: #263f52;
                 padding: 0 10px 4px;
                 display: block;
             }

@@ -21,7 +21,7 @@
     padding: 0 0 0 0;
     margin: 0 0 20px 0;
     font: 700 20px/1.35em "Ubuntu",sans-serif;
-    color: #526a7c;
+    color: #263f52;
     text-transform: uppercase;
 }
 
@@ -30,7 +30,7 @@
     }
 
         .title_block_exclusive a:hover {
-            color: #8998a3;
+            color: #263f52;
         }
 
 #sdsblogCategory {

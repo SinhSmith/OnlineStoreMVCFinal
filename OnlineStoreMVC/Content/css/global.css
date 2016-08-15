@@ -261,12 +261,12 @@ input, button, select, textarea {
 }
 
 a {
-    color: #8998a3;
+    color: #263f52;
     text-decoration: none;
 }
 
     a:hover, a:focus {
-        color: #526a7c;
+        color: #263f52;
         text-decoration: underline;
     }
 
@@ -2323,7 +2323,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control, .input-group-lg > te
     }
 
 .btn-link {
-    color: #8998a3;
+    color: #263f52;
     font-weight: normal;
     cursor: pointer;
     border-radius: 0;
@@ -2340,7 +2340,7 @@ textarea.input-lg, .input-group-lg > textarea.form-control, .input-group-lg > te
         }
 
             .btn-link:hover, .btn-link:focus {
-                color: #526a7c;
+                color: #263f52;
                 text-decoration: underline;
                 background-color: transparent;
             }
@@ -2923,7 +2923,7 @@ tbody.collapse.in {
 
     .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
         background-color: #eeeeee;
-        border-color: #8998a3;
+        border-color: #263f52;
     }
 
     .nav .nav-divider {
@@ -3902,7 +3902,7 @@ a.badge:hover, a.badge:focus {
     }
 
 a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
-    border-color: #8998a3;
+    border-color: #263f52;
 }
 
 .alert {
@@ -10416,7 +10416,7 @@ body {
     height: 100%;
     line-height: 18px;
     font-size: 13px;
-    color: #8998a3;
+    color: #263f52;
 }
 
     body.content_only {
@@ -10594,7 +10594,7 @@ header .row {
 							 		TITLE
 ------------------------------------------------------------------------------ */
 #center_column .page_product_box h3 {
-    color: #526a7c;
+    color: #263f52;
     text-transform: uppercase;
     font-family: "Ubuntu", sans-serif;
     font-weight: 600;
@@ -10616,7 +10616,7 @@ header .row {
 ---------------------------------------------------------------------------- */
 p.info-title {
     font-weight: bold;
-    color: #526a7c;
+    color: #263f52;
     margin-bottom: 25px;
 }
 
@@ -10625,7 +10625,7 @@ p.info-account {
 }
 
 .dark {
-    color: #526a7c;
+    color: #263f52;
 }
 
 .main-page-indent {
@@ -10680,7 +10680,7 @@ p.info-account {
 }
 
 label {
-    color: #526a7c;
+    color: #263f52;
 }
 
     label.required:before {
@@ -10956,7 +10956,7 @@ span.exclusive {
     .btn.button-minus:hover,
     .btn.button-minus:active,
     .btn.button-minus:focus {
-        color: #526a7c;
+        color: #263f52;
         border: 1px solid #777777 !important;
     }
 
@@ -11029,7 +11029,7 @@ table.table_block {
     .table > thead > tr > th {
         background: #fbfbfb;
         border-bottom-width: 1px;
-        color: #526a7c;
+        color: #263f52;
         vertical-align: middle;
     }
 
@@ -11050,7 +11050,7 @@ table.table_block {
 }
 
 .table td a.color-myaccount {
-    color: #8998a3;
+    color: #263f52;
     text-decoration: underline;
 }
 
@@ -11067,7 +11067,7 @@ table.table_block {
 ----------------------------------------------------------------------- */
 .product-name {
     font: 300 14px/1.45em "Ubuntu", sans-serif;
-    color: #526a7c;
+    color: #263f52;
     margin-bottom: 5px;
     display: inline-block;
     text-transform: uppercase;
@@ -11085,11 +11085,11 @@ table.table_block {
 }
 
     .product-name a:hover {
-        color: #8998a3;
+        color: #263f52;
     }
 
 a.product-name:hover {
-    color: #8998a3;
+    color: #263f52;
 }
 
 .price {
@@ -11106,7 +11106,7 @@ a.product-name:hover {
 
 .old-price {
     font: 400 15px/23px "Ubuntu", sans-serif;
-    color: #8998a3;
+    color: #263f52;
     text-decoration: line-through;
     margin-right: 3px;
     margin-left: 3px;
@@ -11132,7 +11132,7 @@ a.product-name:hover {
     }
 
 .box-info-product .price, .page-product-box .price {
-    color: #8998a3;
+    color: #263f52;
 }
 
 /* ------------------------------------------------------------------------
@@ -11350,7 +11350,7 @@ a.product-name:hover {
 
 #home-page-tabs > li a {
     font: 800 18px/1.5em "Open Sans", sans-serif;
-    color: #5e7485;
+    color: #263f52;
     border: none;
     outline: none;
     margin: 0;
@@ -11424,7 +11424,7 @@ a.product-name:hover {
 .block .title_block,
 .block h4 {
     font: 700 16px/1.5em "Ubuntu", sans-serif;
-    color: #526a7c;
+    color: #263f52;
     border-bottom: 1px solid #e0e7ed;
     padding: 4px 0 9px;
     margin: 0 0 20px 0;
@@ -11469,7 +11469,7 @@ a.product-name:hover {
 
 .block .title_block a,
 .block h4 a {
-    color: #526a7c;
+    color: #263f52;
 }
 
     .block .title_block a:hover,
@@ -11500,12 +11500,12 @@ a.product-name:hover {
         content: "\f105";
         display: inline;
         font-family: "FontAwesome";
-        color: #526a7c;
+        color: #263f52;
         padding-right: 8px;
     }
 
     .block .list-block li a:hover {
-        color: #526a7c;
+        color: #263f52;
     }
 
     .block .list-block li:first-child {
@@ -11588,7 +11588,7 @@ a.product-name:hover {
 
 .page-heading {
     font: 600 18px/22px "Ubuntu", sans-serif;
-    color: #526a7c;
+    color: #263f52;
     text-transform: uppercase;
     padding: 0 0 17px 0;
     margin: 0 0 30px;
@@ -11599,7 +11599,7 @@ a.product-name:hover {
     .page-heading span.heading-counter {
         font: bold 13px/22px Arial, Helvetica, sans-serif;
         float: right;
-        color: #526a7c;
+        color: #263f52;
         text-transform: none;
         margin-bottom: 10px;
     }
@@ -11629,7 +11629,7 @@ a.product-name:hover {
     font-family: "Ubuntu", sans-serif;
     font-weight: 600;
     text-transform: uppercase;
-    color: #526a7c;
+    color: #263f52;
     font-size: 18px;
     padding: 0 0 15px;
     line-height: normal;
@@ -11638,7 +11638,7 @@ a.product-name:hover {
 }
 
 h3.page-product-heading {
-    color: #526a7c;
+    color: #263f52;
     text-transform: uppercase;
     font-family: "Ubuntu", sans-serif;
     font-weight: 600;
@@ -11773,13 +11773,13 @@ ul.footer_links {
 
         .content_sortPagiBar .display li.selected i,
         .content_sortPagiBar .display_m li.selected i {
-            color: #526a7c;
+            color: #263f52;
         }
 
         .content_sortPagiBar .display li.display-title,
         .content_sortPagiBar .display_m li.display-title {
             font-weight: bold;
-            color: #526a7c;
+            color: #263f52;
             padding: 7px 6px 0 0;
         }
 
@@ -12014,7 +12014,7 @@ ul.step li a,
 ul.step li span, ul.step li.step_current span, ul.step li.step_current_end span {
     display: block;
     padding: 13px 10px 14px 13px;
-    color: #526a7c;
+    color: #263f52;
     font-size: 17px;
     line-height: 21px;
     font-weight: bold;
@@ -12162,7 +12162,7 @@ ul.step li.step_todo {
 
     ul.step li.step_todo span {
         display: block;
-        color: #526a7c;
+        color: #263f52;
         position: relative;
     }
 
@@ -12415,13 +12415,13 @@ div.star a:hover {
         display: block;
         font-weight: bold;
         font-size: 12px;
-        color: #526a7c;
+        color: #263f52;
     }
 
     .listcomment .txtcomment {
         display: block;
         padding: 5px 0;
-        color: #526a7c;
+        color: #263f52;
     }
 
 /* ------------------------------------------------------------------------------------------------
@@ -12517,7 +12517,7 @@ div.star a:hover {
 }
 
     .footer-container #footer {
-        color: #8998a3;
+        color: #263f52;
         padding-bottom: 80px;
     }
 
@@ -12550,7 +12550,7 @@ div.star a:hover {
 
 .footer-container #footer h4 {
     /*font: 500 16px/1.4em "Open Sans", sans-serif;*/
-    color: #526a7c;
+    color: #263f52;
     margin: 0 0 17px;
     text-transform: uppercase;
     position: relative;
@@ -12609,7 +12609,7 @@ div.star a:hover {
         }
 
             .footer-container #footer ul li a:hover {
-                color: #526a7c;
+                color: #263f52;
                 text-decoration: none;
             }
 
@@ -12653,7 +12653,7 @@ div.star a:hover {
             }
 
             .footer-container #footer #social_block ul li a:hover {
-                color: #526a7c;
+                color: #263f52;
             }
 
         .footer-container #footer #social_block ul li.facebook a:before {
@@ -12703,7 +12703,7 @@ div.star a:hover {
         padding: 20px 0 0 4px;
         border-top: 1px solid #e0e7ed;
         width: 100%;
-        color: #8998a3;
+        color: #263f52;
     }
 
         .footer-container #footer .bottom-footer div a {
@@ -12842,7 +12842,7 @@ div.star a:hover {
 .cart_delete a.cart_quantity_delete,
 a.price_discount_delete {
     font-size: 23px;
-    color: #526a7c;
+    color: #263f52;
 }
 
     .cart_delete a.cart_quantity_delete:hover,
@@ -12892,7 +12892,7 @@ a.price_discount_delete {
 
     #cart_summary tfoot td.text-right {
         font-weight: bold;
-        color: #526a7c;
+        color: #263f52;
     }
 
     #cart_summary tfoot td.price {
@@ -13017,13 +13017,13 @@ a.price_discount_delete {
 
     .cart_voucher h4 {
         font: 600 18px/22px "Ubuntu", sans-serif;
-        color: #526a7c;
+        color: #263f52;
         text-transform: uppercase;
         padding: 7px 0 10px 0;
     }
 
     .cart_voucher .title-offers {
-        color: #526a7c;
+        color: #263f52;
         font-weight: bold;
         margin-bottom: 6px;
     }
@@ -13041,11 +13041,11 @@ a.price_discount_delete {
     .cart_voucher #display_cart_vouchers span {
         font-weight: bold;
         cursor: pointer;
-        color: #8998a3;
+        color: #263f52;
     }
 
         .cart_voucher #display_cart_vouchers span:hover {
-            color: #526a7c;
+            color: #263f52;
         }
 
     .cart_voucher #voucher #discount_name {
@@ -13117,7 +13117,7 @@ table#cart_summary .gift-icon {
 
     #multishipping_mode_box .title {
         font-weight: bold;
-        color: #526a7c;
+        color: #263f52;
         margin-bottom: 15px;
     }
 
@@ -13250,7 +13250,7 @@ table#cart_summary .gift-icon {
 
     .order_carrier_content .carrier_title {
         font-weight: bold;
-        color: #526a7c;
+        color: #263f52;
     }
 
     .order_carrier_content .checkbox input {
@@ -13306,7 +13306,7 @@ p.checkbox.gift {
 }
 
 a.iframe {
-    color: #526a7c;
+    color: #263f52;
     text-decoration: underline;
 }
 
@@ -13329,7 +13329,7 @@ p.payment_module {
         border-radius: 0;
         font-size: 17px;
         line-height: 23px;
-        color: #526a7c;
+        color: #263f52;
         font-weight: bold;
         padding: 33px 40px 34px 99px;
         letter-spacing: -1px;
@@ -13359,7 +13359,7 @@ p.payment_module {
                 font-size: 25px;
                 height: 22px;
                 width: 14px;
-                color: #8998a3;
+                color: #263f52;
             }
 
         p.payment_module a:hover {
@@ -13368,7 +13368,7 @@ p.payment_module {
 
         p.payment_module a span {
             font-weight: bold;
-            color: #8998a3;
+            color: #263f52;
         }
 
 .payment_module.box {
@@ -13600,11 +13600,11 @@ p.cheque-indent {
     line-height: inherit;
     text-transform: none;
     font-family: Arial, Helvetica, sans-serif;
-    color: #8998a3;
+    color: #263f52;
 }
 
     #instant_search_results a.close:hover {
-        color: #526a7c;
+        color: #263f52;
     }
 
 /* ---------------------------------------------------------------------------------------------------------
@@ -13847,7 +13847,7 @@ table.discount i {
 
     #pagenotfound .pagenotfound h1 {
         font: 600 28px/34px "Ubuntu", sans-serif;
-        color: #526a7c;
+        color: #263f52;
         text-transform: uppercase;
         margin-bottom: 7px;
     }
@@ -13863,7 +13863,7 @@ table.discount i {
 
     #pagenotfound .pagenotfound h3 {
         font-weight: bold;
-        color: #526a7c;
+        color: #263f52;
         font-size: 13px;
         line-height: normal;
         margin-bottom: 18px;
@@ -14123,7 +14123,7 @@ div.star.star_hover:after {
         background: none;
         font-size: 28px;
         line-height: 28px;
-        color: #526a7c;
+        color: #263f52;
         text-align: center;
         background: white;
         -moz-border-radius: 50px;
@@ -14132,7 +14132,7 @@ div.star.star_hover:after {
     }
 
         .fancybox-skin .fancybox-close:hover {
-            color: #526a7c;
+            color: #263f52;
         }
 
         .fancybox-skin .fancybox-close:after {
@@ -14592,7 +14592,7 @@ div.star.star_hover:after {
     #crossselling_list .bx-wrapper .bx-controls-direction a:hover:before,
     .accessories-block .block_content .bx-wrapper .bx-controls-direction a:hover:before,
     #productscategory_list .bx-wrapper .bx-controls-direction a:hover:before {
-        color: #526a7c;
+        color: #263f52;
     }
 
 #crossselling_list .bx-next,

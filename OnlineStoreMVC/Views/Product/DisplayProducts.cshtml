@@ -61,7 +61,7 @@
                                                 @foreach (var category in ViewBag.CategoryList)
                                                 {
                                                     <li class="nomargin col-lg-12">
-                                                        <a class="left-category-link-displayproduct left-menu-product" href="@category.Url">@category.Name</a>
+                                                        <a class="left-category-link-displayproduct left-menu-product" href="/Product/GetProductByCategory/@category.Id">@category.Name</a>
                                                     </li>
                                                 }
                                             </ul>
