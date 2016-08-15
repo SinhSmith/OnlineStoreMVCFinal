@@ -66,12 +66,7 @@ namespace OnlineStoreMVC.Controllers
         /// </summary>
         protected void PopulateTopCategoryList()
         {
-<<<<<<< HEAD
             ViewBag.TopCategoryList = (new MenuService()).GetMenuByType((int)OnlineStore.Infractructure.Utility.Define.MenuEnum.User).Take(6).ToList();
-=======
-            //ViewBag.TopCategoryList = service.GetTopCategories().Take(7);
-            ViewBag.TopCategoryList = (new MenuService()).GetMenuByType((int)OnlineStore.Infractructure.Utility.Define.MenuEnum.User).Take(7).ToList();
->>>>>>> 6d5f358d1aaf921f8712c1658cb72933d14b15c4
         }
 
         #endregion

@@ -121,6 +121,7 @@
 .top_menu .dropdown:hover .dropdown-content {
     display: block;
     color: #960247;
+    z-index:999;
 }
 
 .top_menu .dropdown:hover .dropbtn {
