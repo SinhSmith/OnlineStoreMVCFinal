@@ -8,6 +8,7 @@ ProductManagement = {
     init: function () {
         // support ajax to upload images
         window.addEventListener("submit", function (e) {
+            ProductManagement.showSpin();
             var form = e.target;
             if (form.getAttribute("enctype") === "multipart/form-data") {
                 if (form.dataset.ajax) {
@@ -21,6 +22,8 @@ ProductManagement = {
                                 var updateTarget = document.querySelector(form.dataset.ajaxUpdate);
                                 if (updateTarget) {
                                     updateTarget.innerHTML = xhr.responseText;
+                                    
+                                    ProductManagement.hideSpin();
                                 }
                             }
                         }
@@ -30,10 +33,40 @@ ProductManagement = {
             }
         }, true);
 
+        // Init spin
+        this.controls.spin = new Spinner({
+            lines: 13 // The number of lines to draw
+            , length: 28 // The length of each line
+            , width: 14 // The line thickness
+            , radius: 42 // The radius of the inner circle
+            , scale: 1 // Scales overall size of the spinner
+            , corners: 1 // Corner roundness (0..1)
+            , color: '#000' // #rgb or #rrggbb or array of colors
+            , opacity: 0.25 // Opacity of the lines
+            , rotate: 0 // The rotation offset
+            , direction: 1 // 1: clockwise, -1: counterclockwise
+            , speed: 1 // Rounds per second
+            , trail: 60 // Afterglow percentage
+            , fps: 20 // Frames per second when using setTimeout() as a fallback for CSS
+            , zIndex: 2e9 // The z-index (defaults to 2000000000)
+            , className: 'spinner' // The CSS class to assign to the spinner
+            , top: '50%' // Top position relative to parent
+            , left: '50%' // Left position relative to parent
+            , shadow: true // Whether to render a shadow
+            , hwaccel: false // Whether to use hardware acceleration
+            , position: 'fixed' // Element positioning
+        }).spin();
+
         // install CKEditor
         CKEDITOR.replace('Description2');
         // install chosen control
         $(".chzn-select").chosen();
+
+        // bind events
+        //$("#Btn_UploadImage").unbind("click").bind("click", ProductManagement.upLoadImage)
+    },
+    controls: {
+        spin: null
     },
     requestDeleteProductImage: function (productId, imageId) {
         /// <summary>
@@ -47,12 +80,12 @@ ProductManagement = {
             dataType: "html",
             data: { productId: productId, imageId: imageId },
             success: function (result) {
-                alert("delete image successful!!!");
+                alert("Xóa ảnh thành công!!!");
                 $("#EditProduct_ListProductImages").empty();
                 $("#EditProduct_ListProductImages").html(result);
             },
             error: function (result) {
-                alert("delete image error");
+                alert("Xóa ảnh thất bại");
             }
         });
     },
@@ -68,7 +101,7 @@ ProductManagement = {
                     window.location.replace("/Admin/Product/Index");
                 },
                 error: function () {
-                    alert("Delete fail!");
+                    alert("Xóa ảnh thất bại!");
                 }
             });
         });
@@ -98,7 +131,7 @@ ProductManagement = {
                 //window.location.replace("/Admin/Product/Index");
             },
             error: function () {
-                alert("Update image product fail!");
+                alert("Cập nhật ảnh thất bại!");
             }
         })
         // Change to Display mode
@@ -122,5 +155,23 @@ ProductManagement = {
                 break;
             }
         }
+    },
+    showSpin: function (target) {
+        /// <summary>
+        /// Create spin control
+        /// </summary>
+        /// <param>N/A</param>
+        /// <returns>N/A</returns>s
+
+        $("#images").append(ProductManagement.controls.spin.spin().el);
+    },
+    hideSpin: function () {
+        /// <summary>
+        /// Hide spin control
+        /// </summary>
+        /// <param>N/A</param>
+        /// <returns>N/A</returns>
+
+        ProductManagement.controls.spin.stop();
     }
 };

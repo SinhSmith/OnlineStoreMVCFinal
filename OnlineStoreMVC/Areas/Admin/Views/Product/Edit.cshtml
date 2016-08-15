@@ -311,7 +311,7 @@
                                             {
                                                 <h4 style="color:red">@ViewBag.Error</h4>
                                             }
-                                            @using (Ajax.BeginForm("UploadImage", "Product", new AjaxOptions() { UpdateTargetId = "EditProduct_ListProductImages", HttpMethod = "POST" }, new { enctype = "multipart/form-data" }))
+                                            @using (Ajax.BeginForm("UploadImage", "Product", new AjaxOptions() { UpdateTargetId = "EditProduct_ListProductImages", HttpMethod = "POST", OnSuccess = "kaka2" }, new { enctype = "multipart/form-data" }))
                                             {
                                                 @Html.AntiForgeryToken()
                                                 <input type="file" name="files" class="btn btn-info" style="display:inline-block;margin-right:10px;">
@@ -333,5 +333,8 @@
 <script>
     $(document).ready(function () {
         ProductManagement.init();
-    })
+    });
+    function kaka2() {
+        alert("kaka");
+    }
 </script>

@@ -295,5 +295,5 @@ var DisplayProductManagement = {
         /// <returns>N/A</returns>
 
         DisplayProductManagement.controls.spin.stop();
-    },
+    }
 }

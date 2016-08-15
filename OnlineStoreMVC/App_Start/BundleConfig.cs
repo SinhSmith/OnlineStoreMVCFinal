@@ -32,7 +32,8 @@ namespace OnlineStoreMVC
 
             bundles.Add(new ScriptBundle("~/bundles/adminScript").Include(
                        "~/Scripts/Utility/common.js",
-                        "~/Content/chosen-library/chosen.jquery.min.js"
+                        "~/Content/chosen-library/chosen.jquery.min.js",
+                        "~/Content/plugins/spin/spin.min.js"
                          //"~/Content/custom-file-input/custom-file-input.js",
                          //"~/Content/custom-file-input/jquery.custom-file-input.js"
                       ));
