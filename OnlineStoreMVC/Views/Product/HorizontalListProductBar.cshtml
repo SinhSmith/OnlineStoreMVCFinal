@@ -1,10 +1,8 @@
 ﻿@model IEnumerable<OnlineStore.Model.ViewModel.ProductSummaryView>
 @{
-    string Title = ViewData["Title"] != null? (string)ViewData["Title"] : String.Empty;
+    string Title = ViewData["Title"] != null ? (string)ViewData["Title"] : String.Empty;
 }
-
 <link href="~/Content/display-product/horizontal-list-product-bar.css" rel="stylesheet" />
-
 <div class="wrap">
     <h3 class="productscategory_h3 page-product-heading">
         @Title
@@ -19,9 +17,11 @@
             @foreach (var item in @Model)
             {
                 <li class="product-box item product-box-horizontal-list-product-bar" style="float: left; list-style: none; position: relative; margin-right: 20px;">
-                    <a href="/Product/ProductDetails/@item.Id" class="lnk_img product-image product-image-horizontal-list-product-bar" title="Side Table"><img src='@item.CoverImageUrl' alt="Side Table"></a>
+                    <a href="/Product/ProductDetails/@item.Id" class="lnk_img product-image product-image-horizontal-list-product-bar" title="@item.Name">
+                        <img src='@item.CoverImageUrl' alt="@item.Name" title="@item.Name">
+                    </a>
                     <h5 itemprop="name" class="product-name">
-                        <a href="/Product/ProductDetails/@item.Id" title="Side Table">@item.Name</a>
+                        <a href="/Product/ProductDetails/@item.Id" title="@item.Name">@item.Name</a>
                     </h5>
                 </li>
             }
