@@ -32,8 +32,10 @@ namespace OnlineStoreMVC.Controllers
         public ActionResult Index()
         {
             PopulateNewProductList();
-            PopulateBestSellProductList();            
-            PopulateHighPriorityOrderProductList();
+            PopulateBestSellProductList();
+            PopulateClassicStyleProductList();
+            PopulateModernStyleProductList();
+            //PopulateHighPriorityOrderProductList();
             PopulateCategoryList();
             PopulateTopCategoryList();
             ViewBag.Banner2 = _bannerService.GetBanners2ForHomePage();

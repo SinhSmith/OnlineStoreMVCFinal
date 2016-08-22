@@ -45,11 +45,27 @@ namespace OnlineStoreMVC.Controllers
         }
 
         /// <summary>
-        /// Create list products have  high priority order in system
+        /// Create list products have high priority order in system
         /// </summary>
         protected void PopulateHighPriorityOrderProductList()
         {
             ViewBag.HighPriorityOrderProductList = service.GetListHighPriorityOrderProduct();
+        }
+
+        /// <summary>
+        /// Create list classic style product using in top horizontal menu bar
+        /// </summary>
+        protected void PopulateClassicStyleProductList()
+        {
+            ViewBag.ClassicStyleProductList = service.GetListClassicStyleProduct();
+        }
+
+        /// <summary>
+        /// Create list modern style product using in top horizontal menu bar
+        /// </summary>
+        protected void PopulateModernStyleProductList()
+        {
+            ViewBag.ModernStyleProductList = service.GetListModernStyleProduct();
         }
 
         /// <summary>

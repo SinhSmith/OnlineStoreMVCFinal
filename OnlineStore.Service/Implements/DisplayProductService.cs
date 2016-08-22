@@ -22,6 +22,8 @@ namespace OnlineStore.Service.Implements
         private static OnlineStoreMVCEntities context = new OnlineStoreMVCEntities();
         private ProductRepository db = new ProductRepository(context);
         private CategoryRepository categoryRepository = new CategoryRepository(context);
+        private const int classicStyleCategoryId = 2;
+        private const int moderntyleCategoryId = 3;
 
         #endregion
 
@@ -301,6 +303,28 @@ namespace OnlineStore.Service.Implements
         public IEnumerable<ProductSummaryView> GetListHighPriorityOrderProduct()
         {
             IEnumerable<ecom_Products> products = db.Get(filter: p => p.Status == (int)Define.Status.Active, orderBy: p => p.OrderBy(x => x.SortOrder)).Take(10);
+
+            return products.ConvertToProductSummaryViews();
+        }
+
+        /// <summary>
+        /// Get list product belong to classic category
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<ProductSummaryView> GetListClassicStyleProduct()
+        {
+            IEnumerable<ecom_Products> products = db.Get(filter: p => p.ecom_Categories.Select(c => c.Id).Contains(classicStyleCategoryId), orderBy: p => p.OrderBy(x => x.SortOrder)).Take(10);
+
+            return products.ConvertToProductSummaryViews();
+        }
+
+        /// <summary>
+        /// Get list product belong to modern category
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<ProductSummaryView> GetListModernStyleProduct()
+        {
+            IEnumerable<ecom_Products> products = db.Get(filter: p => p.ecom_Categories.Select(c => c.Id).Contains(moderntyleCategoryId), orderBy: p => p.OrderBy(x => x.SortOrder)).Take(10);
 
             return products.ConvertToProductSummaryViews();
         }
