@@ -23,11 +23,11 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
         // GET: /Admin/ProductGroup/
         public ActionResult Index(string keyword, int page = 1)
         {
-            int totalItems = 0;
-            var banners = service.GetBanners(page, OnlineStore.Infractructure.Utility.Define.PAGE_SIZE, out totalItems);
+            //int totalItems = 0;
+            //var banners = service.GetBanners(page, OnlineStore.Infractructure.Utility.Define.PAGE_SIZE, out totalItems);
 
-            IPagedList<BannerViewModel> pageBanners = new StaticPagedList<BannerViewModel>(banners, page, OnlineStore.Infractructure.Utility.Define.PAGE_SIZE, totalItems);
-            return View(pageBanners);
+            //IPagedList<BannerViewModel> pageBanners = new StaticPagedList<BannerViewModel>(banners, page, OnlineStore.Infractructure.Utility.Define.PAGE_SIZE, totalItems);
+            //return View(pageBanners);
 
 
             return View(db.ecom_ProductGroups.ToList());
