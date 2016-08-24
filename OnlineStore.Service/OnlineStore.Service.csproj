@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Implements\CMSCategoryExtensions.cs" />
     <Compile Include="Implements\BannerService.cs" />
+    <Compile Include="Implements\ProductGroupService.cs" />
     <Compile Include="Implements\SystemConfigService.cs" />
     <Compile Include="Implements\ProfileService.cs" />
     <Compile Include="Implements\CMSNewsService.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Implements\DisplayProductService.cs" />
     <Compile Include="Implements\ProductService.cs" />
     <Compile Include="Interfaces\IBannerService.cs" />
+    <Compile Include="Interfaces\IProductGroupService.cs" />
     <Compile Include="Interfaces\ISystemConfigService.cs" />
     <Compile Include="Interfaces\IProfileService.cs" />
     <Compile Include="Interfaces\ICMSNewsService.cs" />

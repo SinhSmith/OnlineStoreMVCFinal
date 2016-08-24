@@ -86,6 +86,9 @@
     <Compile Include="Context\ecom_Orders.cs">
       <DependentUpon>OnlineStoreMVCEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Context\ecom_ProductGroups.cs">
+      <DependentUpon>OnlineStoreMVCEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Context\ecom_Products.cs">
       <DependentUpon>OnlineStoreMVCEntities.tt</DependentUpon>
     </Compile>
@@ -110,6 +113,9 @@
     <Compile Include="Context\share_Images.cs">
       <DependentUpon>OnlineStoreMVCEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Context\sysdiagram.cs">
+      <DependentUpon>OnlineStoreMVCEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Context\system_Banners.cs">
       <DependentUpon>OnlineStoreMVCEntities.tt</DependentUpon>
     </Compile>
@@ -132,6 +138,7 @@
     <Compile Include="Repository\BrandRepository.cs" />
     <Compile Include="Repository\CategoryRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\ProductGroupRepository.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
     <Compile Include="ViewModel\BannerViewModel.cs" />

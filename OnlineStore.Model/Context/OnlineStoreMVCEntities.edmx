@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="OnlineStoreMVCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="OnlineStoreMVCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -170,6 +170,15 @@
           <Property Name="ModifiedBy" Type="uniqueidentifier" />
           <Property Name="ModifiedDate" Type="datetime" />
         </EntityType>
+        <EntityType Name="ecom_ProductGroups">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="200" Nullable="false" />
+          <Property Name="Description" Type="nchar" MaxLength="500" />
+          <Property Name="Status" Type="int" />
+        </EntityType>
         <EntityType Name="ecom_Products">
           <Key>
             <PropertyRef Name="Id" />
@@ -212,6 +221,14 @@
           <Property Name="ProductId" Type="int" Nullable="false" />
           <Property Name="ImageId" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="ecom_Products_ProductGroups">
+          <Key>
+            <PropertyRef Name="ProductId" />
+            <PropertyRef Name="GroupId" />
+          </Key>
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="GroupId" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="share_Categories">
           <Key>
             <PropertyRef Name="Id" />
@@ -239,6 +256,16 @@
           <Property Name="CreatedDate" Type="datetime" />
           <Property Name="ModifiedBy" Type="uniqueidentifier" />
           <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="system_Banners">
           <Key>
@@ -447,6 +474,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ecom_Products_ProductGroups_ecom_ProductGroups">
+          <End Role="ecom_ProductGroups" Type="Self.ecom_ProductGroups" Multiplicity="1" />
+          <End Role="ecom_Products_ProductGroups" Type="Self.ecom_Products_ProductGroups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ecom_ProductGroups">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ecom_Products_ProductGroups">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ecom_Products_ProductGroups_ecom_Products">
+          <End Role="ecom_Products" Type="Self.ecom_Products" Multiplicity="1" />
+          <End Role="ecom_Products_ProductGroups" Type="Self.ecom_Products_ProductGroups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ecom_Products">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ecom_Products_ProductGroups">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_product_OrderDetails_product_Orders">
           <End Role="ecom_Orders" Type="Self.ecom_Orders" Multiplicity="1" />
           <End Role="ecom_OrderDetails" Type="Self.ecom_OrderDetails" Multiplicity="*" />
@@ -484,11 +535,14 @@
           <EntitySet Name="ecom_Categories" EntityType="Self.ecom_Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ecom_OrderDetails" EntityType="Self.ecom_OrderDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ecom_Orders" EntityType="Self.ecom_Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ecom_ProductGroups" EntityType="Self.ecom_ProductGroups" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ecom_Products" EntityType="Self.ecom_Products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ecom_Products_Categories" EntityType="Self.ecom_Products_Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ecom_Products_Images" EntityType="Self.ecom_Products_Images" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ecom_Products_ProductGroups" EntityType="Self.ecom_Products_ProductGroups" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="share_Categories" EntityType="Self.share_Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="share_Images" EntityType="Self.share_Images" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="system_Banners" EntityType="Self.system_Banners" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="system_Config" EntityType="Self.system_Config" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="system_Menu" EntityType="Self.system_Menu" Schema="dbo" store:Type="Tables" />
@@ -540,6 +594,14 @@
           <AssociationSet Name="FK_ecom_Products_Images_share_Images" Association="Self.FK_ecom_Products_Images_share_Images">
             <End Role="share_Images" EntitySet="share_Images" />
             <End Role="ecom_Products_Images" EntitySet="ecom_Products_Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ecom_Products_ProductGroups_ecom_ProductGroups" Association="Self.FK_ecom_Products_ProductGroups_ecom_ProductGroups">
+            <End Role="ecom_ProductGroups" EntitySet="ecom_ProductGroups" />
+            <End Role="ecom_Products_ProductGroups" EntitySet="ecom_Products_ProductGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ecom_Products_ProductGroups_ecom_Products" Association="Self.FK_ecom_Products_ProductGroups_ecom_Products">
+            <End Role="ecom_Products" EntitySet="ecom_Products" />
+            <End Role="ecom_Products_ProductGroups" EntitySet="ecom_Products_ProductGroups" />
           </AssociationSet>
           <AssociationSet Name="FK_product_OrderDetails_product_Orders" Association="Self.FK_product_OrderDetails_product_Orders">
             <End Role="ecom_Orders" EntitySet="ecom_Orders" />
@@ -673,6 +735,7 @@
           <NavigationProperty Name="ecom_Categories" Relationship="Self.ecom_Products_Categories" FromRole="ecom_Products" ToRole="ecom_Categories" />
           <NavigationProperty Name="share_Images" Relationship="Self.ecom_Products_Images" FromRole="ecom_Products" ToRole="share_Images" />
           <NavigationProperty Name="CoverImage" Relationship="OnlineStoreMVCModel.FK_ecom_Products_share_Images" FromRole="ecom_Products" ToRole="share_Images" />
+          <NavigationProperty Name="ecom_ProductGroups" Relationship="OnlineStoreMVCModel.ecom_Products_ProductGroups1" FromRole="ecom_Products" ToRole="ecom_ProductGroups" />
         </EntityType>
         <EntityType Name="share_Categories">
           <Key>
@@ -825,6 +888,12 @@
           <AssociationSet Name="FK_cms_News_share_Images" Association="OnlineStoreMVCModel.FK_cms_News_share_Images">
             <End Role="share_Images" EntitySet="share_Images" />
             <End Role="cms_News" EntitySet="cms_News" />
+          </AssociationSet>
+          <EntitySet Name="ecom_ProductGroups" EntityType="OnlineStoreMVCModel.ecom_ProductGroups" />
+          <EntitySet Name="sysdiagrams" EntityType="OnlineStoreMVCModel.sysdiagram" />
+          <AssociationSet Name="ecom_Products_ProductGroups1" Association="OnlineStoreMVCModel.ecom_Products_ProductGroups1">
+            <End Role="ecom_ProductGroups" EntitySet="ecom_ProductGroups" />
+            <End Role="ecom_Products" EntitySet="ecom_Products" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="system_Menu">
@@ -1035,6 +1104,30 @@
               <PropertyRef Name="CoverImageId" />
             </Dependent>
           </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ecom_ProductGroups">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="ecom_Products" Relationship="OnlineStoreMVCModel.ecom_Products_ProductGroups1" FromRole="ecom_ProductGroups" ToRole="ecom_Products" />
+          <Property Name="Status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="ecom_Products_ProductGroups1">
+          <End Type="OnlineStoreMVCModel.ecom_ProductGroups" Role="ecom_ProductGroups" Multiplicity="*" />
+          <End Type="OnlineStoreMVCModel.ecom_Products" Role="ecom_Products" Multiplicity="*" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -1347,6 +1440,35 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="ecom_ProductGroups">
+            <EntityTypeMapping TypeName="OnlineStoreMVCModel.ecom_ProductGroups">
+              <MappingFragment StoreEntitySet="ecom_ProductGroups">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="OnlineStoreMVCModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="ecom_Products_ProductGroups1" TypeName="OnlineStoreMVCModel.ecom_Products_ProductGroups1" StoreEntitySet="ecom_Products_ProductGroups">
+            <EndProperty Name="ecom_Products">
+              <ScalarProperty Name="Id" ColumnName="ProductId" />
+            </EndProperty>
+            <EndProperty Name="ecom_ProductGroups">
+              <ScalarProperty Name="Id" ColumnName="GroupId" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

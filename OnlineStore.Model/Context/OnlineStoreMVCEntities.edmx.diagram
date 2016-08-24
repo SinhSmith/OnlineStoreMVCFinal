@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="457b59bd33c6433fbc747d4a8cbdc700" Name="Diagram1" ZoomLevel="74">
+      <Diagram DiagramId="457b59bd33c6433fbc747d4a8cbdc700" Name="Diagram1" ZoomLevel="72">
         <EntityTypeShape EntityType="OnlineStoreMVCModel.cms_Categories" Width="1.5" PointX="7.75" PointY="8.875" IsExpanded="true" />
         <EntityTypeShape EntityType="OnlineStoreMVCModel.ecom_Brands" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="OnlineStoreMVCModel.ecom_Categories" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
@@ -23,10 +23,10 @@
         <AssociationConnector Association="OnlineStoreMVCModel.FK_ecom_Products_share_Images" />
         <EntityTypeShape EntityType="OnlineStoreMVCModel.system_Profiles" Width="1.5" PointX="5.375" PointY="0.75" />
         <EntityTypeShape EntityType="OnlineStoreMVCModel.AspNetUser" Width="1.5" PointX="8.375" PointY="0.75" />
-        <EntityTypeShape EntityType="OnlineStoreMVCModel.system_Banners" Width="1.5" PointX="7.625" PointY="17.875" />
+        <EntityTypeShape EntityType="OnlineStoreMVCModel.system_Banners" Width="1.5" PointX="3" PointY="15.75" />
         <AssociationConnector Association="OnlineStoreMVCModel.FK_system_Banners_share_Images" />
         <EntityTypeShape EntityType="OnlineStoreMVCModel.C__MigrationHistory" Width="1.5" PointX="12.375" PointY="7.75" />
-        <EntityTypeShape EntityType="OnlineStoreMVCModel.AspNetRole" Width="1.5" PointX="6.125" PointY="21.875" />
+        <EntityTypeShape EntityType="OnlineStoreMVCModel.AspNetRole" Width="1.5" PointX="8.25" PointY="17" />
         <EntityTypeShape EntityType="OnlineStoreMVCModel.AspNetUserClaim" Width="1.5" PointX="10.625" PointY="4.375" />
         <EntityTypeShape EntityType="OnlineStoreMVCModel.AspNetUserLogin" Width="1.5" PointX="10.625" PointY="1.125" />
         <AssociationConnector Association="OnlineStoreMVCModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
@@ -35,6 +35,9 @@
         <EntityTypeShape EntityType="OnlineStoreMVCModel.cms_News" Width="1.5" PointX="10" PointY="7.75" />
         <AssociationConnector Association="OnlineStoreMVCModel.FK_cms_News_cms_Categories" />
         <AssociationConnector Association="OnlineStoreMVCModel.FK_cms_News_share_Images" />
+        <EntityTypeShape EntityType="OnlineStoreMVCModel.ecom_ProductGroups" Width="1.5" PointX="3.25" PointY="0.75" />
+        <EntityTypeShape EntityType="OnlineStoreMVCModel.sysdiagram" Width="1.5" PointX="14.375" PointY="6.75" />
+        <AssociationConnector Association="OnlineStoreMVCModel.ecom_Products_ProductGroups1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

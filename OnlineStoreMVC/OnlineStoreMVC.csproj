@@ -174,6 +174,7 @@
     <Compile Include="Areas\Admin\Controllers\CMSNewsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductGroupController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProfileController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -1752,6 +1753,11 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Areas\Admin\Views\ProductGroup\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductGroup\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductGroup\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductGroup\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductGroup\Index.cshtml" />
     <None Include="Properties\PublishProfiles\xaviadecor.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\DisplayProduct\DetailProduct.js" />
