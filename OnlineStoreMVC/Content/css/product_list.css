@@ -241,12 +241,12 @@ ul.product_list.grid > li {
 
 ul.product_list.grid > li .product-container {
     padding: 0;
+    text-align:center;
 }
 
     ul.product_list.grid > li .product-container .product-image-container {
         position: relative;
         margin-bottom: 24px;
-        /*padding: 25px;*/
         height: 150px;
     }
 

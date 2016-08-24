@@ -43,22 +43,26 @@
             <div class="row">
                 <div id="center_column" class="center_column col-xs-12 col-sm-12 accordionBox">
                     <ul id="home-page-tabs" class="nav nav-tabs clearfix">
-                        <li class="homefeatured active"><a data-toggle="tab" href="#homefeatured" class=" homefeatured">Sản phẩm Nổi bật</a></li>
-                        <li class="blocknewproducts"><a data-toggle="tab" href="#blocknewproducts" class="blocknewproducts">Sản phẩm mới</a></li>
+                        <li class="blocknewproducts active"><a data-toggle="tab" href="#blocknewproducts" class="blocknewproducts">Sản phẩm mới</a></li>
                         <li class="blockbestsellers"><a data-toggle="tab" href="#blockbestsellers" class="blockbestsellers">Sản phẩm HOT</a></li>
+                        <li class="classicstyle"><a data-toggle="tab" href="#classicstyle" class="classicstyle">Phong cách cổ điển</a></li>
+                        <li class="modelstyle"><a data-toggle="tab" href="#modelstyle" class="modelstyle">Phong cách hiện đại</a></li>
                     </ul>
                     <div class="tab-content">
-
-                        <ul id="homefeatured" class="product_list grid row homefeatured tab-pane active">
-                            @Html.Partial("ListFeatureProducts", (IEnumerable<OnlineStore.Model.ViewModel.ProductSummaryView>)ViewBag.HighPriorityOrderProductList)
-                        </ul>
-
-                        <ul id="blocknewproducts" class="product_list grid row blocknewproducts tab-pane">
+                        <ul id="blocknewproducts" class="product_list grid row blocknewproducts tab-pane active">
                             @Html.Partial("ListFeatureProducts", (IEnumerable<OnlineStore.Model.ViewModel.ProductSummaryView>)ViewBag.NewProductList)
                         </ul>
 
                         <ul id="blockbestsellers" class="product_list grid row blockbestsellers tab-pane">
                             @Html.Partial("ListFeatureProducts", (IEnumerable<OnlineStore.Model.ViewModel.ProductSummaryView>)ViewBag.BestSellProductList)
+                        </ul>
+
+                        <ul id="classicstyle" class="product_list grid row classicstyle tab-pane">
+                            @Html.Partial("ListFeatureProducts", (IEnumerable<OnlineStore.Model.ViewModel.ProductSummaryView>)ViewBag.ClassicStyleProductList)
+                        </ul>
+
+                        <ul id="modelstyle" class="product_list grid row modelstyle tab-pane">
+                            @Html.Partial("ListFeatureProducts", (IEnumerable<OnlineStore.Model.ViewModel.ProductSummaryView>)ViewBag.ModernStyleProductList)
                         </ul>
                     </div>
 

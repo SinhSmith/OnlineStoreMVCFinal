@@ -22,7 +22,8 @@ namespace OnlineStoreMVC.Areas.Admin
             context.MapRoute(name: "Admin_Product", url: "admin/san-pham", defaults: new { controller = "Product", action = "Index" });
             context.MapRoute(name: "Admin_Profile", url: "admin/nguoi-dung", defaults: new { controller = "Profile", action = "Index" });
             context.MapRoute(name: "Admin_Banner", url: "admin/banner", defaults: new { controller = "Banner", action = "Index" });
-
+            context.MapRoute(name: "Admin_ProductGroup", url: "admin/nhom-san-pham", defaults: new { controller = "ProductGroup", action = "Index" });
+            
             context.MapRoute(
                 "Admin_default",
                 "Admin/{controller}/{action}/{id}",
