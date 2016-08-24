@@ -7,6 +7,8 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
+<script src="~/Scripts/Admin/product-group-management.js"></script>
+
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
@@ -62,7 +64,7 @@
                                 </td>
                                 <td class="center-text">
                                     @Html.ActionLink(" ", "Edit", new { id = item.Id }, new { @class = "btn btn-primary glyphicon glyphicon-edit" })
-                                    <a class="btn btn-danger glyphicon glyphicon-trash" onclick="ProductGroupManagement.delete(@item.Id, '@item.Name')"></a>
+                                    <a class="btn btn-danger glyphicon glyphicon-trash" onclick="ProductGroupManagement.deleteGroup(@item.Id, '@item.Name')"></a>
                                 </td>
                             </tr>
                         }

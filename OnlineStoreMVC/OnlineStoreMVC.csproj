@@ -1562,6 +1562,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\Admin\brand-management.js" />
     <Content Include="Scripts\Admin\category-management.js" />
+    <Content Include="Scripts\Admin\product-group-management.js" />
     <Content Include="Scripts\Admin\product-management.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -1755,7 +1756,6 @@
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="Areas\Admin\Views\ProductGroup\Create.cshtml" />
     <Content Include="Areas\Admin\Views\ProductGroup\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\ProductGroup\Details.cshtml" />
     <Content Include="Areas\Admin\Views\ProductGroup\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\ProductGroup\Index.cshtml" />
     <None Include="Properties\PublishProfiles\xaviadecor.pubxml" />

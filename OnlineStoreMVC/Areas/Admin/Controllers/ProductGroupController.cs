@@ -9,48 +9,37 @@ using System.Web.Mvc;
 using OnlineStore.Model.Context;
 using OnlineStore.Service.Interfaces;
 using OnlineStore.Service.Implements;
+using PagedList;
+using OnlineStore.Model.MessageModel;
+using OnlineStore.Model.Mapper;
+using OnlineStore.Infractructure.Utility;
+using OnlineStore.Model.ViewModel;
 
 namespace OnlineStoreMVC.Areas.Admin.Controllers
 {
-    public class ProductGroupController : Controller
+    public class ProductGroupController : BaseManagementController
     {
         #region Properties
 
         private OnlineStoreMVCEntities db = new OnlineStoreMVCEntities();
         private IProductGroupService service = new ProductGroupService(); 
+
         #endregion
 
         // GET: /Admin/ProductGroup/
         public ActionResult Index(string keyword, int page = 1)
         {
-            //int totalItems = 0;
-            //var banners = service.GetBanners(page, OnlineStore.Infractructure.Utility.Define.PAGE_SIZE, out totalItems);
+            int totalItems = 0;
+            var groups = service.GetProductGroups(page, OnlineStore.Infractructure.Utility.Define.PAGE_SIZE, out totalItems);
 
-            //IPagedList<BannerViewModel> pageBanners = new StaticPagedList<BannerViewModel>(banners, page, OnlineStore.Infractructure.Utility.Define.PAGE_SIZE, totalItems);
-            //return View(pageBanners);
-
-
-            return View(db.ecom_ProductGroups.ToList());
-        }
-
-        // GET: /Admin/ProductGroup/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            ecom_ProductGroups ecom_productgroups = db.ecom_ProductGroups.Find(id);
-            if (ecom_productgroups == null)
-            {
-                return HttpNotFound();
-            }
-            return View(ecom_productgroups);
+            IPagedList<ecom_ProductGroups> pageGroups = new StaticPagedList<ecom_ProductGroups>(groups, page, OnlineStore.Infractructure.Utility.Define.PAGE_SIZE, totalItems);
+            return View(pageGroups);
         }
 
         // GET: /Admin/ProductGroup/Create
         public ActionResult Create()
         {
+            PopulateStatusDropDownList();
             return View();
         }
 
@@ -58,17 +47,22 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="Id,Name,Description,Status")] ecom_ProductGroups ecom_productgroups)
+        public ActionResult Create(CreateProductGroupPostRequest group)
         {
             if (ModelState.IsValid)
             {
-                db.ecom_ProductGroups.Add(ecom_productgroups);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                bool isSuccess = service.AddProductGroup(group.ConvertToProductGroupModel());
+                if (isSuccess)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("ServerError", "Add new brand fail!");
+                }
             }
 
-            return View(ecom_productgroups);
+            return View(group);
         }
 
         // GET: /Admin/ProductGroup/Edit/5
@@ -78,28 +72,34 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ecom_ProductGroups ecom_productgroups = db.ecom_ProductGroups.Find(id);
-            if (ecom_productgroups == null)
+            ecom_ProductGroups group = service.GetProductGroupById((int)id);
+            if (group == null)
             {
                 return HttpNotFound();
             }
-            return View(ecom_productgroups);
+            PopulateStatusDropDownList((Define.Status)group.Status);
+            return View(group.ConvertToProductGroupViewModel());
         }
 
         // POST: /Admin/ProductGroup/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,Name,Description,Status")] ecom_ProductGroups ecom_productgroups)
+        public ActionResult Edit(EditProductGroupManagementPostRequest group)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(ecom_productgroups).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                bool isSuccess = service.UpdateProductGroup(group.ConvertToProductGroupViewModel());
+                if (isSuccess)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("ServerError", "Update group fail!");
+                }
             }
-            return View(ecom_productgroups);
+            return View(group.ConvertToProductGroupViewModel());
         }
 
         // GET: /Admin/ProductGroup/Delete/5
@@ -119,22 +119,28 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
 
         // POST: /Admin/ProductGroup/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ecom_ProductGroups ecom_productgroups = db.ecom_ProductGroups.Find(id);
-            db.ecom_ProductGroups.Remove(ecom_productgroups);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            bool isSuccess = service.DeleteProductGroup(id);
+            if (!isSuccess)
+            {
+                ModelState.AddModelError("ServerError", "Delete group fail!");
+            }
+            return Redirect("Index");
         }
 
+        #region Release resources
+
+        /// <summary>
+        /// Dispose database connection
+        /// </summary>
+        /// <param name="disposing"></param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing)
-            {
-                db.Dispose();
-            }
+            service.Dispose();
             base.Dispose(disposing);
         }
+
+        #endregion
     }
 }
