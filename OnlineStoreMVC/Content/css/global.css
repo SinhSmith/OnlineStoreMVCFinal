@@ -7,6 +7,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     font: inherit;
     font-size: 100%;
     vertical-align: baseline;
+    font-weight: 600;
 }
 
 html {
@@ -12554,6 +12555,7 @@ div.star a:hover {
     margin: 0 0 17px;
     text-transform: uppercase;
     position: relative;
+    font-weight: bold;
 }
 
 @media (max-width: 991px) {
@@ -12606,6 +12608,8 @@ div.star a:hover {
             color: #630a34;
             text-decoration: underline;
             font-weight: bolder;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 12pt;
         }
 
             .footer-container #footer ul li a:hover {
@@ -14773,4 +14777,29 @@ ul.step li.step_current {
 
 #habla_window_div #habla_topbar_div {
     background: #630a34 !important;
+}
+
+
+::-webkit-input-placeholder {
+    font-size: 13pt;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: 600;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    font-size: 13pt;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: 600;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+    font-size: 13pt;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: 600;
+}
+
+:-ms-input-placeholder {
+    font-size: 13pt;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: 600;   
 }
