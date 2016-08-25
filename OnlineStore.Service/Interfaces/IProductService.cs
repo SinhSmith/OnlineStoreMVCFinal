@@ -21,6 +21,11 @@ namespace OnlineStore.Service.Interfaces
         /// <returns></returns>
          IEnumerable<ecom_Brands> GetListBrand();
         /// <summary>
+        /// Get list product group for create dropdownlist
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<ecom_ProductGroups> GetListProductGroup();
+        /// <summary>
         /// Add new image to database
         /// </summary>
         /// <param name="image"></param>

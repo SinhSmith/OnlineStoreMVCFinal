@@ -23,6 +23,7 @@ namespace OnlineStore.Service.Implements
         private BrandRepository brandRepository = new BrandRepository(context);
         private Repository<share_Images> imageRepository = new Repository<share_Images>(context);
         private CategoryRepository categoryRepository = new CategoryRepository(context);
+        private ProductGroupRepository productGroupRepository = new ProductGroupRepository(context);
 
         #endregion
 
@@ -35,6 +36,7 @@ namespace OnlineStore.Service.Implements
             brandRepository = new BrandRepository(context);
             imageRepository = new Repository<share_Images>(context);
             categoryRepository = new CategoryRepository(context);
+            productGroupRepository = new ProductGroupRepository(context);
         }
 
         #endregion
@@ -103,6 +105,15 @@ namespace OnlineStore.Service.Implements
         public IEnumerable<ecom_Brands> GetListBrand()
         {
             return brandRepository.GetAllAvailableBrands().Where(b => b.Status != (int)Define.Status.Delete).ToList();
+        }
+
+        /// <summary>
+        /// Get list product group for create dropdownlist
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<ecom_ProductGroups> GetListProductGroup()
+        {
+            return productGroupRepository.GetAllAvailableGroups().Where(b => b.Status != (int)Define.Status.Delete).ToList();
         }
 
         /// <summary>
@@ -235,6 +246,32 @@ namespace OnlineStore.Service.Implements
                             if (categoriesProduct.Contains(category.Id))
                             {
                                 product.ecom_Categories.Remove(category);
+                            }
+                        }
+                    }
+                }
+                if (productViewModel.ProductGroupId == null)
+                {
+                    product.ecom_ProductGroups = new List<ecom_ProductGroups>();
+                }
+                else
+                {
+                    var selectedGroups = new HashSet<int>(productViewModel.ProductGroupId);
+                    var GroupsProduct = new HashSet<int>(product.ecom_ProductGroups.Select(g => g.Id));
+                    foreach (var group in productGroupRepository.GetAllAvailableGroups())
+                    {
+                        if (selectedGroups.Contains(group.Id))
+                        {
+                            if (!GroupsProduct.Contains(group.Id))
+                            {
+                                product.ecom_ProductGroups.Add(group);
+                            }
+                        }
+                        else
+                        {
+                            if (GroupsProduct.Contains(group.Id))
+                            {
+                                product.ecom_ProductGroups.Remove(group);
                             }
                         }
                     }

@@ -96,6 +96,13 @@
                                     </div>
 
                                     <div class="form-group">
+                                        @Html.LabelFor(model => model.ProductGroups, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.DropDownList("ProductGroupId", ViewBag.ProductGroups as MultiSelectList, new { multiple = "multiple", @class = "chzn-select form-control", data_placeholder = "Chọn nhóm sản phẩm" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
                                         @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
                                         <div class="col-md-10">
                                             @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })

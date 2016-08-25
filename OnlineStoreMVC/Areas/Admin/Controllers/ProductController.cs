@@ -77,6 +77,18 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
         }
 
         /// <summary>
+        /// Create product group SelectList using as dataSource for dropdownlist
+        /// </summary>
+        /// <param name="selectedBrandId"></param>
+        /// <returns></returns>
+        private IEnumerable<SelectListItem> PopulateListProductGroup(int[] selectedProductGroups = null)
+        {
+            IEnumerable<ecom_ProductGroups> groups = service.GetListProductGroup();
+
+            return new MultiSelectList(groups, "Id", "Name", selectedProductGroups);
+        }
+
+        /// <summary>
         /// Create SelectList using as dataSource for dropdownlist
         /// </summary>
         /// <param name="selectedBrandId"></param>
@@ -144,6 +156,7 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
         public ActionResult Create()
         {
             PopulateStatusDropDownList();
+            //ViewBag.ProductGroupId = PopulateListProductGroup();
             ViewBag.BrandId = PopulateListBrand();
             return View();
         }
@@ -216,10 +229,15 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             ecom_Products product = service.GetProductById((int)id);
+            int[] listCategory;
+            int[] listProductGroup;
+
             if (product == null)
             {
                 return HttpNotFound();
             }
+
+            // Populate status dropdownlist
             if (product.Status != null)
             {
                 var status = (Define.Status)product.Status;
@@ -229,8 +247,7 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
             {
                 PopulateStatusDropDownList();
             }
-            ViewBag.BrandId = PopulateListBrand(product.BrandId);
-            int[] listCategory;
+            // Populate category dropdownlist
             if (product.ecom_Categories.Count > 0)
             {
                 listCategory = product.ecom_Categories.Select(c => c.Id).ToArray();
@@ -239,7 +256,18 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
             {
                 listCategory = null;
             }
+            // Populate product group dropdownlist
+            if (product.ecom_ProductGroups.Count > 0)
+            {
+                listProductGroup = product.ecom_ProductGroups.Select(c => c.Id).ToArray();
+            }
+            else
+            {
+                listProductGroup = null;
+            }
+            ViewBag.BrandId = PopulateListBrand(product.BrandId);
             ViewBag.Categories = PopulateListCategory(listCategory);
+            ViewBag.ProductGroups = PopulateListProductGroup(listProductGroup);
             return View(product.ConvertToProductFullView());
         }
 

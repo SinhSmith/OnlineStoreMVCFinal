@@ -70,9 +70,13 @@ namespace OnlineStore.Model.ViewModel
         public string ModifiedDate { get; set; }
         [DisplayName("Danh mục sản phẩm")]
         public int[] CategoryId { get; set; }
+        [DisplayName("Nhóm sản phẩm")]
+        public int[] ProductGroupId { get; set; }
 
         [DisplayName("Danh mục sản phẩm")]
         public IEnumerable<ecom_Categories> Categories { get; set; }
+        [DisplayName("Nhóm sản phẩm")]
+        public IEnumerable<ecom_ProductGroups> ProductGroups { get; set; }
         public IEnumerable<ImageProductViewModel> share_Images { get; set; }
     }
 
