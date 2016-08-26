@@ -57,7 +57,7 @@
 #htmlcontent_top ul li a {
     display: block;
     text-align: center;
-    font-size: 60px;
+    font-size: 32px!important;;
     color: white;
     text-transform: uppercase;
     position: relative;
