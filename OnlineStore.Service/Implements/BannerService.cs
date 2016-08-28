@@ -18,6 +18,7 @@ namespace OnlineStore.Service.Implements
             using (var db = new OnlineStoreMVCEntities())
             {
                 return db.system_Banners.Where(x => x.Status == (int)OnlineStore.Infractructure.Utility.Define.Status.Active && x.Type == (int)OnlineStore.Infractructure.Utility.Define.BannerTypes.Banner1)
+                    .OrderBy(x => x.SortOrder).ThenBy(x => x.Id)
                 .Select(x => new BannerViewModel
                     {
                         Name = x.Name,

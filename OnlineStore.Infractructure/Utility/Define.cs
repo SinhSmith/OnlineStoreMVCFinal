@@ -10,6 +10,7 @@ namespace OnlineStore.Infractructure.Utility
     public class Define
     {
         public const int PAGE_SIZE = 10;
+        public const int ID_PAGE_INTRODUCTION = 18;
         public enum SystemConfig
         {
             TotalVisitors
