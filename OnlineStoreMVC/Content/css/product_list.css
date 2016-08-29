@@ -279,6 +279,13 @@ ul.product_list.grid > li .product-container h5 {
         ul.product_list.grid > li .product-container h5 a span.list-name {
             display: none;
         }
+        ul.product_list.grid > li .product-container h5 a div.grid-name {
+                max-height: 19px;
+                white-space: nowrap;
+                width: 180px;
+                overflow: hidden !important;
+                text-overflow: ellipsis;
+        }
 
 ul.product_list.grid > li .product-container .comments_note .star_content {
     display: inline-block;
