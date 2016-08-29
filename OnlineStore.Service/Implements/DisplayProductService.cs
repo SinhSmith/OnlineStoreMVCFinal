@@ -204,6 +204,7 @@ namespace OnlineStore.Service.Implements
                 NumberOfTitlesFound = foundProducts.Count(),
                 TotalNumberOfPages = (int)Math.Ceiling((double)foundProducts.Count() / request.NumberOfResultsPerPage),
                 CurrentPage = request.Index,
+                TotalProducts = foundProducts.Count(),
                 SearchString = request.SearchString,
                 SortBy = (int)request.SortBy,
                 BrandIds = request.BrandIds,

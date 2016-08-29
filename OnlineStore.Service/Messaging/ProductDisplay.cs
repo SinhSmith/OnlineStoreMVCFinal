@@ -39,6 +39,7 @@ namespace OnlineStore.Service.Messaging
         public int CurrentPage { get; set; }
         public string SearchString { get; set; }
         public int SortBy { get; set; }
+        public int TotalProducts { get; set; }
         public IEnumerable<ProductSummaryView> Products { get; set; }
         public IEnumerable<BrandSummaryView> Brands { get; set; }
     }
