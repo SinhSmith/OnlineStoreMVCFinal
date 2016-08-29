@@ -33,7 +33,9 @@ namespace OnlineStoreMVC
             bundles.Add(new ScriptBundle("~/bundles/adminScript").Include(
                        "~/Scripts/Utility/common.js",
                         "~/Content/chosen-library/chosen.jquery.min.js",
-                        "~/Content/plugins/spin/spin.min.js"
+                        "~/Content/plugins/spin/spin.min.js",
+                        "~/Content/plugins/daterangepicker/moment.js",
+                        "~/Content/plugins/daterangepicker/daterangepicker.js"
                          //"~/Content/custom-file-input/custom-file-input.js",
                          //"~/Content/custom-file-input/jquery.custom-file-input.js"
                       ));
@@ -51,9 +53,10 @@ namespace OnlineStoreMVC
                       "~/Content/dist/css/AdminLTE.addon.css",
                       "~/Content/dist/css/skins/skin-green.min.css",
                       "~/Content/common.css",
-                      "~/Content/chosen-library/chosen.min.css"
+                      "~/Content/chosen-library/chosen.min.css",
                       //"~/Content/custom-file-input/component.css",
                       //"~/Content/custom-file-input/normalize.css"
+                      "~/Content/plugins/daterangepicker/daterangepicker-bs3.css"
                       ));
 
             bundles.Add(new ScriptBundle("~/bundles/brandManagement").Include(

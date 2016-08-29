@@ -73,6 +73,28 @@ namespace OnlineStore.Service.Implements
             }
         }
 
+        public BannerViewModel GetActivePopupForHomePage()
+        {
+            using (var db = new OnlineStoreMVCEntities())
+            {
+                var banner = db.system_Banners.FirstOrDefault(x => x.Status == (int)OnlineStore.Infractructure.Utility.Define.Status.Active
+                    && x.Type == (int)OnlineStore.Infractructure.Utility.Define.BannerTypes.Popup
+                    && x.StartDate <= DateTime.Now && x.EndDate >= DateTime.Now);
+
+                if (banner != null)
+                {
+                    return new BannerViewModel
+                    {
+                        Name = banner.Name,
+                        ImageName = banner.share_Images.ImageName,
+                        ImagePath = banner.share_Images.ImagePath,
+                    };
+                }
+
+                return null;
+            }
+        }
+
         public IList<BannerViewModel> GetBanners(int pageNumber, int pageSize, out int totalItems)
         {
             using (var db = new OnlineStoreMVCEntities())
@@ -107,6 +129,24 @@ namespace OnlineStore.Service.Implements
                         SortOrder = bannerViewModel.SortOrder,
                         CreatedDate = DateTime.Now
                     };
+
+                    if (!string.IsNullOrEmpty(bannerViewModel.StartEndDate) && bannerViewModel.StartEndDate.Length == 23)
+                    {
+                        //Ex: 25/08/2016 - 26/08/2016
+                        string startDate = bannerViewModel.StartEndDate.Substring(0, bannerViewModel.StartEndDate.IndexOf(" "));
+                        string endDate = bannerViewModel.StartEndDate.Substring(bannerViewModel.StartEndDate.IndexOf(" ") + 3);
+
+                        DateTime dateTime;
+                        if (DateTime.TryParseExact(startDate, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out dateTime))
+                        {
+                            banner.StartDate = dateTime;
+                        }
+                        if (DateTime.TryParseExact(endDate, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out dateTime))
+                        {
+                            banner.EndDate = dateTime;
+                        }
+                    }
+
                     db.system_Banners.Add(banner);
                     db.SaveChanges();
 
@@ -132,6 +172,23 @@ namespace OnlineStore.Service.Implements
                     banner.SortOrder = bannerViewModel.SortOrder;
                     banner.Status = bannerViewModel.Status;
                     banner.ModifiedDate = DateTime.Now;
+                    if (!string.IsNullOrEmpty(bannerViewModel.StartEndDate) && bannerViewModel.StartEndDate.Length == 23)
+                    {
+                        //Ex: 25/08/2016 - 26/08/2016
+                        string startDate = bannerViewModel.StartEndDate.Substring(0, bannerViewModel.StartEndDate.IndexOf(" "));
+                        string endDate = bannerViewModel.StartEndDate.Substring(bannerViewModel.StartEndDate.IndexOf(" ") + 3);
+
+                        DateTime dateTime;
+                        if (DateTime.TryParseExact(startDate, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out dateTime))
+                        {
+                            banner.StartDate = dateTime;
+                        }
+                        if (DateTime.TryParseExact(endDate, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out dateTime))
+                        {
+                            banner.EndDate = dateTime;
+                        }
+                    }
+
                     db.SaveChanges();
 
                     return true;
@@ -160,7 +217,9 @@ namespace OnlineStore.Service.Implements
                     Name = banner.Name,
                     Type = banner.Type,
                     Status = banner.Status,
-                    SortOrder = banner.SortOrder
+                    SortOrder = banner.SortOrder,
+                    StartEndDate = banner.StartDate.HasValue && banner.EndDate.HasValue ?
+                        string.Format("{0} - {1}", banner.StartDate.Value.ToString("dd/MM/yyyy"), banner.EndDate.Value.ToString("dd/MM/yyyy")) : string.Empty
                 };
             }
         }

@@ -16,5 +16,6 @@ namespace OnlineStore.Model.ViewModel
         public Nullable<int> Type { get; set; }
         public Nullable<int> SortOrder { get; set; }
         public Nullable<int> Status { get; set; }
+        public string StartEndDate { get; set; }
     }
 }
