@@ -10,6 +10,7 @@ namespace OnlineStore.Infractructure.Utility
     public class Define
     {
         public const int PAGE_SIZE = 10;
+        public const int ID_PAGE_INTRODUCTION = 18;
         public enum SystemConfig
         {
             TotalVisitors
@@ -51,7 +52,10 @@ namespace OnlineStore.Infractructure.Utility
             AutumnSeason = 4,
 
             [Description("Banner 2 - Mùa Đông")]
-            WinterSeason = 5            
+            WinterSeason = 5,
+
+            [Description("Popup")]
+            Popup = 10
         }
     }
 }

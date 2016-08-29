@@ -87,9 +87,6 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
                             {
                                 // Add banner
                                 model.CoverImageId = imageId.Value;
-                                _cmsNewsService.AddCMSNews(model);
-
-                                return RedirectToAction("Index");
                             }
                         }
                         else
@@ -97,6 +94,10 @@ namespace OnlineStoreMVC.Areas.Admin.Controllers
                             ViewBag.Error = imageResult.ErrorMessage;
                         }
                     }
+
+                    _cmsNewsService.AddCMSNews(model);
+
+                    return RedirectToAction("Index");
                 }
                 catch (Exception ex)
                 {
