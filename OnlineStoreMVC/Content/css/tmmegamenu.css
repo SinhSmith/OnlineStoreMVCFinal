@@ -124,6 +124,7 @@
     display: block;
     color: #960247;
     z-index:999;
+    background-color:#960247;
 }
 
 .top_menu .dropdown:hover .dropbtn {
@@ -146,6 +147,7 @@
 
 .top_menu ul > li.dropdown .dropdown-content a.product-category-item{
     font: 400 14px/1.5em "Ubuntu", sans-serif;
+    background-color:white;
 }
 
 @media (max-width: 1199px) {
