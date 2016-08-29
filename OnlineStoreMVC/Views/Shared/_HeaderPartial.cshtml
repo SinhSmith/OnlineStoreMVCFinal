@@ -160,7 +160,7 @@
                                         <div class="dropdown-content">
                                             @foreach (var item in (IEnumerable<OnlineStore.Model.ViewModel.SummaryCategoryViewModel>)ViewBag.CategoryList)
                                             {
-                                                <a href="/Product/GetProductByCategory/@item.Id">@item.Name</a>
+                                                <a class="product-category-item" href="/Product/GetProductByCategory/@item.Id">@item.Name</a>
                                             }
                                         </div>
                                     </li>

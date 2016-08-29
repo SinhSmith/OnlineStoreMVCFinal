@@ -4,12 +4,12 @@
     ProductNameAToZ: 3,
     ProductNameZToA: 4
 }
-var SearchProductRequest = function (index) {
+var SearchProductRequest = function (index, searchString) {
     this.CategoryIds = [];
     this.BrandIds = [];
     this.SortBy = ProductSortEnum.ProductNameAToZ;
     this.Index = index || 0; // int
-    this.SearchString = ""; // string
+    this.SearchString = searchString || ""; // string
     this.NumberOfResultsPerPage = 10; // int
 }
 var SearchProductManagement = {
@@ -24,7 +24,7 @@ var SearchProductManagement = {
     controls: {
         spin: null
     },
-    init: function (numberItems, index) {
+    init: function (numberItems, index, searchString) {
         // Init spin
         this.controls.spin = new Spinner({
             lines: 13 // The number of lines to draw
@@ -50,7 +50,7 @@ var SearchProductManagement = {
         }).spin();
 
         // Assign model
-        this.model = new SearchProductRequest(index);
+        this.model = new SearchProductRequest(index, searchString);
         // Init paging control
         this.initPagingControl(numberItems, this.model.NumberOfResultsPerPage);
         // Update value for search control
