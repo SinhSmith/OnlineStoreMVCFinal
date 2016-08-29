@@ -38,7 +38,9 @@ namespace OnlineStoreMVC.Controllers
             //PopulateHighPriorityOrderProductList();
             PopulateCategoryList();
             PopulateTopCategoryList();
+
             ViewBag.Banner2 = _bannerService.GetBanners2ForHomePage();
+            ViewBag.BannerPopup = _bannerService.GetActivePopupForHomePage();
             return View();
         }
 

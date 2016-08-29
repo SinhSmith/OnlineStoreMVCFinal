@@ -97,8 +97,28 @@
 <div class="home-column">
 </div>
 
+@if (ViewBag.BannerPopup != null)
+{
+    var bannerPopup = (OnlineStore.Model.ViewModel.BannerViewModel)ViewBag.BannerPopup;
+    <div style="display:none">
+        <a id="bannerPopup" rel="group" href="@bannerPopup.ImagePath" title="@bannerPopup.Name">
+            <img src="@bannerPopup.ImagePath" alt="" />
+        </a>
+    </div>
+}
+
 <script>
     $(document).ready(function () {
+
+        function showFancyBox() {
+            if ($("#bannerPopup").length > 0) {
+                $("#bannerPopup").fancybox();
+                $("#bannerPopup").trigger('click');
+                $(".fancybox-overlay").unbind();
+            }
+        }
+        showFancyBox();
+
         $("#SearchProduct_Btn").unbind("click").bind("click", function (e) {
             searchProduct();
         });
