@@ -135,7 +135,7 @@
     -o-transition: all 0.3s ease;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
-    font: 700 16px/1.5em "Ubuntu", sans-serif;
+    font: bold 20px "Segoe UI", Arial, sans-serif !important;
     display: block;
     padding: 0 20px;
     border-left: 0;
@@ -146,7 +146,7 @@
 }
 
 .top_menu ul > li.dropdown .dropdown-content a.product-category-item{
-    font: 400 14px/1.5em "Ubuntu", sans-serif;
+    font: 400 14px/1.5em "Arial", sans-serif;
     background-color:white;
 }
 

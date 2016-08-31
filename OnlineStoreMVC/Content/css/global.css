@@ -12609,7 +12609,7 @@ div.star a:hover {
             text-decoration: underline;
             font-weight: bolder;
             font-family: "Times New Roman", Times, serif;
-            font-size: 12pt;
+            font-size: 13pt;
         }
 
             .footer-container #footer ul li a:hover {
@@ -12618,9 +12618,10 @@ div.star a:hover {
             }
 
 .footer-container #footer #block_contact_infos > div ul li {
-    font: 300 14px/1.5em "Ubuntu", sans-serif;
+    font: bold 14px/1.5em "Arial", sans-serif;
     overflow: hidden;
-    font-weight: 500;
+    font-weight: 600;
+
 }
 
     .footer-container #footer #block_contact_infos > div ul li > span, .footer-container #footer #block_contact_infos > div ul li a {
@@ -12708,6 +12709,7 @@ div.star a:hover {
         border-top: 1px solid #e0e7ed;
         width: 100%;
         color: #263f52;
+        font: bold 13px "Segoe UI", Arial, sans-serif;
     }
 
         .footer-container #footer .bottom-footer div a {
